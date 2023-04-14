@@ -1,7 +1,5 @@
 package jeu.eu.ensg;
 
-import java.util.List;
-
 public class type {
 	private int id;
 	private String name;
@@ -22,7 +20,12 @@ public class type {
 		this.name = name;
 	}
 
-	public double faiblesse(type a) {
+	public type(int a, String b) {
+		setId(a);
+		setName(b);
+	}
+
+	public double faiblesse(int a) {
 		double[][] table_faiblesse = { { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0, 1, 1, 0.5, 1 },
 				{ 1, 0.5, 0.5, 2, 1, 5, 1, 1, 1, 1, 1, 2, 0.5, 1, 0.5, 0, 0.5, 0 },
 				{ 1, 2, 0.5, 0.5, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 0.5, 1, 2, 1 },
@@ -44,5 +47,6 @@ public class type {
 
 		};
 
-	return table_faiblesse[this.id][a.id];}
+		return table_faiblesse[this.id][a];
+	}
 }
