@@ -20,12 +20,12 @@ public class Tab2 {
 		try {
 			String[][] tableau = readCSV("C:\\1_MAJ\\Projet\\Java\\FAGUET-LEROUX-PALOS\\data\\pokemon_first_gen.csv", ',', StandardCharsets.UTF_8); // domma separated values
 			
-			int ligneIndex = 1; // Indice de la ligne à lire
-            String[] ligne = tableau[ligneIndex]; // Récupérer la ligne du tableau
+			int ligneIndex = 1;
+            String[] ligne = tableau[ligneIndex];
             
             for (int colonne = 0; colonne < ligne.length; colonne++) {
                 String col = ligne[colonne];
-                System.out.print(col + " "); // Utiliser une tabulation pour séparer les valeurs de colonnes
+                System.out.print(col + " ");
             }
             
 		} catch (IOException e) {

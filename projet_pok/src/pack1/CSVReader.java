@@ -24,16 +24,14 @@ public class CSVReader {
         try {
             String[][] tableau = readCSV("C:\\1_MAJ\\Projet\\Java\\FAGUET-LEROUX-PALOS\\data\\pokemon_first_gen.csv", ',');
 
-            for (int i = 1; i < tableau.length; i++) { // Commencer à partir de la ligne 2 pour ignorer les en-têtes
+            for (int i = 1; i < tableau.length; i++) {
                 String[] ligne = tableau[i];
 
-                // Créer une instance de classe pour chaque ligne
                 Pokemon pokemon = new Pokemon(1,"","");
                 pokemon.setId(Integer.parseInt(ligne[0]));
                 pokemon.setNom(ligne[1]);
                 pokemon.setType(ligne[2]);
 
-                // Faire quelque chose avec l'objet Pokemon créé (par exemple, l'afficher)
                 System.out.println(pokemon);
             }
 
