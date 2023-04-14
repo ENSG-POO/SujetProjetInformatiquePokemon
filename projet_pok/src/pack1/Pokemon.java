@@ -7,13 +7,15 @@ public class Pokemon {
     private String type;
     private String type2;
     private double Total;
+    private double HP;
     
-    public Pokemon(int id, String nom, String type, String type2, double Total) {
+    public Pokemon(int id, String nom, String type, String type2, double Total, double HP) {
     	this.id = id;
     	this.nom = nom;
     	this.type = type;
     	this.type2 = null;
     	this.Total = Total;
+    	this.HP = HP;
     }
     
     public Pokemon() {
@@ -64,7 +66,7 @@ public class Pokemon {
     @Override
     public String toString() {
         return "Pokemon [id=" + getId() + ", nom=" + getNom() + ", type=" + getType() + ", type2=" + getType2() + 
-        		", Total=" + getTotal() + "]";
+        		", Total=" + getTotal() + ", HP=" + HP + "]";
     }
     
 }

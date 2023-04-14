@@ -30,7 +30,8 @@ public class CSVReader {
                 String type = valeurs[2];
                 String type2 = valeurs[3];
                 double Total = Integer.parseInt(valeurs[4]);
-                Pokemon pokemon = new Pokemon(id, nom, type, type2, Total);
+                double HP =Integer.parseInt(valeurs[5]);
+                Pokemon pokemon = new Pokemon(id, nom, type, type2, Total, HP);
                
                 listePokemons.add(pokemon);
             }
