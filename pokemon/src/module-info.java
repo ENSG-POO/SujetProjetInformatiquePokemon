@@ -5,5 +5,5 @@
  * @author Jérome
  *
  */
-module Pokémon {
+module pokemon {
 }
