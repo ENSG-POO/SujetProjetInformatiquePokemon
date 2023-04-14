@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author Jérome
- *
- */
-module pokemon {
-}
