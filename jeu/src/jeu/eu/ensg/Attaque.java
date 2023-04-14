@@ -5,12 +5,14 @@ public class Attaque {
 	private String nom;
 	private Type type;
 	private int puissance;
+	private boolean spe;
 
-	public Attaque(String nom, Type type, int puissance) {
+	public Attaque(String nom, Type type, int puissance,boolean spe) {
 		super();
 		this.nom = nom;
 		this.type = type;
 		this.puissance = puissance;
+		this.spe = spe;
 	}
 
 	public String getNom() {
@@ -36,8 +38,13 @@ public class Attaque {
 	public void setPuissance(int puissance) {
 		this.puissance = puissance;
 	}
-	
-	public int testEfficacite(Pokemon att,Pokemon def) {
-		
+
+
+	public boolean isSpe() {
+		return spe;
+	}
+
+	public void setSpe(boolean spe) {
+		this.spe = spe;
 	}
 }
