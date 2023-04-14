@@ -1,39 +1,44 @@
 package pack1;
 
-public abstract class Pokemon {
+public class Pokemon {
 	
-	public String nom;
-	public String fam1; 
-	public String fam2; 
-	public int PV; 
-	public int id; 
-	public int degatN; 
-	public int degatS;
-	
-	public Pokemon (String nom, String fam1, int PV, int id, int degatN, int degatS) {
-		this.nom = nom; 
-		this.fam1 = fam1; 
-		this.PV = PV; 
-		this.id = id; 
-		this.degatN = degatN;
-		this.degatS = degatS; 
-	}
-	
-	public Pokemon (String nom, String fam1, String fam2, int PV, int id, int degatN, int degatS) {
-		this.nom = nom; 
-		this.fam1 = fam1;
-		this.fam2 = fam2;
-		this.PV = PV; 
-		this.id = id; 
-		this.degatN = degatN;
-		this.degatS = degatS; 
-	}
-			
+	private int id;
+    private String nom;
+    private String type;
+    
+    public Pokemon(int id, String nom, String type) {
+    	this.id = id;
+    	this.nom = nom;
+    	this.type = type;
+    }
+    
+    public int getId() {
+    	return this.id;
+    }
+    
+    public void setId(int id) {
+    	this.id = id;
+    }
+    
+    public String getNom() {
+    	return this.nom;
+    }
+    
+    public void setNom(String nom) {
+    	this.nom = nom;
+    }
+    
+    public String getType() {
+    	return this.type;
+    }
+    
+    public void setType(String type) {
+    	this.type = type;
+    }
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
 
-	}
-
+    @Override
+    public String toString() {
+        return "Pokemon [id=" + id + ", nom=" + nom + ", type=" + type + "]";
+    }
 }
