@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author gosse
+ *
+ */
+module Play {
+}
