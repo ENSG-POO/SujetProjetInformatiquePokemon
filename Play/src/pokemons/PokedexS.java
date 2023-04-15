@@ -9,14 +9,13 @@ import java.util.List;
 
 public class PokedexS {
 	public List<PokemonSauvage> lstPokeS;
-	
+    
 	public PokedexS(String filecoord) {
 		String csvFile = filecoord;
 	    BufferedReader br = null;
 	    String line = "";
 	    String cvsSplitBy = ",";
-	    
-	    List<PokemonSauvage> lstPokeS = new ArrayList<>();
+	    List<Pokemon> lstPoke = new ArrayList<>();
 
 
 	    try {
@@ -24,13 +23,24 @@ public class PokedexS {
 	        br = new BufferedReader(new FileReader(csvFile));
 	        br.readLine();
 	        while ((line = br.readLine()) != null) {
+	        	String[] pokemon_coord = line.split(cvsSplitBy);
 	        	
-	            String[] pokemon_coord = line.split(cvsSplitBy);
-	            
-	            System.out.println(pokemon_coord[0]);
-	            System.out.println(pokemon_coord[1]);
-	            //System.out.println(pokemon_coord[2]);
+	        	//replace("\",\"", "")
+	        	String name = pokemon_coord[0];
+	        	String x_str = pokemon_coord[1];
+	        	String y_str = pokemon_coord[2];
+	        	
+	        	String x = (x_str.replace("[", "").replace("\"", ""));
+	        	String y = (y_str.replace("]", "").replace("\"", ""));
+	        	
+	        	
+	        	System.out.println(name);
+	        	System.out.println(x);
+	        	System.out.println(y);
 
+	        }
+	            
+	        	
 	            /*String name = pokemon_attribute[1];
 	            String type = pokemon_attribute[2];
 	            int pv = Integer.parseInt(pokemon_attribute[5]);
@@ -42,8 +52,6 @@ public class PokedexS {
 	            
 	            lstPoke.add(poke);*/
 	            
-	            
-	        }
 	    } catch (FileNotFoundException e) {
 	        e.printStackTrace();
 	    } catch (IOException e) {
@@ -57,10 +65,35 @@ public class PokedexS {
 	            }
 	        }
 	    }
-	   //this.lstPoke = lstPoke; 
+	    
 	}
-	
-	/*@Override
+
+	   //this.lstPoke = lstPoke; 
+	   
+		/*
+		String csvFile = filecoord;
+        String line = "";
+        String[] separators = {"[", "]"};
+        try (BufferedReader reader = new BufferedReader(new FileReader(csvFile))) {
+            while ((line = reader.readLine()) != null) {
+                String[] fields = null;
+                for (String separator : separators) {
+                    fields = line.split(separator);
+                    if (fields.length > 1) {
+                        break;
+                    }
+                }
+                for (String field : fields) {
+                    System.out.print(field + " ");
+                }
+                System.out.println();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}*/
+	/*
+	@Override
 	public String toString() {
 		String str = "";
 		for (Pokemon elt : lstPoke) {
@@ -68,4 +101,5 @@ public class PokedexS {
 		}
 		return str;
 	}*/
+
 }
