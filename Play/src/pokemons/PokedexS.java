@@ -30,8 +30,8 @@ public class PokedexS {
 	        	String x_str = pokemon_coord[1];
 	        	String y_str = pokemon_coord[2];
 	        	
-	        	String x = (x_str.replace("[", "").replace("\"", ""));
-	        	String y = (y_str.replace("]", "").replace("\"", ""));
+	        	String x = (x_str.replace("[", "").replace("\"", "").replace(" ", ""));
+	        	String y = (y_str.replace("]", "").replace("\"", "").replace(" ", ""));
 	        	
 	        	
 	        	System.out.println(name);
