@@ -7,9 +7,11 @@ public class MainPokemon {
 		Pokemon arceus = new Pokemon("Arceus", 200, "Feu");
 		Pokemon geratina = new Pokemon("Geratina", 130, "Eau");
 		
+		
 		System.out.println(dialga);
 		System.out.println(arceus);
 		System.out.println(geratina);
+		System.out.println(geratina.pokemonAttributes());
 
 
 	}

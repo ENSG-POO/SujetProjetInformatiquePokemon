@@ -5,6 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CSVReader {
 
     public static void main(String[] args) {
@@ -29,7 +32,7 @@ public class CSVReader {
                 int defense = Integer.parseInt(pokemon_attribute[7]);
                 int speed = Integer.parseInt(pokemon_attribute[8]);
                 
-                System.out.println(name + " " + type + " " + pv + " " + attack + " " + defense + " " + speed);
+                //System.out.println(name + " " + type + " " + pv + " " + attack + " " + defense + " " + speed);
             }
 
         } catch (FileNotFoundException e) {
@@ -50,15 +53,4 @@ public class CSVReader {
 
 }
 
-/*
-import java.nio.file.*;
-import java.io.*;
 
-public class CSVReader {
-   public static void main(String[] args) throws IOException {
-      for (int i = 1; i<150; i++) {
-          String line = Files.readAllLines(Paths.get("C:/Users/gosse/Documents/GitHub/Pokemon/PlayPokemon/src/Pokemons/pokemon_first_gen.csv")).get(0);
-    	  System.out.println(line);
-      }
-   }
-}*/
