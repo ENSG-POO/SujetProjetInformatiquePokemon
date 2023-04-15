@@ -25,28 +25,7 @@ public class Pokemon {
 		this.speed = speed;
 	}
 	
-	//Setters
-	
-	
-	//Getters
-	public String getName() {
-		return name;
-	}
-	public String getType() {
-		return type;
-	}
-	public int getPV(){
-		return pv;
-	}
-	public int getAttack() {
-		return attack;
-	}
-	public int getDefense() {
-		return defense;
-	}
-	public int getSpeed() {
-		return speed;
-	}
+
 	
 	
 	
