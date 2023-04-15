@@ -9,8 +9,8 @@ import java.util.List;
 
 public class Pokedex {
 	public List<Pokemon> lstPoke;
-	
-	
+
+		
 	public Pokedex(String filename) {
 		String csvFile = filename;
 	    BufferedReader br = null;
@@ -24,8 +24,6 @@ public class Pokedex {
 	        br = new BufferedReader(new FileReader(csvFile));
 	        br.readLine();
 	        while ((line = br.readLine()) != null) {
-
-	            // use comma as separator
 	        	
 	            String[] pokemon_attribute = line.split(cvsSplitBy);
 	            
@@ -39,6 +37,7 @@ public class Pokedex {
 	            Pokemon poke = new Pokemon(name, type, pv, attack, defense, speed);
 	            
 	            lstPoke.add(poke);
+	            
 	            
 	        }
 	    } catch (FileNotFoundException e) {
@@ -54,12 +53,16 @@ public class Pokedex {
 	            }
 	        }
 	    }
-	    
+	   this.lstPoke = lstPoke; 
 	}
 	
 	@Override
 	public String toString() {
-		return "Liste de tous les pokemons: " + lstPoke;
+		String str = "";
+		for (Pokemon elt : lstPoke) {
+			str += elt.toString() + "\n"; 
+		}
+		return str;
 	}
 
 }
