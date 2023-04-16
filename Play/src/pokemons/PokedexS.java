@@ -74,7 +74,7 @@ public class PokedexS extends Pokedex {
 		for (PokemonSauvage elt : lstPokeS) {
 			str += elt.toString() + "\n"; 
 		}
-		return str + "taille = " + lstPokeS.size();
+		return str;
 	}
 
 }
