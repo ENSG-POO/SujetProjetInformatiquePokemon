@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Affinite {
-	// attribut
+	// attributs
 	public ArrayList<List<Double>> affinite;
 	public ArrayList<String> associationAffinite;
 	
