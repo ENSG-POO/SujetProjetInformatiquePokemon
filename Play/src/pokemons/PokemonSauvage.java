@@ -13,5 +13,10 @@ public class PokemonSauvage extends Pokemon {
 		this.coord = coord;
 		
 	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + " - coordinates: " + coord;
+	}
 
 }
