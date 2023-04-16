@@ -7,15 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class PokedexS {
+public class PokedexS extends Pokedex {
 	public List<PokemonSauvage> lstPokeS;
     
-	public PokedexS(String filecoord) {
+	public PokedexS(String filecoord, String filename) {
+		super(filename);
 		String csvFile = filecoord;
 	    BufferedReader br = null;
 	    String line = "";
 	    String cvsSplitBy = ",";
-	    List<Pokemon> lstPoke = new ArrayList<>();
+	    List<PokemonSauvage> lstPokeS = new ArrayList<>();
 
 
 	    try {
@@ -30,27 +31,25 @@ public class PokedexS {
 	        	String x_str = pokemon_coord[1];
 	        	String y_str = pokemon_coord[2];
 	        	
-	        	String x = (x_str.replace("[", "").replace("\"", "").replace(" ", ""));
-	        	String y = (y_str.replace("]", "").replace("\"", "").replace(" ", ""));
+	        	Double x = Double.parseDouble(x_str.replace("[", "").replace("\"", "").replace(" ", ""));
+	        	Double y = Double.parseDouble(y_str.replace("]", "").replace("\"", "").replace(" ", ""));
 	        	
+	        	Coordonnee coord = new Coordonnee(x, y);
 	        	
-	        	System.out.println(name);
-	        	System.out.println(x);
-	        	System.out.println(y);
+	        	for(Pokemon poke : lstPoke) {
+	        		if ((poke.name).equals(name)) {
+	        			String type = poke.type;
+	        			int pv = poke.pv;
+	        			int attack = poke.attack;
+	        			int defense = poke.defense;
+	        			int speed = poke.speed;
+	        			PokemonSauvage pokeS = new PokemonSauvage(name, type, pv, attack, defense, speed, coord);
+	        			lstPokeS.add(pokeS);
+	        		}
+	        			
+	        	} 
 
 	        }
-	            
-	        	
-	            /*String name = pokemon_attribute[1];
-	            String type = pokemon_attribute[2];
-	            int pv = Integer.parseInt(pokemon_attribute[5]);
-	            int attack = Integer.parseInt(pokemon_attribute[6]);
-	            int defense = Integer.parseInt(pokemon_attribute[7]);
-	            int speed = Integer.parseInt(pokemon_attribute[8]);
-	            
-	            Pokemon poke = new Pokemon(name, type, pv, attack, defense, speed);
-	            
-	            lstPoke.add(poke);*/
 	            
 	    } catch (FileNotFoundException e) {
 	        e.printStackTrace();
@@ -65,41 +64,17 @@ public class PokedexS {
 	            }
 	        }
 	    }
-	    
-	}
 
-	   //this.lstPoke = lstPoke; 
-	   
-		/*
-		String csvFile = filecoord;
-        String line = "";
-        String[] separators = {"[", "]"};
-        try (BufferedReader reader = new BufferedReader(new FileReader(csvFile))) {
-            while ((line = reader.readLine()) != null) {
-                String[] fields = null;
-                for (String separator : separators) {
-                    fields = line.split(separator);
-                    if (fields.length > 1) {
-                        break;
-                    }
-                }
-                for (String field : fields) {
-                    System.out.print(field + " ");
-                }
-                System.out.println();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-	}*/
-	/*
+	   this.lstPokeS = lstPokeS;  
+	}
+	
 	@Override
 	public String toString() {
 		String str = "";
-		for (Pokemon elt : lstPoke) {
+		for (PokemonSauvage elt : lstPokeS) {
 			str += elt.toString() + "\n"; 
 		}
-		return str;
-	}*/
+		return str + "taille = " + lstPokeS.size();
+	}
 
 }
