@@ -37,8 +37,6 @@ public class Pokedex {
 	            Pokemon poke = new Pokemon(name, type, pv, attack, defense, speed);
 	            
 	            lstPoke.add(poke);
-	            
-	            
 	        }
 	    } catch (FileNotFoundException e) {
 	        e.printStackTrace();
