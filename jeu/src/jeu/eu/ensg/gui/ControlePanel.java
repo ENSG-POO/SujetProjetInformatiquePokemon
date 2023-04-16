@@ -7,8 +7,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
- * Exemple de panneau contenant un bouton avec un Ã©vÃ¨nement sur un autre panneau 
- * qui est passÃ© en paramÃ¨tre dans le constructeur.
+ * Exemple de panneau contenant un bouton avec un évènement sur un autre panneau 
+ * qui est passé en paramètre dans le constructeur.
  * 
  *
  */
@@ -16,7 +16,8 @@ public class ControlePanel extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
 
-	public ControlePanel(CartePanel cartePanel) {
+	//rajout du mot final pour faire foncitonner le programme
+	public ControlePanel(final CartePanel cartePanel) {
 		
 		this.setSize(1000, 200);
 		
@@ -26,7 +27,7 @@ public class ControlePanel extends JPanel {
 		this.add(clic);  
 		clic.setVisible(true);
 		
-		// On ajoute un Ã©vÃ¨nement sur le bouton
+		// On ajoute un évènement sur le bouton
 		clic.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cartePanel.ajoutMessage("Ici, hello !");

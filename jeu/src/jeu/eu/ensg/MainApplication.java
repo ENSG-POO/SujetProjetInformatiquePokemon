@@ -62,7 +62,7 @@ public class MainApplication {
 		fen.setLocationRelativeTo(null);
 		fen.setResizable(false);
 		fen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		fen.setTitle("Jeu Pokémon");
+		fen.setTitle("Jeu Pokemon");
 
 		fen.setVisible(true);
 	}
