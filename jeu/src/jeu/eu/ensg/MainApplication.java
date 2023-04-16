@@ -26,6 +26,7 @@ public class MainApplication {
 
 		// Look and Feel dépend de l'OS.
 		try {
+			//test
 			String os = System.getProperty("os.name").toLowerCase();
 			
 			// For windows os
