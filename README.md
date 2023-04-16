@@ -3,9 +3,11 @@
 
 ## Manuel Utilisateur
 
-|test|test|
-|a|z|
-|b|y|
+| Item         | Price     | # In stock |
+|--------------|-----------|------------|
+| Juicy Apples | 1.99      | *7*        |
+| Bananas      | **1.89**  | 5234       |
+
 
 ## Matériel de départ
 
