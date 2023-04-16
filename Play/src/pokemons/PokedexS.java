@@ -26,7 +26,6 @@ public class PokedexS extends Pokedex {
 	        while ((line = br.readLine()) != null) {
 	        	String[] pokemon_coord = line.split(cvsSplitBy);
 	        	
-	        	//replace("\",\"", "")
 	        	String name = pokemon_coord[0];
 	        	String x_str = pokemon_coord[1];
 	        	String y_str = pokemon_coord[2];
