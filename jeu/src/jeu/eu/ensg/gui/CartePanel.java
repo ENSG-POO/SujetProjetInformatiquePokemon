@@ -28,7 +28,6 @@ public class CartePanel extends JPanel {
 	public CartePanel() {
 		ImageIcon ii = new ImageIcon("../../data/Images/fond.jpg");
 		this.fond = ii.getImage(); // on recupere l'Image de l'icon
-		System.out.println(this.fond);
 	}
 
 	/**
@@ -38,10 +37,8 @@ public class CartePanel extends JPanel {
 	public void paint(Graphics g) {
 		Graphics2D g2D = (Graphics2D) g;
 		Image fond = this.fond;
-		System.out.println(fond);
 		g2D.drawImage(fond, 0, 0, 800, 750, getFocusCycleRootAncestor());
 		//g2D.drawImage(fond, ALLBITS, ABORT, WIDTH, HEIGHT, getFocusCycleRootAncestor())
-		System.out.println("coucou2");
 		
 		// On dessine 10 points bleus
 		for (int i = 0; i < 10; i++) {
