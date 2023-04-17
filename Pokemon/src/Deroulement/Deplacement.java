@@ -18,13 +18,13 @@ public class Deplacement {
 	
 	public Coordinate DeplacementH(Coordinate position,int nbcase) {
 		//déplacement a haut
-		this.position=new Coordinate(position.getX() , position.getY()-nbcase);
+		this.position=new Coordinate(position.getX() , position.getY()+nbcase);
 		return this.position;
 	}
 	
 	public Coordinate DeplacementB(Coordinate position,int nbcase) {
 		//déplacement a bas
-		this.position=new Coordinate(position.getX() , position.getY()+nbcase);
+		this.position=new Coordinate(position.getX() , position.getY()-nbcase);
 		return this.position;
 	}
 

@@ -1,13 +1,13 @@
 package Type;
 
-public class Neutre {
+public class TypeNeutre {
 	
 	public static double AttaqueDouble(int attaque) {
-		return 1;
+		return attaque*1;
 	}
 	
 	public static double AttaqueSimple(int attaque) {
-		return 1;
+		return attaque*1;
 	}	
 
 	
@@ -17,4 +17,5 @@ public class Neutre {
 		double a = HP-(AttaqueSimple(attaque) - defense);
 		return "Il reste " + a + " au Pokemon sauvage";
 	}
+
 }

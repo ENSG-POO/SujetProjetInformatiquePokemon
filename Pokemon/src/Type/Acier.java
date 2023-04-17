@@ -1,5 +1,7 @@
 package Type;
 
+import java.util.Scanner;
+
 public class Acier {
 	
 	public static final String[] Efficace= {"Roche","Fee","Glace"};
@@ -21,11 +23,9 @@ public class Acier {
 	}
 	
 	public static double AttaqueDouble(String typeAdv1,String typeAdv2) {
-		
 		if ( contains(typeAdv1, Efficace) && contains(typeAdv2, Efficace) ) {
 			System.out.println("Hyper Efficace ");
 			return 4;
-			
 		}	// 2 efficaces
 		
 		if ( (contains(typeAdv1, Efficace) && contains(typeAdv2, Neutre))
@@ -75,22 +75,22 @@ public class Acier {
 		
 	}
 	
-public static double AttaqueSimple(int attaque , String typeAdv) {
+public static double AttaqueSimple( String typeAdv) {
 		
 		if (contains(typeAdv, Efficace)) {
-			return attaque*2;			
+			return 2;			
 		}	// super efficace 
 		
 		if (contains(typeAdv, Neutre)) {
-			return attaque*1;			
+			return 1;			
 		}	// neutre
 		
 		if (contains(typeAdv, PasEfficace)) {
-			return attaque*0.5;			
+			return 0.5;			
 		}	// pas tres efficace 
 		
 		else {
-			return attaque*0;			
+			return 0;			
 		}	// ca n'affecte pas
 }
 
@@ -112,9 +112,32 @@ public static String Efficacite( String typeAdv) {
 
 public static String ResultatHP(int HP, int attaque , int defense ,String typeDef) {
 	System.out.println(Efficacite(typeDef));
-	System.out.println("Pokemon a infligé " + (AttaqueSimple(attaque,typeDef)-defense) + " dégats");
-	double a = HP-(AttaqueSimple(attaque,typeDef) - defense);
+	System.out.println("Pokemon a infligé " + (((((1*0.4+2)*attaque*40)/(defense*50))+2)*AttaqueSimple(typeDef)) + " dégats");
+	double a = HP-(((((1*0.4+2)*attaque*40)/(defense*50))+2)*AttaqueSimple(typeDef));
 	return "Il reste " + a + " au Pokemon sauvage";
 }
+
+
+public static String choix_attaque(int HP, int attaque , int defense ,String typeDef) {
+	String Attaque = "";
+	Scanner input2 = new Scanner(System.in);
+    while(!(Attaque.equals("neutre")) && !(Attaque.equals("typé")) ){
+        System.out.println("quelle attaque ? --> Neutre ou Typé?");
+        System.out.println("conseil : " + Acier.Efficacite(typeDef));
+        Attaque = input2.next();
+    }
+ // boucle qui permet de forcer l'utilisateur a faire un des choix propose
+    if (Attaque.equals("typé")) {
+	    return Acier.ResultatHP( attaque , HP , defense , typeDef);
+    }
+    else {
+	    return TypeNeutre.ResultatHP( attaque , HP , defense, typeDef);
+    }
+}
+
+
+
+
+
 
 }

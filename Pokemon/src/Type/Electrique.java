@@ -1,5 +1,7 @@
 package Type;
 
+import java.util.Scanner;
+
 public class Electrique {
 	
 	public static final String[] Efficace= {"Eau","Vol"};
@@ -73,28 +75,64 @@ public class Electrique {
 		
 	}
 	
-public static double AttaqueSimple(String typeAdv) {
+public static double AttaqueSimple( String typeAdv) {
 		
 		if (contains(typeAdv, Efficace)) {
-			System.out.println("Super Efficace ");
 			return 2;			
-		}	// efficace 
+		}	// super efficace 
 		
 		if (contains(typeAdv, Neutre)) {
-			System.out.println("Neutre ");
 			return 1;			
 		}	// neutre
 		
 		if (contains(typeAdv, PasEfficace)) {
-			System.out.println("Pas tres efficace");
 			return 0.5;			
-		}	// pas afficace 
+		}	// pas tres efficace 
 		
 		else {
-			System.out.println("Ca n'affecte pas :( ");
 			return 0;			
-		}	// inefficace
-		
+		}	// ca n'affecte pas
+}
+
+public static String Efficacite( String typeAdv) {
+	if (contains(typeAdv, Efficace)) {
+		return "Super Efficace ";			
+	}
+	if (contains(typeAdv, Neutre)) {
+		return "Neutre ";			
+	}	
+	if (contains(typeAdv, PasEfficace)) {
+		return "Pas tres efficace";			
+	}
+	else {
+		return "Ca n'affecte pas :( ";			
+	}	
+}
+
+
+public static String ResultatHP(int HP, int attaque , int defense ,String typeDef) {
+	System.out.println(Efficacite(typeDef));
+	System.out.println("Pokemon a infligé " + (((((1*0.4+2)*attaque*40)/(defense*50))+2)*AttaqueSimple(typeDef)) + " dégats");
+	double a = HP-(((((1*0.4+2)*attaque*40)/(defense*50))+2)*AttaqueSimple(typeDef));
+	return "Il reste " + a + " au Pokemon sauvage";
+}
+
+
+public static String choix_attaque(int HP, int attaque , int defense ,String typeDef) {
+	String Attaque = "";
+	Scanner input2 = new Scanner(System.in);
+    while(!(Attaque.equals("neutre")) && !(Attaque.equals("typé")) ){
+        System.out.println("quelle attaque ? --> Neutre ou Typé?");
+        System.out.println("conseil : " + Electrique.Efficacite(typeDef));
+        Attaque = input2.next();
+    }
+ // boucle qui permet de forcer l'utilisateur a faire un des choix propose
+    if (Attaque.equals("typé")) {
+	    return Electrique.ResultatHP( attaque , HP , defense , typeDef);
+    }
+    else {
+	    return TypeNeutre.ResultatHP( attaque , HP , defense, typeDef);
+    }
 	}
 
 }

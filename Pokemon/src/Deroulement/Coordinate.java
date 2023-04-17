@@ -18,9 +18,10 @@ public class Coordinate {
 		return this.y;
 	}
 	
-	public void translater(double dx, double dy) {
+	public Coordinate translater(double dx, double dy) {
 		this.x = this.x + dx;
 		this.y = this.y + dy;
+		return new Coordinate(x,y);
 	}
 
 }
