@@ -8,11 +8,40 @@ import java.util.List;
 
 public class CSVReaderCoord {
 	
+	private String name;
+	private double positionX;
+	private double positionY;	
+	
+	public CSVReaderCoord(String name, double positionX, double positionY) {
+		this.name = name;
+		this.positionX = positionX;
+		this.positionY = positionY;
+	}
+	
+	public String getName() {
+    	return this.name;
+    }
+	
+	public double getPositionX() {
+    	return this.positionX;
+    }
+	
+	public double getPositionY() {
+    	return this.positionY;
+    }
+	
+	@Override
+	public String toString() {
+		return "name= " + this.name + ", X= " + this.positionX 
+				+ ", Y= " + this.positionY;
+	}	
+	
+	
 	public static void main(String[] args) {
         String fichier2CSV = "../data/pokemon_coordinates.csv";
         char separateur = ',';
 
-        List<PokeSauvage> listeCoords = new ArrayList<>();
+        List<CSVReaderCoord> listeCoords = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(fichier2CSV))) {
             String ligne;
@@ -28,7 +57,22 @@ public class CSVReaderCoord {
                 String name = valeurs[0];
                 String positionX = valeurs[1];
                 String positionY= valeurs[2];
-                PokeSauvage coords = new PokeSauvage(name, positionX, positionY);
+                
+                if (positionX != null) {
+                    positionX = positionX.trim();
+                } //System.out.println(positionX);
+                
+                if (positionY != null) {
+                    positionY = positionY.trim();
+                } //System.out.println(positionY);
+                
+                positionX = positionX.replace("[", "").replace("]", "").replace("\"" , "");
+                positionY = positionY.replace("[", "").replace("]", "").replace("\"" , "");
+                
+                double positionXDouble = Double.parseDouble(positionX.trim());
+                double positionYDouble = Double.parseDouble(positionY.trim());
+                
+                CSVReaderCoord coords = new CSVReaderCoord(name, positionXDouble, positionYDouble);
                 
                 listeCoords.add(coords);
             }
@@ -36,9 +80,8 @@ public class CSVReaderCoord {
             e.printStackTrace();
         }
         
-        for (PokeSauvage coords : listeCoords) {
+        for (CSVReaderCoord coords : listeCoords) {
         	System.out.println(coords.toString());
         }
     }
-
 }

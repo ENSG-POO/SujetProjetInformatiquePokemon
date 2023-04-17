@@ -15,16 +15,6 @@ import javax.swing.JPanel;
  *
  */
 public class CartePanel extends JPanel {
-	
-	private Image image;
-	
-	public CartePanel() {
-		ImageIcon ii = new ImageIcon("../pokemon.png/bulbasaur.png");
-		this.image = ii.getImage();
-	}
-	
-	
-	
 
 	private static final long serialVersionUID = 1L;
 

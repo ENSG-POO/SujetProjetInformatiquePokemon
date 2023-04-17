@@ -3,7 +3,7 @@ package pack1;
 public class Pokemon {
 	
 	private int id;
-	private String name;
+	protected String name;
 	private String type1; 
 	private String type2; 
 	private double HP; 
@@ -35,47 +35,6 @@ public class Pokemon {
     public Pokemon() {
     	
     }
-    
-    public int getId() {
-    	return this.id;
-    }
-    
-    public void setId(int id) {
-    	this.id = id;
-    }
-    
-    public String getName() {
-    	return this.name;
-    }
-    
-    public void setNom(String name) {
-    	this.name = name;
-    }
-    
-    public String getType1() {
-    	return this.type1;
-    }
-    
-    public void setType1(String type1) {
-    	this.type1 = type1;
-    }
-    
-    public String getType2() {
-    	return this.type2;
-    }
-    
-    public void setType2(String type2) {
-    	this.type2 = null;
-    }
-    
-    public double getTotal() {
-    	return this.total;
-    }
-    
-    public void setTotal(double total) {
-    	this.total = total;
-    }
-
 
     @Override
     public String toString() {

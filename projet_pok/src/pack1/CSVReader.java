@@ -50,8 +50,6 @@ public class CSVReader {
             System.out.println(pokemon.toString());
         }
     }
-
-	
 	
 	
 /*	
