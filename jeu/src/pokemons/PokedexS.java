@@ -37,7 +37,7 @@ public class PokedexS extends Pokedex {
 	        	
 	        	for(Pokemon poke : lstPoke) {
 	        		if ((poke.name).equals(name)) {
-	        			String type = poke.type;
+	        			Type type = poke.type;
 	        			int pv = poke.pv;
 	        			int attack = poke.attack;
 	        			int defense = poke.defense;

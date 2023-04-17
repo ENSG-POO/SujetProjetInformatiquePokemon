@@ -28,7 +28,7 @@ public class Pokedex {
 	            String[] pokemon_attribute = line.split(cvsSplitBy);
 	            
 	            String name = pokemon_attribute[1];
-	            String type = pokemon_attribute[2];
+	            Type type = new Type(pokemon_attribute[2]);
 	            int pv = Integer.parseInt(pokemon_attribute[5]);
 	            int attack = Integer.parseInt(pokemon_attribute[6]);
 	            int defense = Integer.parseInt(pokemon_attribute[7]);

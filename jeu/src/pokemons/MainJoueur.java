@@ -13,7 +13,6 @@ public class MainJoueur {
 
 		Joueur j1 = new Joueur("Joanna", 3, lst);
 		
-		System.out.println(j1);
 		
 	}
 
