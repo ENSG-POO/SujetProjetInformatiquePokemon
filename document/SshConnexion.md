@@ -11,6 +11,8 @@ Le tuto complet [ici](https://www.atlassian.com/git/tutorials/git-ssh)
 
 ## Première étape : créer une clef ssh
 
+### Windows
+
 Le tuto long : [ici](https://www.howtogeek.com/762863/how-to-generate-ssh-keys-in-windows-10-and-windows-11/)
 
 Pour créer une clef ssh, il faut :
@@ -21,13 +23,43 @@ Pour créer une clef ssh, il faut :
 
 Votre clef sera alors généré à l'emplacement par défaut : C:\Users\*votre User*/.ssh/id_rsa.pub
 
-Affichez là ensuite dans votre terminal avec la commande suivante :
+Affichez la ensuite dans votre terminal avec la commande suivante :
 
 ```bash
 cat C:\Users\*votre User*/.ssh/id_rsa.pub
 ```
 
 Vous devrez la copier pour l'étape suivante.
+Attention de bien copier votre clé publique "id_rsa.pub" et non votre clef privée "id_rsa". En cas d'erreur, cela compromet la sécurité de votre machine.
+
+### Mac et Linux
+
+Pour créer une clef ssh, il faut :
+
+- ouvrir un terminal
+- lancer la commande "ssh-keygen"
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+- accepter toutes les questions sans les modifier (En appuyant sur la touche "entrée" à chaque question)
+- ajouter votre clef à l'agent ssh
+
+```bash
+ssh-add -K /Users/\*votre User*/.ssh/id_rsa
+```
+
+Votre clef publique sera alors générée à l'emplacement par défaut : /Users/*votre User*/.ssh/id_rsa.pub
+
+Affichez la ensuite dans votre terminal avec la commande suivante :
+
+```bash
+cat /Users/*votre User*/.ssh/id_rsa.pub
+```
+
+Vous devrez la copier pour l'étape suivante.
+Attention de bien copier votre clé publique "id_rsa.pub" et non votre clef privée "id_rsa". En cas d'erreur, cela compromet la sécurité de votre machine.
 
 ## Seconde étape : ajouter votre clef publique à github
 
