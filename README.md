@@ -1,17 +1,25 @@
-# PokÃ©mon: projet informatique
+# Pokémon: projet informatique
 
 
-## MatÃ©riel de dÃ©part
+## Manuel Utilisateur
 
-#### Dans le rÃ©pertoire "document", vous avez:
+| Item         | Price     | # In stock |
+|--------------|-----------|------------|
+| Juicy Apples | 1.99      | *7*        |
+| Bananas      | **1.89**  | 5234       |
 
-* la prÃ©sentation du projet informatique (ProjetInfo_Ing1_2023.pdf)
-* des exemples de rÃ¨gles de combat entre les pokÃ©mons (MondePokemon.pdf)
+
+## Matériel de départ
+
+#### Dans le répertoire "document", vous avez:
+
+* la présentation du projet informatique (ProjetInfo_Ing1_2023.pdf)
+* des exemples de règles de combat entre les pokémons (MondePokemon.pdf)
 * le support de cours des interfaces graphiques
 
-#### Dans le rÃ©pertoire "data", vous avez:
+#### Dans le répertoire "data", vous avez:
 
-* Un fichier csv contenant les 150 pokemons de la premiÃ¨re gÃ©nÃ©ration, ainsi que leurs attributs.
+* Un fichier csv contenant les 150 pokemons de la première génération, ainsi que leurs attributs.
 * Les attributs:
   1. Total:
   2. HP:
@@ -23,11 +31,11 @@
   8. Generation:
   9. Legendary:
 
-* Un fichier csv contenant une liste de pokemons avec des coordonnÃ©es gÃ©ographiques.
+* Un fichier csv contenant une liste de pokemons avec des coordonnées géographiques.
 
-#### Dans le rÃ©pertoire "jeu", vous avez:
+#### Dans le répertoire "jeu", vous avez:
 
-* Squelette d'un projet Java qui contient quelques classes qui construisent une interface graphique pour dÃ©marrer le jeu
+* Squelette d'un projet Java qui contient quelques classes qui construisent une interface graphique pour démarrer le jeu
 
 Pour tester l'interface graphique:
 
@@ -35,8 +43,8 @@ Pour tester l'interface graphique:
 2. Lancer la classe MainApplication
 
 
-## Comment crÃ©er votre dÃ©pÃ´t github ?
+## Comment créer votre dépôt github ?
 
-1. Se crÃ©er un identifiant github
-2. Demander Ã  un enseignant de vous ajouter dans le dÃ©pÃ´t
+1. Se créer un identifiant github
+2. Demander Ã  un enseignant de vous ajouter dans le départ
 3. Fork ....
