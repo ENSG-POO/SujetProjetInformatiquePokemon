@@ -25,5 +25,30 @@ public class Trainer {
 		return equipe.isEmpty();
 	}
 	
+	public ArrayList<Pokemon> listePokemonsProximite(ArrayList<Pokemon> listePokemonSauvages, int rayon) {
+		ArrayList<Pokemon> listePokemonsProximite = new ArrayList<Pokemon>();
+		for (int i =0 ; i< listePokemonSauvages.size(); i++) {
+				if(this.getPosition().isNear(listePokemonSauvages.get(i).getPosition(), rayon)) {
+					listePokemonsProximite.add(listePokemonSauvages.get(i));
+				}
+		}
+		return listePokemonsProximite;
+	}
+
+	public Coordonnee getPosition() {
+		return this.position;
+	}
+
+	public void setPosition(Coordonnee position) {
+		this.position = position;
+	}
+
+	public ArrayList<Pokemon> getEquipe() {
+		return this.equipe;
+	}
+
+	public void setEquipe(ArrayList<Pokemon> equipe) {
+		this.equipe = equipe;
+	}
 
 }
