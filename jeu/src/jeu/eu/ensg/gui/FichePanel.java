@@ -23,13 +23,13 @@ public class FichePanel extends JPanel {
 		
 		JPanel infoPokemon = new JPanel(new GridLayout(2,2));
 		
-		JLabel labelNom = new JLabel("Nom Pokémon:");
+		JLabel labelNom = new JLabel("Nom Pokemon:");
 		infoPokemon.add(labelNom);
 		JTextField pokemonName = new JTextField(10);
 		pokemonName.setText("Bulbizarre");
 		infoPokemon.add(pokemonName);
 		
-		JLabel labelFamille = new JLabel("Type Pokémon:");
+		JLabel labelFamille = new JLabel("Type Pokemon:");
 		infoPokemon.add(labelFamille);
 		JTextField pokemonType = new JTextField(10);
 		pokemonType.setText("Plante");
