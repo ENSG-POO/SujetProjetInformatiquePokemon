@@ -1,7 +1,7 @@
 package jeu.eu.ensg;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Pokemon {
 
@@ -18,7 +18,8 @@ public class Pokemon {
 		HP = this.stats.getHpMax();
 		this.position = position;
 		this.type = type;
-		this.listAtck = new ArrayList<Attaque>();
+		List<Attaque> l = new ArrayList<Attaque>();
+		this.listAtck = l;
 	}
 	
     public static int trouverIndiceLigne(String[][] tableau, String element) {
@@ -35,9 +36,9 @@ public class Pokemon {
 		Integer ligne2=trouverIndiceLigne(tableInfosPokemons, this.nom);
 		this.stats = new Statistiques(tableInfosPokemons,ligne2);
 		HP = this.stats.getHpMax();
-		this.position = new Coordonnee(tablePokemonEtCoord[ligne1][1]);
-		this.type = new Type(tableInfosPokemons[ligne2][2]);
-		this.listAtck = new ArrayList<Attaque>();
+		this.position = Coordonnee(tablePokemonEtCoord[ligne1][1]);
+		this.type = Type(tableInfosPokemons[ligne2][2]);
+		this.listAtck = <>;
 	}
 
 	public String getNom() {
@@ -81,11 +82,11 @@ public class Pokemon {
 	}
 
 	public List<Attaque> getListAtck() {
-		return this.listAtck;
+		return listAtck;
 	}
 
 	public void setListAtck(List<Attaque> listAtck) {
-		this.listAtck = listAtck;
+		listAtck = listAtck;
 	}
 	
 	

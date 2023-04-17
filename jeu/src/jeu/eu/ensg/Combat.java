@@ -1,5 +1,6 @@
 package jeu.eu.ensg;
 
+
 public class Combat {
 	
 	private Pokemon PJ;
@@ -12,6 +13,7 @@ public class Combat {
 		PS = pS;
 		this.isOver = isOver;
 	}
+	
 
 	public Pokemon getPJ() {
 		return PJ;
@@ -39,7 +41,7 @@ public class Combat {
 	public static double testEfficacite(Pokemon att,Pokemon def) {
 		Type deft = def.getType();
 		Type attt = att.getType();
-		Double Coeff = Tab_type[attt.NumType()][deft.NumType()];
+		Double Coeff = Double.parseDouble(attt.getdata(deft));
 		return Coeff;
 	}
 	
