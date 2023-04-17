@@ -1,13 +1,14 @@
 package pack1;
 
 import java.io.BufferedReader;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CSVReaderCoord {
-	
+	/*
 	private String name;
 	private double positionX;
 	private double positionY;	
@@ -35,13 +36,13 @@ public class CSVReaderCoord {
 		return "name= " + this.name + ", X= " + this.positionX 
 				+ ", Y= " + this.positionY;
 	}	
-	
+	*/
 	
 	public static void main(String[] args) {
         String fichier2CSV = "../data/pokemon_coordinates.csv";
         char separateur = ',';
 
-        List<CSVReaderCoord> listeCoords = new ArrayList<>();
+        List<PokeSauvage> listeCoords = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(fichier2CSV))) {
             String ligne;
@@ -72,7 +73,7 @@ public class CSVReaderCoord {
                 double positionXDouble = Double.parseDouble(positionX.trim());
                 double positionYDouble = Double.parseDouble(positionY.trim());
                 
-                CSVReaderCoord coords = new CSVReaderCoord(name, positionXDouble, positionYDouble);
+                PokeSauvage coords = new PokeSauvage(name, positionXDouble, positionYDouble);
                 
                 listeCoords.add(coords);
             }
@@ -80,17 +81,17 @@ public class CSVReaderCoord {
             e.printStackTrace();
         }
         
-        for (CSVReaderCoord coords : listeCoords) {
-        	System.out.println(coords.toString());
-        	/*
-        	String name = coords.getName();
-        	for (CSVReader pokemon : listePokemons) {
-        		if (pokemon.getName().equals(name)) { 
-                    pokemon.setPositionX(coords.getPositionX()); 
-                    pokemon.setPositionY(coords.getPositionY()); 
-                    break; 
-                }
-        	}*/
+        for (PokeSauvage coords : listeCoords) {
+        	//System.out.println(coords.toString());
         }
+        
+        PokeSauvage[] coordsArray = new PokeSauvage[listeCoords.size()];
+        for (int i = 0; i < listeCoords.size(); i++) {
+            PokeSauvage coords = listeCoords.get(i);
+            coordsArray[i] = coords;
+        }
+		        
+        System.out.println(coordsArray[0]);
     }
+	
 }

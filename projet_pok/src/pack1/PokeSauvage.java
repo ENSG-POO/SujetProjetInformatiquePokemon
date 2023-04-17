@@ -30,5 +30,3 @@ public class PokeSauvage extends Pokemon{
 				+ ", Y= " + this.positionY;
 	}	
 }
-	
-	
