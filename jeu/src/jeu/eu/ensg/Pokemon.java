@@ -1,6 +1,7 @@
 package jeu.eu.ensg;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class Pokemon {
 
@@ -17,7 +18,7 @@ public class Pokemon {
 		HP = this.stats.getHpMax();
 		this.position = position;
 		this.type = type;
-		this.listAtck = <>;
+		this.listAtck = new ArrayList<Attaque>();
 	}
 	
     public static int trouverIndiceLigne(String[][] tableau, String element) {
@@ -34,9 +35,9 @@ public class Pokemon {
 		Integer ligne2=trouverIndiceLigne(tableInfosPokemons, this.nom);
 		this.stats = new Statistiques(tableInfosPokemons,ligne2);
 		HP = this.stats.getHpMax();
-		this.position = Coordonnee(tablePokemonEtCoord[ligne1][1]);
-		this.type = Type(tableInfosPokemons[ligne2][2]);
-		this.listAtck = <>;
+		this.position = new Coordonnee(tablePokemonEtCoord[ligne1][1]);
+		this.type = new Type(tableInfosPokemons[ligne2][2]);
+		this.listAtck = new ArrayList<Attaque>();
 	}
 
 	public String getNom() {
@@ -47,11 +48,11 @@ public class Pokemon {
 		this.nom = nom;
 	}
 
-	public statistiques getStats() {
+	public Statistiques getStats() {
 		return stats;
 	}
 
-	public void setStats(statistiques stats) {
+	public void setStats(Statistiques stats) {
 		this.stats = stats;
 	}
 
@@ -63,11 +64,11 @@ public class Pokemon {
 		HP = hP;
 	}
 
-	public coordonnees getPosition() {
+	public Coordonnee getPosition() {
 		return position;
 	}
 
-	public void setPosition(coordonnees position) {
+	public void setPosition(Coordonnee position) {
 		this.position = position;
 	}
 
@@ -80,11 +81,11 @@ public class Pokemon {
 	}
 
 	public List<Attaque> getListAtck() {
-		return ListAtck;
+		return this.listAtck;
 	}
 
 	public void setListAtck(List<Attaque> listAtck) {
-		ListAtck = listAtck;
+		this.listAtck = listAtck;
 	}
 	
 	

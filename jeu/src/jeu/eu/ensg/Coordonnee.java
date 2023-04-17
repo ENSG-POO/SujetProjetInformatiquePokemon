@@ -16,10 +16,10 @@ public class Coordonnee {
 	public Coordonnee(String coord) {
 		coord = coord.substring(1, coord.length() - 1);
 		String[] coords = coord.split(",");
-		String x = coords[0];
-		String y = coords[1];
-		double xp = Double.parseDouble(coords[0].trim());
-		double yp = Double.parseDouble(coords[1].trim());
+		double x = Double.parseDouble(coords[0].trim());
+		double y = Double.parseDouble(coords[1].trim());
+		this.x=x;
+		this.y=y;
 	}
 
 
