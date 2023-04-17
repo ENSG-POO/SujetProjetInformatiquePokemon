@@ -1,5 +1,4 @@
-package Pokemon;
-
+package pokemons;
 
 public class MainPokemon {
 

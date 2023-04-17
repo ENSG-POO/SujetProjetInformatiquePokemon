@@ -1,4 +1,6 @@
-package Pokemon;
+package pokemons;
+
+import Pokemon.Pokemon;
 
 public interface Attaque {	
 	// methode 
