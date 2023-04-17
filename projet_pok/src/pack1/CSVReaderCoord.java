@@ -82,6 +82,15 @@ public class CSVReaderCoord {
         
         for (CSVReaderCoord coords : listeCoords) {
         	System.out.println(coords.toString());
+        	/*
+        	String name = coords.getName();
+        	for (CSVReader pokemon : listePokemons) {
+        		if (pokemon.getName().equals(name)) { 
+                    pokemon.setPositionX(coords.getPositionX()); 
+                    pokemon.setPositionY(coords.getPositionY()); 
+                    break; 
+                }
+        	}*/
         }
     }
 }
