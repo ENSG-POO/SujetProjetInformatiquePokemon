@@ -57,26 +57,22 @@ public abstract class Inventaire {
 		br.close();
 	}
 
-	public static void charger_csv_coords() throws Exception{
+	public static List<Localisation> charger_csv_coords() throws Exception {
 		BufferedReader br = new BufferedReader(new FileReader("../../data/pokemon_coordinates.csv"));
 		String ligne = null;
-		List<Integer> x_pos = new ArrayList<Integer>();
-		List<Integer> y_pos = new ArrayList<Integer>();
-		List<String> pokemon_pos = new ArrayList<String>();
+		List<Localisation> localisations = new ArrayList<Localisation>();
 		ligne = br.readLine(); // on ne lit pas la premiere ligne
 		while ((ligne = br.readLine()) != null) {
 			// Retourner la ligne dans un tableau
 			String[] data = ligne.split(",");
 			int x = (int) Double.parseDouble(data[1].replace("[", "").replace("\"", ""));
 			int y = (int) Double.parseDouble(data[2].replace("]", "").replace("\"", ""));
-			Coordonnee c = new Coordonnee(x, y);
-			x_pos.add(c.getX());
-			y_pos.add(c.getY());
-			pokemon_pos.add(data[0]);
-
+			Coordonnee c = new Coordonnee(50 + x * 30, 50 + y * 70);
+			Localisation loc = new Localisation(data[0], c);
+			localisations.add(loc);
 		}
-		System.out.println(pokemon_pos);
 		br.close();
+		return localisations;
 	}
 
 	public static Pokemon getPokemons(int ind) {
