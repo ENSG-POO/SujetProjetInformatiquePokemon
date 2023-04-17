@@ -1,3 +1,4 @@
+
 package jeu.eu.ensg;
 
 import java.io.BufferedReader;
@@ -63,3 +64,4 @@ public abstract class Inventaire {
 
 
 }
+

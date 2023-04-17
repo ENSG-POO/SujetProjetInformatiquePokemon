@@ -1,3 +1,4 @@
+
 package jeu.eu.ensg;
 
 public class Coordonnee {
@@ -28,3 +29,4 @@ public class Coordonnee {
 	
 
 }
+
