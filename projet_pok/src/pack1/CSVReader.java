@@ -26,12 +26,19 @@ public class CSVReader {
                 String[] valeurs = ligne.split(String.valueOf(separateur));
                 
                 int id = Integer.parseInt(valeurs[0]);
-                String nom = valeurs[1];
+                String name = valeurs[1];
                 String type = valeurs[2];
                 String type2 = valeurs[3];
-                double Total = Integer.parseInt(valeurs[4]);
-                double HP =Integer.parseInt(valeurs[5]);
-                Pokemon pokemon = new Pokemon(id, nom, type, type2, Total, HP);
+                double total = Integer.parseInt(valeurs[4]);
+                double HP = Integer.parseInt(valeurs[5]);
+                double attack = Integer.parseInt(valeurs[6]);
+                double defense = Integer.parseInt(valeurs[7]);
+                double spAtk = Integer.parseInt(valeurs[8]);
+                double spDef = Integer.parseInt(valeurs[9]);
+                double speed = Integer.parseInt(valeurs[10]);
+                double generation = Integer.parseInt(valeurs[11]);
+                String legendary = valeurs[12];
+                Pokemon pokemon = new Pokemon(id, name, type, type2, total, HP, attack, defense, spAtk, spDef, speed, generation, legendary);
                
                 listePokemons.add(pokemon);
             }

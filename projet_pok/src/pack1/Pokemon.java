@@ -3,20 +3,34 @@ package pack1;
 public class Pokemon {
 	
 	private int id;
-    private String nom;
-    private String type;
-    private String type2;
-    private double Total;
-    private double HP;
-    
-    public Pokemon(int id, String nom, String type, String type2, double Total, double HP) {
-    	this.id = id;
-    	this.nom = nom;
-    	this.type = type;
-    	this.type2 = null;
-    	this.Total = Total;
-    	this.HP = HP;
-    }
+	private String name;
+	private String type1; 
+	private String type2; 
+	private double HP; 
+	private double total; 
+	private double attack;
+	private double defense; 
+	private double spAtk; 
+	private double spDef; 
+	private double speed; 
+	private double generation;
+	private String legendary;
+	
+	public Pokemon (int id, String name, String type1, String type2, double total, double HP, double attack, double defense, double spAtk, double spDef, double speed, double generation, String legendary) {
+		this.id = id;
+		this.name = name; 
+		this.type1 = type1; 
+		this.type2 = null;
+		this.HP = HP; 
+		this.total = total; 
+		this.attack = attack; 
+		this.defense = defense; 
+		this.spAtk = spAtk; 
+		this.spDef = spDef; 
+		this.speed = speed; 
+		this.generation = generation; 
+		this.legendary = legendary;
+	}
     
     public Pokemon() {
     	
@@ -30,43 +44,45 @@ public class Pokemon {
     	this.id = id;
     }
     
-    public String getNom() {
-    	return this.nom;
+    public String getName() {
+    	return this.name;
     }
     
-    public void setNom(String nom) {
-    	this.nom = nom;
+    public void setNom(String name) {
+    	this.name = name;
     }
     
-    public String getType() {
-    	return this.type;
+    public String getType1() {
+    	return this.type1;
     }
     
-    public void setType(String type) {
-    	this.type = type;
+    public void setType1(String type1) {
+    	this.type1 = type1;
     }
     
     public String getType2() {
-    	return this.type;
+    	return this.type2;
     }
     
-    public void setType2(String type) {
+    public void setType2(String type2) {
     	this.type2 = null;
     }
     
     public double getTotal() {
-    	return this.Total;
+    	return this.total;
     }
     
-    public void setTotal(double Total) {
-    	this.Total = Total;
+    public void setTotal(double total) {
+    	this.total = total;
     }
 
 
     @Override
     public String toString() {
-        return "Pokemon [id=" + getId() + ", nom=" + getNom() + ", type=" + getType() + ", type2=" + getType2() + 
-        		", Total=" + getTotal() + ", HP=" + HP + "]";
+        return "Pokemon [id=" + this.id + ", nom=" + this.name + ", type=" + this.type1 + ", type2=" + this.type2 + 
+        		", HP=" + this.HP + ", Total=" + this.total + ", Attack=" + this.attack + ", Defense=" + this.defense + 
+        		", spAtk=" + this.spAtk + ", spDef=" + this.spDef + ", speed=" + this.speed + 
+        		", Generation=" + this.generation + ", Legendary=" + this.legendary +"]";
     }
     
 }

@@ -1,9 +1,11 @@
 package jeu.eu.ensg.gui;
 
 import java.awt.Color;
+
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 
 import javax.swing.JPanel;
 
@@ -13,6 +15,16 @@ import javax.swing.JPanel;
  *
  */
 public class CartePanel extends JPanel {
+	
+	private Image image;
+	
+	public CartePanel() {
+		ImageIcon ii = new ImageIcon("../pokemon.png/bulbasaur.png");
+		this.image = ii.getImage();
+	}
+	
+	
+	
 
 	private static final long serialVersionUID = 1L;
 
