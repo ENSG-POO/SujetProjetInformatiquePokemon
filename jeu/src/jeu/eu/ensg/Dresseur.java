@@ -1,3 +1,4 @@
+
 package jeu.eu.ensg;
 
 import java.awt.Graphics2D;
@@ -34,3 +35,4 @@ public class Dresseur extends Inventaire {
 	}
 
 }
+
