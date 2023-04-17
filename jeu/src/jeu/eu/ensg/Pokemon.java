@@ -9,16 +9,34 @@ public class Pokemon {
 	private int HP;
 	private Coordonnee position;
 	private Type type;
-	private List<Attaque> ListAtck;
+	private List<Attaque> listAtck;
 	
-	public Pokemon(String nom, Statistiques stats, int hP, Coordonnee position, Type type, List<Attaque> listAtck) {
-		super();
+	public Pokemon(String nom, Statistiques stats, Coordonnee position, Type type) {
 		this.nom = nom;
 		this.stats = stats;
-		HP = hP;
+		HP = this.stats.getHpMax();
 		this.position = position;
 		this.type = type;
-		ListAtck = listAtck;
+		this.listAtck = <>;
+	}
+	
+    public static int trouverIndiceLigne(String[][] tableau, String element) {
+        for (int i = 0; i < tableau.length; i++) {
+            if (tableau[i][1].equals(element)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+	
+	public Pokemon(String[][] tablePokemonEtCoord, String[][] tableInfosPokemons, Integer ligne1) {
+		this.nom = tablePokemonEtCoord[ligne1][0];
+		Integer ligne2=trouverIndiceLigne(tableInfosPokemons, this.nom);
+		this.stats = new Statistiques(tableInfosPokemons,ligne2);
+		HP = this.stats.getHpMax();
+		this.position = Coordonnee(tablePokemonEtCoord[ligne1][1]);
+		this.type = Type(tableInfosPokemons[ligne2][2]);
+		this.listAtck = <>;
 	}
 
 	public String getNom() {
@@ -29,11 +47,11 @@ public class Pokemon {
 		this.nom = nom;
 	}
 
-	public Statistiques getStats() {
+	public statistiques getStats() {
 		return stats;
 	}
 
-	public void setStats(Statistiques stats) {
+	public void setStats(statistiques stats) {
 		this.stats = stats;
 	}
 
@@ -45,11 +63,11 @@ public class Pokemon {
 		HP = hP;
 	}
 
-	public Coordonnee getPosition() {
+	public coordonnees getPosition() {
 		return position;
 	}
 
-	public void setPosition(Coordonnee position) {
+	public void setPosition(coordonnees position) {
 		this.position = position;
 	}
 
