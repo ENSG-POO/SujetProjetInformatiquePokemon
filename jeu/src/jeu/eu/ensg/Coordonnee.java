@@ -1,5 +1,7 @@
 package jeu.eu.ensg;
 
+import java.util.ArrayList;
+
 public class Coordonnee {
 	
 	private double x;
@@ -45,21 +47,20 @@ public class Coordonnee {
 		this.y += dy;
 	}
 	
-	// fonction qui vérifie que le pokémon choisi est proche du joueur
-	public boolean cercle(int rayon, Coordonnee centre) {
-		return (Math.pow(Math.pow(this.x - centre.x, 2) + Math.pow(this.y - centre.y, 2 ), 0.5) <= rayon);
+	// fonction qui teste si la coordonnée coord en entrée est située dans un rayon 'rayon' de l'élément this
+	public boolean isNear(Coordonnee coord, int rayon) {
+		return (Math.pow(Math.pow(this.x - coord.x, 2) + Math.pow(this.y - coord.y, 2 ), 0.5) <= rayon);
 		
 	}
 	
-	public String[] listePokeDansRange(double[][] tabCoord, Coordonnee coordJoueur) {
-		String[] ListePok = new String[];
-		for (int i =0 ; i< tabCoord.lenght(); i++) {
-			for (int j =0 ; j< tabCoord.lenght(); j++) {
-				if (tabCoord[i][j]).cercle(50, coordJoueur){
-					ListePok.add(tabCoord[i][0])
+	public ArrayList<Pokemon> listePokemonsProximite(ArrayList<Pokemon> listePokemonSauvages, int rayon) {
+		ArrayList<Pokemon> listePokemonsProximite = new ArrayList<Pokemon>();
+		for (int i =0 ; i< listePokemonSauvages.size(); i++) {
+				if(this.isNear(listePokemonSauvages.get(i).getPosition(), rayon)) {
+					listePokemonsProximite.add(listePokemonSauvages.get(i));
 				}
-			}
 		}
+		return listePokemonsProximite;
 	}
-	
 }
+	
