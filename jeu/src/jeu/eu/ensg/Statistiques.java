@@ -147,20 +147,6 @@ public class Statistiques {
 		this.setTotal(this.hpMax + this.attack + this.defense +this.spAtk + this.spDef + this.speed);
 		}	
 	}
-	
-	/*public void changeLvl(Boolean bool, Integer n) {
-		if (bool) {
-		this.setLvl(this.getLvl()+n);
-		this.setXpMax((int) Math.pow(this.getLvl(),3));
-		this.setHpMax((int)this.getHpMax()*);
-		this.setAttack(this.getAttack()+n*10);
-		this.setDefense(this.getDefense()+n*10);
-		this.setSpAtk(this.getSpAtk()+n*10);
-		this.setSpDef(this.getSpDef()+n*10);
-		this.setSpeed(this.getSpeed()+n*10);
-		this.setTotal(this.getTotal()+n*60);
-		
-		}
-	}*/
+
 	
 }
