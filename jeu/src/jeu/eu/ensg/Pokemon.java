@@ -8,11 +8,11 @@ public class Pokemon {
 	private String nom;
 	private Statistiques stats;
 	private int HP;
-	private Coordonnee position;
+	private Coordinates position;
 	private Type type;
 	private List<Attaque> listAtck;
 	
-	public Pokemon(String nom, Statistiques stats, Coordonnee position, Type type) {
+	public Pokemon(String nom, Statistiques stats, Coordinates position, Type type) {
 		this.nom = nom;
 		this.stats = stats;
 		HP = this.stats.getHpMax();
@@ -31,14 +31,19 @@ public class Pokemon {
         return -1;
     }
 	
-	public Pokemon(String[][] tablePokemonEtCoord, String[][] tableInfosPokemons, Integer ligne1) {
-		this.nom = tablePokemonEtCoord[ligne1][0];
-		Integer ligne2=trouverIndiceLigne(tableInfosPokemons, this.nom);
-		this.stats = new Statistiques(tableInfosPokemons,ligne2);
+	public Pokemon(String[][] tablePokemonCoord, String[][] infosPokemons, Integer ligne1) {
+		this.nom = tablePokemonCoord[ligne1][0];
+		Integer ligne2=trouverIndiceLigne(infosPokemons, this.nom);
+		this.stats = new Statistiques(infosPokemons,ligne2);
 		HP = this.stats.getHpMax();
-		this.position = new Coordonnee(tablePokemonEtCoord[ligne1][1]);
-		this.type = new Type(tableInfosPokemons[ligne2][2]);
+		this.position = new Coordinates(tablePokemonCoord[ligne1][1]);
+		this.type = new Type(infosPokemons[ligne2][2]);
 		this.listAtck = new ArrayList<Attaque>();
+	}
+
+	@Override
+	public String toString() {
+		return this.nom + this.position ;
 	}
 
 	public String getNom() {
@@ -65,11 +70,11 @@ public class Pokemon {
 		this.HP = hP;
 	}
 
-	public Coordonnee getPosition() {
+	public Coordinates getPosition() {
 		return this.position;
 	}
 
-	public void setPosition(Coordonnee position) {
+	public void setPosition(Coordinates position) {
 		this.position = position;
 	}
 

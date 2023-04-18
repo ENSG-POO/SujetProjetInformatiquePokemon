@@ -1,46 +1,27 @@
 package jeu.eu.ensg;
+import java.util.ArrayList;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+//import jeu.src.jeu.eu.ensg.CSVReader;
 
 public class MainPrincipal {
     public static void main(String[] args) {
-        String csvFile = "C:/Users/Formation/Desktop/projet/Jmammou-Labbe-Bontoux/data/tableau-type.csv"; // "import" du fichier
-        String line = "";
-        String csvSplitBy = ","; // séparateur dans le csv qui permettra de "dispatcher" les valeurs dans le tableau crée
-        int numRows = 0; // initialisation nombre ligne du tableau 
-        int numCols = 0; // initialisation nombre colonne du tableau
+        //String tableauTypeCsv = "./data/tableau-type.csv"; 
+        String infosPokemonCsv = "./data/pokemon_first_gen.csv";
+        String pokemonCoordinatesCsv = "./data/pokemon_coordinates.csv";
+        // "import" des trois fichiers csv
+        String csvSeparator = ","; // choix du séparateur dans les csv 
+        // création des trois tableaux à partir des trois csv
+        //String[][] tableauType = CSVReader.readCsvFile(tableauTypeCsv, csvSeparator);
+        String[][] infosPokemon = CSVReader.readCsvFile(infosPokemonCsv, csvSeparator);
+        String[][] pokemonCoordinates = CSVReader.readCsvFile(pokemonCoordinatesCsv, csvSeparator);
         
-        // récupération du nombre de ligne et de nombre de colonne du tableau qui contiendra les données du csv
-        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) { //  simplifie la lecture de texte à partir de flux d'entrée de caractères. BufferedReader contient un objet Reader, qui lit automatiquement les données du fichier et les stocke dans buffer (la mémoire tampon) de BufferedReader. 
-            while ((line = br.readLine()) != null) {  //lit une ligne de texte qui est considérée comme terminée par un saut de ligne ('\n'), ou un retour chariot ('\r')
-                numRows++;  // si la ligne du fichier est non vide, on rajoute une ligne au tableau
-                String[] row = line.split(csvSplitBy); // découpe les lignes selon "," et les ajoute à un tableau
-                numCols = row.length; // le nombre de colonne correspond donc à la longueur du tableau précédent (le nombre de ",")
-            }
-        } catch (IOException e) {
-            e.printStackTrace(); // tient compte d'un éventuel problème
+        ArrayList<Pokemon> listePokemonsSauvages=new ArrayList<Pokemon>();
+        for (int i = 0; i < pokemonCoordinates.length; i++) {
+        	Pokemon p= new Pokemon(pokemonCoordinates, infosPokemon, i);
+        	listePokemonsSauvages.add(p);
         }
+        System.out.println(listePokemonsSauvages);
         
-        // création d'un tableau de la taille du csv
-        String[][] data = new String[numRows][numCols];
-
-        // remplissage du tableau 
-        int rowIndex = 0;
-        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
-            while ((line = br.readLine()) != null) {
-                String[] row = line.split(csvSplitBy);
-                for (int i = 0; i < row.length; i++) {
-                    data[rowIndex][i] = row[i]; // pour chaque cellule du tableau, remplace la valeur du tableau par la valeur correspondante dans le csv
-                }
-                rowIndex++;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         
-        // affichage de la cellule du tableau voulue
-        System.out.println(data[4][6]);
     }
 }

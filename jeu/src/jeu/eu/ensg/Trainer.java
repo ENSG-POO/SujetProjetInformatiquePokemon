@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Trainer {
 	
-	private Coordonnee position;
+	private Coordinates position;
 	private ArrayList<Pokemon> equipe;
 	
-	public Trainer(Coordonnee position, ArrayList<Pokemon> équipe) {
+	public Trainer(Coordinates position, ArrayList<Pokemon> équipe) {
 		super();
 		this.position = position;
 		this.equipe = équipe;
@@ -35,11 +35,11 @@ public class Trainer {
 		return listePokemonsProximite;
 	}
 
-	public Coordonnee getPosition() {
+	public Coordinates getPosition() {
 		return this.position;
 	}
 
-	public void setPosition(Coordonnee position) {
+	public void setPosition(Coordinates position) {
 		this.position = position;
 	}
 
