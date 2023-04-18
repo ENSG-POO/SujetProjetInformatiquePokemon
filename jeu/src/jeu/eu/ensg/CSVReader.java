@@ -4,8 +4,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * 
+ * @author Formation
+ *
+ */
 public class CSVReader {
-
     public static String[][] readCsvFile(String csvFile, String csvSeparator) {
         // Initialiser les variables pour compter le nombre de lignes et de colonnes
         int numRows = 0;
