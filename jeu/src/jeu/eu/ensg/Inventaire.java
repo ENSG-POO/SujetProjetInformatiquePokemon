@@ -41,7 +41,7 @@ public abstract class Inventaire {
 	public static void charger_csv_pokemons() throws Exception {
 		BufferedReader br = new BufferedReader(new FileReader("../../data/pokemon_first_gen.csv"));
 		String ligne = null;
-		Carte liste = new Carte();
+		Lecture_pokemons liste = new Lecture_pokemons();
 		ligne = br.readLine(); // on ne lit pas la premiere ligne
 		while ((ligne = br.readLine()) != null) {
 			// Retourner la ligne dans un tableau
@@ -65,10 +65,12 @@ public abstract class Inventaire {
 		while ((ligne = br.readLine()) != null) {
 			// Retourner la ligne dans un tableau
 			String[] data = ligne.split(",");
-			int x = (int) Double.parseDouble(data[1].replace("[", "").replace("\"", ""));
+			int x = (int) Double.parseDouble(data[1].replace("[", "").replace("\"", "")); // on supprime les caracteres
+																							// inutiles
 			int y = (int) Double.parseDouble(data[2].replace("]", "").replace("\"", ""));
 			Coordonnee c = new Coordonnee(50 + x * 30, 50 + y * 70);
 			Localisation loc = new Localisation(data[0], c);
+			loc.setId(localisations.size());
 			localisations.add(loc);
 		}
 		br.close();

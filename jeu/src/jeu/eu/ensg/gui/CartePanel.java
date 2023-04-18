@@ -38,9 +38,10 @@ public class CartePanel extends JPanel {
 	/**
 	 * Méthodes de dessin appelée après le constructeur ou quand on appelle la
 	 * méthode repaint
-	 * @throws Exception 
+	 * 
+	 * @throws Exception
 	 */
-	
+
 	public void affiche_pokemons(Graphics2D g2D) throws Exception {
 		List<Localisation> localisations = Inventaire.charger_csv_coords();
 		for (Localisation loc : localisations) {
@@ -48,30 +49,31 @@ public class CartePanel extends JPanel {
 			g2D.fillOval(loc.getPosition().getX(), loc.getPosition().getY(), 10, 10);
 		}
 	}
-	
+
 	public void paint(Graphics g) {
 		Graphics2D g2D = (Graphics2D) g;
-		
+
 		Image fond = this.fond;
-		
-		g2D.drawImage(fond, 0, 0, 1400, 800, getFocusCycleRootAncestor());
-		/*ImageIcon icone = new ImageIcon("../../data/Images/pikachu.png");
-		Image img = icone.getImage();*/
-		
+
+		g2D.drawImage(fond, 0, 0, 1400, 800, getFocusCycleRootAncestor()); // on affiche le background
+		/*
+		 * ImageIcon icone = new ImageIcon("../../data/Images/pikachu.png"); Image img =
+		 * icone.getImage();
+		 */
+
 		try {
 			affiche_pokemons(g2D);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 		// On dessine 10 points bleus
 
-		/*for (int i = 0; i < 10; i++) {
-			g2D.setPaint(Color.blue);
-			g.fillOval(i * 50 + 100, i * 50 + 100, 10, 10);
-		}*/
+		/*
+		 * for (int i = 0; i < 10; i++) { g2D.setPaint(Color.blue); g.fillOval(i * 50 +
+		 * 100, i * 50 + 100, 10, 10); }
+		 */
 
 		if (!this.message.equals("")) {
 			g2D.setColor(Color.RED);

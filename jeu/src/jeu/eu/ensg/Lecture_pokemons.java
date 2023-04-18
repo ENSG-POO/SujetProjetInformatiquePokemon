@@ -1,39 +1,33 @@
-
 package jeu.eu.ensg;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
-public class Carte {
-	private List<Localisation> pokemons;
+public class Lecture_pokemons extends Inventaire {
+	private List<Pokemon> pokemons;
 
-	public Carte(List<Localisation> pokemons) {
+	public Lecture_pokemons(List<Pokemon> pokemons) {
 		this.pokemons = pokemons;
 	}
 
-	public Carte() throws Exception {
-		List<Localisation> poke = Inventaire.charger_csv_coords();
+	public Lecture_pokemons() {
+		List<Pokemon> poke = new ArrayList<Pokemon>();
 		this.pokemons = poke;
 	}
 
-	public void ajouter_pokemon(Localisation p) {
+	public void ajouter_pokemon(Pokemon p) {
 		int taille = this.pokemons.size();
 		this.pokemons.add(p); // on ajoute le pokemon a la liste
 		p.setId(taille); // on definit l indice du pokemon comme le dernier de la liste
 	}
 
-	public void supprimer_pokemon(Localisation p) {
+	public void supprimer_pokemon(Pokemon p) {
 		int taille = this.pokemons.size();
 		this.pokemons.remove(p.getId()); // on supprime le pokemon de la liste
 		for (int i = p.getId() + 1; i < taille; i++) { // pour chaque pokemon plus loin dans la liste
-			Localisation poke = this.pokemons.get(i);
+			Pokemon poke = this.pokemons.get(i);
 			poke.setId(poke.getId() - 1); // on abaisse la valeur de son indice de 1
 		}
-	}
-
-	@Override
-	public String toString() {
-		return "Carte [pokemons=" + pokemons + "]";
 	}
 
 }
