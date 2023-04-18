@@ -4,6 +4,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 
+/**
+ * 
+ * @author Test
+ *
+ */
 public class Type {
 	
 	private String nom;
