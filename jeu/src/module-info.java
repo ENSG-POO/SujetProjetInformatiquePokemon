@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author ayoub
- *
- */
-module jeu {
-}
