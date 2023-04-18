@@ -1,117 +1,63 @@
-,,,,,,
-,,,,,,
-Nom,Type,Classe,Puis.,Préc.,PP,Effets secondaires
-Riposte,Combat,Physique,- ,100,20,"Inflige le double des dégâts subis par une attaque de type 
-Normal ou Combat durant le tour, échoue sinon"
-Frappe Atlas,Combat,Physique,- ,100,20,Inflige des dégâts égaux au niveau du lanceur
+Nom,Type,Classe,Puis.,Prï¿½c.,PP,Effets secondaires
 Double Pied,Combat,Physique,30,100,30,Frappe deux fois
-Balayage,Combat,Physique,50,100,20,Peut apeurer la cible - Taux de Coups Critiques élevé
+Balayage,Combat,Physique,50,100,20,Peut apeurer la cible - Taux de Coups Critiques ï¿½levï¿½
 Mawashi Geri,Combat,Physique,60,85,15,Peut apeurer la cible
-Pied Sauté,Combat,Physique,70,95,25,Enlève 1 PV si l'attaque échoue
+Pied Sautï¿½,Combat,Physique,70,95,25,Enlï¿½ve 1 PV si l'attaque ï¿½choue
 Sacrifice,Combat,Physique,80,80,25,Blesse le lanceur
-Pied Voltige,Combat,Physique,85,90,20,Enlève 1 PV si l'attaque échoue
-Draco-Rage,Dragon,Spéciale,- ,100,10,Inflige toujours 40 PV de dégâts
-Repli,Eau,- ,- ,100,40,Augmente la défense du lanceur
-Écume,Eau,Spéciale,20,100,30,Peut baisser la vitesse de la cible
-Claquoir,Eau,Spéciale,35,75,10,Attaque continue sur deux à cinq tours
-Pistolet à O,Eau,Spéciale,40,100,25,Aucun
-Bulles d'O,Eau,Spéciale,65,100,20,Peut baisser la vitesse de la cible
-Cascade,Eau,Spéciale,80,100,15,Aucun
-Pince-Masse,Eau,Spéciale,90,85,10,Taux de Coups Critiques élevé
-Surf,Eau,Spéciale,95,100,15,Aucun
-Hydrocanon,Eau,Spéciale,120,80,5,Aucun
-Cage-Éclair,Electrik,- ,- ,100,20,Paralyse la cible
-Éclair,Electrik,Spéciale,40,100,30,Peut paralyser la cible
-Poing-Éclair,Electrik,Spéciale,75,100,15,Peut paralyser la cible
-Tonnerre,Electrik,Spéciale,95,100,15,Peut paralyser la cible
-Fatal-Foudre,Electrik,Spéciale,120,70,5,Peut paralyser la cible
-DanseFlamme,Feu,Spéciale,15,70,15,Attaque continue sur deux à cinq tours
-Flammèche,Feu,Spéciale,40,100,25,Peut brûler la cible
-Poing de Feu,Feu,Spéciale,75,100,15,Peut brûler la cible
-Lance-Flamme,Feu,Spéciale,95,100,15,Peut brûler la cible
-Déflagration,Feu,Spéciale,120,85,5,Peut brûler la cible
-Brume,Glace,- ,- ,- ,30,Empêche toute variation de stat provoquée par l'adversaire
-Buée Noire,Glace,- ,- ,- ,30,"Annule toute variation de stat, la confusion, les effets de 
-Puissance, Vampigraine, Mur Lumière et Protection"
-Onde Boréale,Glace,Spéciale,65,100,20,Peut baisser l'attaque la cible
-Poing-Glace,Glace,Spéciale,75,100,15,Peut geler la cible
-Laser Glace,Glace,Spéciale,95,100,10,Peut geler la cible
-Blizzard,Glace,Spéciale,120,90,5,Peut geler la cible
-Sécrétion,Insect,- ,- ,95,40,Diminue la vitesse de la cible
-Dard Nuée,Insect,Physique,14,85,20,Attaque deux à cinq fois
-Vampirisme,Insect,Physique,20,100,15,"Restaure un nombre de PV au lanceur égal
-à la moitié des dégâts infligés à la cible"
+Pied Voltige,Combat,Physique,85,90,20,Enlï¿½ve 1 PV si l'attaque ï¿½choue
+Draco-Rage,Dragon,Spï¿½ciale,150,100,10,Inflige toujours 40 PV de dï¿½gï¿½ts
+ï¿½cume,Eau,Spï¿½ciale,20,100,30,Peut baisser la vitesse de la cible
+Claquoir,Eau,Spï¿½ciale,35,75,10,Attaque continue sur deux ï¿½ cinq tours
+Pistolet ï¿½ O,Eau,Spï¿½ciale,40,100,25,Aucun
+Bulles d'O,Eau,Spï¿½ciale,65,100,20,Peut baisser la vitesse de la cible
+Cascade,Eau,Spï¿½ciale,80,100,15,Aucun
+Pince-Masse,Eau,Spï¿½ciale,90,85,10,Taux de Coups Critiques ï¿½levï¿½
+Surf,Eau,Spï¿½ciale,95,100,15,Aucun
+Hydrocanon,Eau,Spï¿½ciale,120,80,5,Aucun
+ï¿½clair,Electrik,Spï¿½ciale,40,100,30,Peut paralyser la cible
+Poing-ï¿½clair,Electrik,Spï¿½ciale,75,100,15,Peut paralyser la cible
+Tonnerre,Electrik,Spï¿½ciale,95,100,15,Peut paralyser la cible
+Fatal-Foudre,Electrik,Spï¿½ciale,120,70,5,Peut paralyser la cible
+DanseFlamme,Feu,Spï¿½ciale,15,70,15,Attaque continue sur deux ï¿½ cinq tours
+Flammï¿½che,Feu,Spï¿½ciale,40,100,25,Peut brï¿½ler la cible
+Poing de Feu,Feu,Spï¿½ciale,75,100,15,Peut brï¿½ler la cible
+Lance-Flamme,Feu,Spï¿½ciale,95,100,15,Peut brï¿½ler la cible
+Dï¿½flagration,Feu,Spï¿½ciale,120,85,5,Peut brï¿½ler la cible
+Onde Borï¿½ale,Glace,Spï¿½ciale,65,100,20,Peut baisser l'attaque la cible
+Poing-Glace,Glace,Spï¿½ciale,75,100,15,Peut geler la cible
+Laser Glace,Glace,Spï¿½ciale,95,100,10,Peut geler la cible
+Blizzard,Glace,Spï¿½ciale,120,90,5,Peut geler la cible
+Dard Nuï¿½e,Insect,Physique,14,85,20,Attaque deux ï¿½ cinq fois
+Vampirisme,Insect,Physique,20,100,15,"Restaure un nombre de PV au lanceur ï¿½gal
+ï¿½ la moitiï¿½ des dï¿½gï¿½ts infligï¿½s ï¿½ la cible"
 Double-Dard,Insect,Physique,25,100,20,Attaque deux fois - Peut empoisoner
-Adaptation,Normal,- ,- ,- ,30,Le lanceur devient du même type que l'adversaire
-Affûtage,Normal,- ,- ,- ,30,Augmente l'attaque du lanceur
-Armure,Normal,- ,- ,- ,30,Augmente la défense du lanceur
-Berceuse,Normal,- ,- ,55,15,Endort la cible
-Boul'Armure,Normal,- ,- ,- ,40,Augmente la défense du lanceur
-Brouillard,Normal,- ,- ,100,20,Baisse la précision de la cible
-Clonage,Normal,- ,- ,- ,10,"Crée un clone qui prend les dommages à la place du lanceur,
-enlève 25% des PV du lanceur"
-Copie,Normal,- ,- ,- ,10,"Apprend une des attaques de l'advresaire au hasard
-jusqu'à la fin du combat"
-Croissance,Normal,- ,- ,- ,40,Augmente le spécial du lanceur
-Cyclone,Normal,- ,- ,100,20,"Met fin au combat contre un Pokémon sauvage,
-échoue contre un dresseur"
-Danse-Lames,Normal,- ,- ,- ,30,Augmente l'attaque du lanceur de deux niveaux
-E-Coque,Normal,- ,- ,- ,10,Restaure jusqu'à la moitié des PV du lanceur
-Entrave,Normal,- ,- ,55,20,"Supprime durant un à huit tour une 
-attaque au hasard de la cible"
-Flash,Normal,- ,- ,70,20,Baisse la précision de la cible
-Grincement,Normal,- ,- ,85,40,Baisse la défense de l'adversaire de deux niveaux
-Grobisou,Normal,- ,- ,75,10,Endort la cible
-Groz'Yeux,Normal,- ,- ,100,30,Baisse la défense de la cible
-Hurlement,Normal,- ,- ,100,20,"Met fin au combat contre un Pokémon sauvage,
-échoue contre un dresseur"
-Intimidation,Normal,- ,- ,75,30,Paralyse la cible
-Jet de Sable,Normal,- ,- ,100,15,Baisse la précision de la cible
-Lilliput,Normal,- ,- ,- ,20,Augmente l'esquive du lanceur
-Métronome,Normal,- ,- ,- ,10,Exécute une attaque prise au hasard dans cette liste
-Mimi-Queue,Normal,- ,- ,100,30,Baisse la défense de la cible
-Morphing,Normal,- ,- ,- ,10,Transforme le lanceur en le Pokémon adverse
-Puissance,Normal,- ,- ,- ,30,Augmente le taux de Coups Critiques du lanceur
-Reflet,Normal,- ,- ,- ,15,Augmente l'esquive du lanceur
-Rugissement,Normal,- ,- ,- ,40,Baisse l'attaque de la cible
-Soin,Normal,- ,- ,- ,20,Restaure jusqu'à la moitié des PV du lanceur
-Trempette,Normal,- ,- ,- ,40,Aucun
-Ultrason,Normal,- ,- ,55,20,Rend la cible confuse
-Croc Fatal,Normal,Physique,- ,90,10,Enlève 50% des PV restants de la cible
-Patience,Normal,Physique,- ,- ,10,"Immobilise le lanceur deux ou trois tours, puis inflige à
-l'adversaire le double des dégâts subis pendant cette période"
-Sonicboom,Normal,Physique,- ,90,20,Inflige toujours 20 PV de dégâts
-Empal'Korne,Normal,Physique,- ,30,5,"Met l'adversaire KO, échoue s'il a une vitesse
-supérieure à celle du lanceur"
-Guillotine,Normal,Physique,- ,30,5,"Met l'adversaire KO, échoue s'il a une vitesse
-supérieure à celle du lanceur"
 Constriction,Normal,Physique,10,100,35,Peut baisser la vitesse de la cible
-Étreinte,Normal,Physique,15,85,20,Attaque continue sur deux à cinq tours
-Furie,Normal,Physique,15,85,20,Attaque deux à cinq fois
-Ligotage,Normal,Physique,15,90,20,Attaque continue sur deux à cinq tours
-Pilonnage,Normal,Physique,15,85,20,Attaque deux à cinq fois
-Torgnoles,Normal,Physique,15,85,10,Attaque deux à cinq fois
-Combo-Griffe,Normal,Physique,18,80,15,Attaque deux à cinq fois
-Poing Comète,Normal,Physique,18,85,15,Attaque deux à cinq fois
-Frénésie,Normal,Physique,20,100,20,"Attaque sans fin, provoque l'augmentation de l'attaque
-du lanceur à chaque fois qu'il subit des dégâts"
-Picanon,Normal,Physique,20,100,15,Attaque deux à cinq fois
+ï¿½treinte,Normal,Physique,15,85,20,Attaque continue sur deux ï¿½ cinq tours
+Furie,Normal,Physique,15,85,20,Attaque deux ï¿½ cinq fois
+Ligotage,Normal,Physique,15,90,20,Attaque continue sur deux ï¿½ cinq tours
+Pilonnage,Normal,Physique,15,85,20,Attaque deux ï¿½ cinq fois
+Torgnoles,Normal,Physique,15,85,10,Attaque deux ï¿½ cinq fois
+Combo-Griffe,Normal,Physique,18,80,15,Attaque deux ï¿½ cinq fois
+Poing Comï¿½te,Normal,Physique,18,85,15,Attaque deux ï¿½ cinq fois
+Frï¿½nï¿½sie,Normal,Physique,20,100,20,"Attaque sans fin, provoque l'augmentation de l'attaque
+du lanceur ï¿½ chaque fois qu'il subit des dï¿½gï¿½ts"
+Picanon,Normal,Physique,20,100,15,Attaque deux ï¿½ cinq fois
 Charge,Normal,Physique,35,95,35,Aucun
 Tornade,Normal,Physique,35,100,40,Aucun
-Écras'Face,Normal,Physique,40,100,35,Aucun
+ï¿½cras'Face,Normal,Physique,40,100,35,Aucun
 Griffe,Normal,Physique,40,100,35,Aucun
-Jackpot,Normal,Physique,40,100,20,Fait gagner un peu d'argent à la fin des combats
+Jackpot,Normal,Physique,40,100,20,Fait gagner un peu d'argent ï¿½ la fin des combats
 Vive-Attaque,Normal,Physique,40,100,30,Attaque en premier
 Coupe,Normal,Physique,50,95,30,Aucun
-Poing Karaté,Normal,Physique,50,100,25,Taux de Coups Critiques élevé
+Poing Karatï¿½,Normal,Physique,50,100,25,Taux de Coups Critiques ï¿½levï¿½
 Lutte,Normal,Physique,50,100,- ,Blesse le lanceur
 Force Poigne,Normal,Physique,55,100,30,Aucun
-Météores,Normal,Physique,60,- ,20,N'échoue jamais
+Mï¿½tï¿½ores,Normal,Physique,60,- ,20,N'ï¿½choue jamais
 Morsure,Normal,Physique,60,100,25,Peut apeurer la cible
-Écrasement,Normal,Physique,65,100,20,Peut apeurer la cible
+ï¿½crasement,Normal,Physique,65,100,20,Peut apeurer la cible
 Koud'Korne,Normal,Physique,65,100,25,Aucun
 Coud'Boule,Normal,Physique,70,100,15,Peut apeurer la cible
-Tranche,Normal,Physique,70,100,20,Taux de Coups Critiques élevé
+Tranche,Normal,Physique,70,100,20,Taux de Coups Critiques ï¿½levï¿½
 Uppercut,Normal,Physique,70,100,10,Aucun
 Coupe-Vent,Normal,Physique,80,100,10,"Attaque en deux tours, n'agit pas au premier"
 Croc de Mort,Normal,Physique,80,90,15,Peut apeurer la cible
@@ -120,73 +66,48 @@ Souplesse,Normal,Physique,80,75,20,Aucun
 Triplattaque,Normal,Physique,80,100,10,Aucun
 Ultimapoing,Normal,Physique,80,85,20,Aucun
 Plaquage,Normal,Physique,85,100,15,Peut paralyser la cible
-Bélier,Normal,Physique,90,85,20,Blesse le lanceur
+Bï¿½lier,Normal,Physique,90,85,20,Blesse le lanceur
 Mania,Normal,Physique,90,100,20,"Attaque continue sur deux ou trois tours, le 
 lanceur devient confus par la suite"
-Bomb'Œuf,Normal,Physique,100,75,16,Aucun
-Coud'Krâne,Normal,Physique,100,100,15,"Attaque en deux tours, n'agit pas au premier"
-Damoclès,Normal,Physique,100,100,15,Blesse le lanceur
+Bomb'ï¿½uf,Normal,Physique,100,75,16,Aucun
+Coud'Krï¿½ne,Normal,Physique,100,100,15,"Attaque en deux tours, n'agit pas au premier"
+Damoclï¿½s,Normal,Physique,100,100,15,Blesse le lanceur
 Ultimawashi,Normal,Physique,120,75,5,Aucun
-Destruction,Normal,Physique,130,100,5,"Lanceur KO après l'attaque, ne tient compte que de la moitié de
-la défense adverse, ce qui équivaut à une puissance réelle de 260"
-Ultralaser,Normal,Physique,150,90,5,Lanceur immobilisé au tour suivant
-Explosion,Normal,Physique,170,100,5,"Lanceur KO après l'attaque, ne tient compte que de la moitié de
-la défense adverse, ce qui équivaut à une puissance réelle de 340"
-Para-Spore,Plante,- ,- ,75,30,Paralyse la cible
-Poudre Dodo,Plante,- ,- ,75,15,Endort la cible
-Spore,Plante,- ,- ,100,15,Endort la cible
-Vampigraine,Plante,- ,- ,90,10,Draîne à chaque tour des PV de la cible vers le lanceur
-Vol-Vie,Plante,Spéciale,20,100,20,"Restaure un nombre de PV au lanceur égal
-à la moitié des dégâts infligés à la cible"
-Fouet Lianes,Plante,Spéciale,35,100,10,Aucun
-Méga-Sangsue,Plante,Spéciale,40,100,10,"Restaure un nombre de PV au lanceur égal
-à la moitié des dégâts infligés à la cible"
-Tranch'Herbe,Plante,Spéciale,55,95,25,Taux de Coups Critiques élevé
-Danse-Fleur,Plante,Spéciale,70,100,20,"Attaque continue sur deux ou trois tour, le 
+Destruction,Normal,Physique,130,100,5,"Lanceur KO aprï¿½s l'attaque, ne tient compte que de la moitiï¿½ de
+la dï¿½fense adverse, ce qui ï¿½quivaut ï¿½ une puissance rï¿½elle de 260"
+Ultralaser,Normal,Physique,150,90,5,Lanceur immobilisï¿½ au tour suivant
+Explosion,Normal,Physique,170,100,5,"Lanceur KO aprï¿½s l'attaque, ne tient compte que de la moitiï¿½ de
+la dï¿½fense adverse, ce qui ï¿½quivaut ï¿½ une puissance rï¿½elle de 340"
+Vol-Vie,Plante,Spï¿½ciale,20,100,20,"Restaure un nombre de PV au lanceur ï¿½gal
+ï¿½ la moitiï¿½ des dï¿½gï¿½ts infligï¿½s ï¿½ la cible"
+Fouet Lianes,Plante,Spï¿½ciale,35,100,10,Aucun
+Mï¿½ga-Sangsue,Plante,Spï¿½ciale,40,100,10,"Restaure un nombre de PV au lanceur ï¿½gal
+ï¿½ la moitiï¿½ des dï¿½gï¿½ts infligï¿½s ï¿½ la cible"
+Tranch'Herbe,Plante,Spï¿½ciale,55,95,25,Taux de Coups Critiques ï¿½levï¿½
+Danse-Fleur,Plante,Spï¿½ciale,70,100,20,"Attaque continue sur deux ou trois tour, le 
 lanceur devient confus par la suite"
-Lance-Soleil,Plante,Spéciale,120,100,10,"Attaque en deux tours, n'agit pas au premier"
-Acidarmure,Poison,- ,- ,- ,40,Augmente la défense du lanceur de deux niveaux
-Gaz Toxik,Poison,- ,- ,55,40,Empoisonne la cible
-Poudre Toxik,Poison,- ,- ,75,35,Empoisonne la cible
-Toxik,Poison,- ,- ,85,10,Empoisonne gravement la cible
+Lance-Soleil,Plante,Spï¿½ciale,120,100,10,"Attaque en deux tours, n'agit pas au premier"
 Dard-Venin,Poison,Physique,15,100,35,Peut empoisonner la cible
-Purédpois,Poison,Physique,20,70,20,Peut empoisonner la cible
-Acide,Poison,Physique,40,100,30,Peut baisser la défense de la cible
-Détritus,Poison,Physique,65,100,20,Peut empoisonner la cible
-Amnésie,Psy,- ,- ,- ,20,Augmente le spécial du lanceur de deux niveaux
-Bouclier,Psy,- ,- ,- ,30,Augmente la défense du lanceur de deux niveaux
-Hâte,Psy,- ,- ,- ,30,Augmente la vitesse du lanceur de deux niveaux
-Hypnose,Psy,- ,- ,60,20,Endort la cible
-Mur Lumière,Psy,- ,- ,- ,30,Augmente la résistance du lanceur aux attaques spéciales
-Protection,Psy,- ,- ,- ,20,Augmente la résistance du lanceur aux attaques physiques
-Repos,Psy,- ,- ,- ,10,"Restaure tous les PV du lanceur ainsi que son statut,
-le lanceur est immobilisé pendant deux tours"
-Télékinésie,Psy,- ,- ,80,15,Baisse la précision de la cible
-Téléport,Psy,- ,- ,- ,20,"Met fin au combat contre un Pokémon sauvage,
-échoue contre un dresseur"
-Yoga,Psy,- ,- ,- ,40,Augmente l'attaque du lanceur
-Vague Psy,Psy,Spéciale,- ,80,15,Inflige des dégâts variables
-Choc Mental,Psy,Spéciale,50,100,25,Peut rendre la cible confuse
-Rafale Psy,Psy,Spéciale,65,100,20,Peut rendre la cible confuse
-Psyko,Psy,Spéciale,90,100,10,Peut baisser le spécial de la cible
-Dévorêve,Psy,Spéciale,100,100,15,"Restaure un nombre de PV au lanceur égal à la moitié des dégâts
-infligés à la cible, ne fonctionne que si la cible est endormie"
+Purï¿½dpois,Poison,Physique,20,70,20,Peut empoisonner la cible
+Acide,Poison,Physique,40,100,30,Peut baisser la dï¿½fense de la cible
+Dï¿½tritus,Poison,Physique,65,100,20,Peut empoisonner la cible
+Choc Mental,Psy,Spï¿½ciale,50,100,25,Peut rendre la cible confuse
+Rafale Psy,Psy,Spï¿½ciale,65,100,20,Peut rendre la cible confuse
+Psyko,Psy,Spï¿½ciale,90,100,10,Peut baisser le spï¿½cial de la cible
+Dï¿½vorï¿½ve,Psy,Spï¿½ciale,100,100,15,"Restaure un nombre de PV au lanceur ï¿½gal ï¿½ la moitiï¿½ des dï¿½gï¿½ts
+infligï¿½s ï¿½ la cible, ne fonctionne que si la cible est endormie"
 Jet-Pierres,Roche,Physique,50,65,15,Aucun
-Éboulement,Roche,Physique,75,90,10,Peut apeurer la cible
-Abîme,Sol,Physique,- ,30,5,"Met l'adversaire KO, échoue s'il a une vitesse
-supérieure à celle du lanceur"
+ï¿½boulement,Roche,Physique,75,90,10,Peut apeurer la cible
 Osmerang,Sol,Physique,50,90,10,Attaque deux fois
 Massd'Os,Sol,Physique,65,85,10,Peut apeurer la cible
-Séisme,Sol,Physique,100,100,10,Aucun
-Tunnel,Sol,Physique,100,100,10,"Attaque en deux tours, le lanceur ne peut être atteint
-que par Météores et Patience au premier tour"
-Onde Folie,Spectre,- ,- ,100,10,Rend la cible confuse
-Ténèbres,Spectre,Physique,- ,100,15,Inflige des dégâts égaux au niveau du lanceur
-Léchouille,Spectre,Physique,20,100,30,Peut paralyser la cible
-Mimique,Vol,- ,- ,- ,20,Le lanceur utilise la dernière attaque lancée par l'adversaire
+Sï¿½isme,Sol,Physique,100,100,10,Aucun
+Tunnel,Sol,Physique,100,100,10,"Attaque en deux tours, le lanceur ne peut ï¿½tre atteint
+que par Mï¿½tï¿½ores et Patience au premier tour"
+Tï¿½nï¿½bres,Spectre,Physique,50,100,15,Inflige des dï¿½gï¿½ts ï¿½gaux au niveau du lanceur
+Lï¿½chouille,Spectre,Physique,20,100,30,Peut paralyser la cible
 Cru-Aile,Vol,Physique,35,100,35,Aucun
 Picpic,Vol,Physique,35,100,35,Aucun
-Vol,Vol,Physique,70,100,15,"Attaque en deux tours, le lanceur ne peut être atteint
-que par Météores et Patience au premier tour"
+Vol,Vol,Physique,70,100,15,"Attaque en deux tours, le lanceur ne peut ï¿½tre atteint
+que par Mï¿½tï¿½ores et Patience au premier tour"
 Bec Vrille,Vol,Physique,80,100,20,Aucun
-Piqué,Vol,Physique,140,90,5,"Attaque en deux tours, n'agit pas au premier"
+Piquï¿½,Vol,Physique,140,90,5,"Attaque en deux tours, n'agit pas au premier"
