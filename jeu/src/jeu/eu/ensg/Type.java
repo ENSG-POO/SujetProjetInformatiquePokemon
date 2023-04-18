@@ -9,10 +9,14 @@ public class Type {
 	private String nom;
 
 	public Type(String nom) {
-		super();
 		this.nom = nom;
 	}
 	
+	@Override
+	public String toString() {
+		return "Type " + this.nom;
+	}
+
 	public int NumType() {
 		HashMap<String,Double> NumType = new HashMap<String,Double>();
 		NumType.put("Steel",0.0);
@@ -39,39 +43,10 @@ public class Type {
 
 
 	public String getdata(Type b) {
-        String csvFile = "C:/Users/Formation/Desktop/projet/Jmammou-Labbe-Bontoux/data/tableau-type.csv"; // "import" du fichier
-        String line = "";
-        String csvSplitBy = ","; // séparateur dans le csv qui permettra de "dispatcher" les valeurs dans le tableau crée
-        int numRows = 0; // initialisation nombre ligne du tableau 
-        int numCols = 0; // initialisation nombre colonne du tableau
-        
-        // récupération du nombre de ligne et de nombre de colonne du tableau qui contiendra les données du csv
-        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) { //  simplifie la lecture de texte à partir de flux d'entrée de caractères. BufferedReader contient un objet Reader, qui lit automatiquement les données du fichier et les stocke dans buffer (la mémoire tampon) de BufferedReader. 
-            while ((line = br.readLine()) != null) {  //lit une ligne de texte qui est considérée comme terminée par un saut de ligne ('\n'), ou un retour chariot ('\r')
-                numRows++;  // si la ligne du fichier est non vide, on rajoute une ligne au tableau
-                String[] row = line.split(csvSplitBy); // découpe les lignes selon "," et les ajoute à un tableau
-                numCols = row.length; // le nombre de colonne correspond donc à la longueur du tableau précédent (le nombre de ",")
-            }
-        } catch (IOException e) {
-            e.printStackTrace(); // tient compte d'un éventuel problème
-        }
-        
-        // création d'un tableau de la taille du csv
-        String[][] data = new String[numRows][numCols];
+		
+		String[][] data = CSVReader.readCsvFile("./data/tableau-type.csv", ","); // ouverture du fichier types.csv en tableau
+		return data[this.NumType()][b.NumType()]; // retourne le coefficient multiplicateur entre deux types
+		
 
-        // remplissage du tableau 
-        int rowIndex = 0;
-        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
-            while ((line = br.readLine()) != null) {
-                String[] row = line.split(csvSplitBy);
-                for (int i = 0; i < row.length; i++) {
-                    data[rowIndex][i] = row[i]; // pour chaque cellule du tableau, remplace la valeur du tableau par la valeur correspondante dans le csv
-                }
-                rowIndex++;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return data[this.NumType()][b.NumType()];
 	}
 }
