@@ -50,5 +50,13 @@ public class Trainer {
 	public void setEquipe(ArrayList<Pokemon> equipe) {
 		this.equipe = equipe;
 	}
+	
+	public String toString(ArrayList<Pokemon> equipe) {
+		String s = "";
+		for (Pokemon pok : equipe) {
+			s = s + pok.getNom();
+		}
+		return s;
+	}
 
 }
