@@ -38,7 +38,7 @@ public class Combat {
 		setPJ(n);
 	}
 	
-	public static double testEfficacite(Pokemon att,Pokemon def) {
+	public static double testEfficacite(Attaque att,Pokemon def) {
 		Type deft = def.getType();
 		Type attt = att.getType();
 		Double Coeff = Double.parseDouble(attt.getdata(deft));
@@ -46,20 +46,50 @@ public class Combat {
 	}
 	
 	
-	public void assault(Attaque atk,Pokemon att,Pokemon def) {
-		int puissance = atk.getPuissance();
-		boolean spe = atk.isSpe();
+	public void assault(Attaque atkPerso, Attaque atkOrdi, Pokemon pokPerso,Pokemon pokSauv) {
+		int puissance = atkPerso.getPuissance();
+		boolean spe = atkPerso.isSpe();
 		double deg = 0.0;
-		if (spe == true) {
-			deg = ((((2*att.getStats().getLvl())/5)+2*puissance*att.getStats().getAttack()/def.getStats().getDefense())/50)+2;
+		
+		int puissance2 = atkOrdi.getPuissance();
+		boolean spe2 = atkOrdi.isSpe();
+		double deg2 = 0.0;
+		
+		// attaque du joueur
+		if (spe == false) {
+			deg = ((((0.4*pokPerso.getStats().getLvl() + 2)* pokPerso.getStats().getAttack()*puissance)/(50*pokSauv.getStats().getDefense())) + 2 ); // *CE
+			//deg = ((((2*att.getStats().getLvl())/5)+2*puissance*att.getStats().getAttack()/def.getStats().getDefense())/50)+2;
 		}
 		else {
-			deg = ((((2*att.getStats().getLvl())/5)+2*puissance*att.getStats().getSpAtk()/def.getStats().getSpDef())/50)+2;
+			deg = ((((0.4*pokPerso.getStats().getLvl() + 2)* pokPerso.getStats().getSpAtk()*puissance)/(50*pokSauv.getStats().getSpDef())) + 2 ); // *CE
+			//deg = ((((2*att.getStats().getLvl())/5)+2*puissance*att.getStats().getSpAtk()/def.getStats().getSpDef())/50)+2;
 		}
-		double Coeff = testEfficacite(att,def);
+		double Coeff = testEfficacite(atkPerso,pokSauv);
 		deg = deg * Coeff;
+		if (pokPerso.getType()==atkPerso.getType()) {
+			deg = deg*1.5;
+		}
 		int degat = (int)deg;
-		def.setHP(def.getHP()-degat);
+		pokSauv.setHP(pokSauv.getHP()-degat);
+		
+		//attaque de l'ordi
+		if (pokSauv.getHP()!= 0) {
+			if (spe2 == false) {
+				deg2 = ((((0.4*pokSauv.getStats().getLvl() + 2)* pokSauv.getStats().getAttack()*puissance2)/(50*pokPerso.getStats().getDefense())) + 2 ); // *CE
+				//deg2 = ((((2*att.getStats().getLvl())/5)+2*puissance2*att.getStats().getAttack()/def.getStats().getDefense())/50)+2;
+			}
+			else {
+				deg2 = ((((0.4*pokSauv.getStats().getLvl() + 2)* pokSauv.getStats().getSpAtk()*puissance2)/(50*pokPerso.getStats().getSpDef())) + 2 ); // *CE
+				//deg2 = ((((2*att.getStats().getLvl())/5)+2*puissance2*att.getStats().getSpAtk()/def.getStats().getSpDef())/50)+2;
+			}
+			double Coeff2 = testEfficacite(atkOrdi,pokPerso);
+			deg2 = deg2 * Coeff2;
+			if (pokSauv.getType()==atkOrdi.getType()) {
+				deg = deg*1.5;
+			}
+			int degat2 = (int)deg2;
+			pokPerso.setHP(pokPerso.getHP()-degat2);
+		}
 	}
 	
 	public void fuir() {
