@@ -10,7 +10,7 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import jeu.eu.ensg.Inventaire;
+import jeu.eu.ensg.Carte;
 import jeu.eu.ensg.Localisation;
 
 /**
@@ -22,7 +22,7 @@ public class CartePanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private Image fond;
-	private List<Localisation> pokemons;
+	private Carte carte;
 
 	/**
 	 * Constructeur.
@@ -32,7 +32,13 @@ public class CartePanel extends JPanel {
 	public CartePanel() throws Exception {
 		ImageIcon ii = new ImageIcon("../../data/Images/fond.jpg");
 		this.fond = ii.getImage(); // on recupere l'Image de l'icon
-		Inventaire.charger_csv_coords();
+		this.carte = new Carte();
+	}
+
+	public CartePanel(Carte carte) throws Exception {
+		ImageIcon ii = new ImageIcon("../../data/Images/fond.jpg");
+		this.fond = ii.getImage(); // on recupere l'Image de l'icon
+		this.carte = carte;
 	}
 
 	/**
@@ -43,7 +49,7 @@ public class CartePanel extends JPanel {
 	 */
 
 	public void affiche_pokemons(Graphics2D g2D) throws Exception {
-		List<Localisation> localisations = Inventaire.charger_csv_coords();
+		List<Localisation> localisations = this.carte.getPokemons();
 		for (Localisation loc : localisations) {
 			g2D.setPaint(Color.red);
 			g2D.fillOval(loc.getPosition().getX(), loc.getPosition().getY(), 10, 10);

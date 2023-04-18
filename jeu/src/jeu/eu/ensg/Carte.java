@@ -2,7 +2,6 @@
 package jeu.eu.ensg;
 
 import java.util.List;
-import java.util.ArrayList;
 
 public class Carte {
 	private List<Localisation> pokemons;
@@ -29,6 +28,10 @@ public class Carte {
 			Localisation poke = this.pokemons.get(i);
 			poke.setId(poke.getId() - 1); // on abaisse la valeur de son indice de 1
 		}
+	}
+
+	public List<Localisation> getPokemons() {
+		return pokemons;
 	}
 
 	@Override
