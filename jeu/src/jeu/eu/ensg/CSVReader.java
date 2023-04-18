@@ -4,7 +4,13 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * 
+ * @author Formation
+ *
+ */
 public class CSVReader {
+	
     public static void main(String[] args) {
         String csvFile = "C:/Users/Formation/Desktop/projet/Jmammou-Labbe-Bontoux/data/pokemon_first_gen.csv";
         String line = "";
