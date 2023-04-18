@@ -30,7 +30,5 @@ public class Localisation {
 	public String toString() {
 		return "Localisation [nom=" + nom + ", position=" + position + ", id=" + id + "]";
 	}
-	
-	
 
 }
