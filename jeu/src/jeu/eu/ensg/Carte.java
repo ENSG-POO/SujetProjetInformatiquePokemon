@@ -2,6 +2,7 @@
 package jeu.eu.ensg;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class Carte {
 	private List<Pokemon> pokemons;

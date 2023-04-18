@@ -37,8 +37,8 @@ public abstract class Inventaire {
 			poke.setId(poke.getId() - 1); // on abaisse la valeur de son indice de 1
 		}
 	}
-	
-	public static void charger_csv() throws Exception{
+
+	public static void charger_csv_pokemons() throws Exception {
 		BufferedReader br = new BufferedReader(new FileReader("../../data/pokemon_first_gen.csv"));
 		String ligne = null;
 		Carte liste = new Carte();
@@ -49,7 +49,7 @@ public abstract class Inventaire {
 			Pokemon p = new Pokemon(Integer.parseInt(data[0]), data[1], data[2], data[3], Integer.parseInt(data[4]),
 					Integer.parseInt(data[5]), Integer.parseInt(data[6]), Integer.parseInt(data[7]),
 					Integer.parseInt(data[8]), Integer.parseInt(data[9]), Integer.parseInt(data[10]),
-					Integer.parseInt(data[11]), data[12],Integer.parseInt(data[13]));
+					Integer.parseInt(data[11]), data[12], Integer.parseInt(data[13]));
 			liste.ajouter_pokemon(p);
 
 		}
@@ -57,11 +57,27 @@ public abstract class Inventaire {
 		br.close();
 	}
 
-	public static Pokemon getPokemons(int ind){
+	public static List<Localisation> charger_csv_coords() throws Exception {
+		BufferedReader br = new BufferedReader(new FileReader("../../data/pokemon_coordinates.csv"));
+		String ligne = null;
+		List<Localisation> localisations = new ArrayList<Localisation>();
+		ligne = br.readLine(); // on ne lit pas la premiere ligne
+		while ((ligne = br.readLine()) != null) {
+			// Retourner la ligne dans un tableau
+			String[] data = ligne.split(",");
+			int x = (int) Double.parseDouble(data[1].replace("[", "").replace("\"", ""));
+			int y = (int) Double.parseDouble(data[2].replace("]", "").replace("\"", ""));
+			Coordonnee c = new Coordonnee(50 + x * 30, 50 + y * 70);
+			Localisation loc = new Localisation(data[0], c);
+			localisations.add(loc);
+		}
+		br.close();
+		return localisations;
+	}
+
+	public static Pokemon getPokemons(int ind) {
 		Pokemon p = pokemons.get(ind);
 		return p;
 	}
 
-
 }
-

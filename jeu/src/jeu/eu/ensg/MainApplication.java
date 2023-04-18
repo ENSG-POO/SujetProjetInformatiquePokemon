@@ -21,8 +21,9 @@ public class MainApplication {
 	/**
 	 * Méthode main pour lancer le programme.
 	 * @param args
+	 * @throws Exception 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 		// Look and Feel dépend de l'OS.
 		try {
@@ -47,7 +48,7 @@ public class MainApplication {
 		}
 		
 		final JFrame fen = new JFrame();
-		fen.setSize(1000, 800);
+		fen.setSize(2000, 800);
 
 		// just a JPanel extension, add to any swing/awt container
 		final CartePanel mapPanel = new CartePanel(); 
