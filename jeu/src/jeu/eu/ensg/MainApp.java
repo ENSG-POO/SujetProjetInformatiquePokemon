@@ -110,17 +110,13 @@ public class MainApp {
 
 						// just a JPanel extension, add to any swing/awt container
 						final CartePanel mapPanel = new CartePanel(); 
-						fen.add(BorderLayout.CENTER, mapPanel);
+						fen.add(BorderLayout.EAST, mapPanel);
 
 
 						fen.setLayout(new BorderLayout());
 						
 						fen.add(BorderLayout.CENTER, new ImageCombat());
-						
-						BarreDeVie barre = new BarreDeVie(100, 25,200,2);
-						barre.setPreferredSize(new Dimension(200, 2));
-						fen.add(BorderLayout.CENTER,barre);
-						
+
 						
 						fen.add(BorderLayout.EAST, new ListePok());
 
