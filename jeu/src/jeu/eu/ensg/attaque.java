@@ -3,7 +3,7 @@ package jeu.eu.ensg;
 public class attaque {
 	private int id;
 	private String name;
-	private type type;
+	private String type;
 private String classe;
 private int puissance;
 private int precision ;
@@ -24,11 +24,11 @@ public void setName(String name) {
 	this.name = name;
 }
 
-public type getType() {
+public String getType() {
 	return type;
 }
 
-public void setType(type type) {
+public void setType(String type) {
 	this.type = type;
 }
 
@@ -56,7 +56,7 @@ public void setPrecision(int precision) {
 	this.precision = precision;
 }
 
-public attaque(int id, String name, jeu.eu.ensg.type type, String classe, int puissance, int precision) {
+public attaque(int id, String name, String type, String classe, int puissance, int precision) {
 	super();
 	this.id = id;
 	this.name = name;
@@ -64,6 +64,12 @@ public attaque(int id, String name, jeu.eu.ensg.type type, String classe, int pu
 	this.classe = classe;
 	this.puissance = puissance;
 	this.precision = precision;
+}
+
+@Override
+public String toString() {
+	return "Attaque [id=" + id + ", name=" + name + ", type=" + type + ", Classe=" + classe + ", puissance="
+			+ puissance + ",precision=" + precision ;
 }
 
 	

@@ -38,10 +38,10 @@ public abstract class Inventaire {
 		}
 	}
 
-	public static void charger_csv_pokemons() throws Exception {
+	public static ArrayList<Pokemon>  charger_csv_pokemons() throws Exception {
 		BufferedReader br = new BufferedReader(new FileReader("../../data/pokemon_first_gen.csv"));
 		String ligne = null;
-		Lecture_pokemons liste = new Lecture_pokemons();
+		ArrayList<Pokemon> liste = new ArrayList<Pokemon>();
 		ligne = br.readLine(); // on ne lit pas la premiere ligne
 		while ((ligne = br.readLine()) != null) {
 			// Retourner la ligne dans un tableau
@@ -50,13 +50,33 @@ public abstract class Inventaire {
 					Integer.parseInt(data[5]), Integer.parseInt(data[6]), Integer.parseInt(data[7]),
 					Integer.parseInt(data[8]), Integer.parseInt(data[9]), Integer.parseInt(data[10]),
 					Integer.parseInt(data[11]), data[12], Integer.parseInt(data[13]));
-			liste.ajouter_pokemon(p);
+			liste.add(p);
+			
 
 		}
 		System.out.println(liste);
 		br.close();
+		return liste ;
 	}
 
+	public static ArrayList<attaque>  charger_csv_attaque() throws Exception {
+		BufferedReader br = new BufferedReader(new FileReader("../../data/attaque.csv"));
+		String ligne = null;
+		ArrayList<attaque> liste = new ArrayList<attaque>();
+		ligne = br.readLine(); // on ne lit pas la premiere ligne
+		while ((ligne = br.readLine()) != null) {
+			// Retourner la ligne dans un tableau
+			String[] data = ligne.split(",");
+			attaque a = new attaque(Integer.parseInt(data[0]), data[1], data[2], data[3], Integer.parseInt(data[4]),
+					Integer.parseInt(data[5]));
+			liste.add(a);
+			
+
+		}
+		System.out.println(liste);
+		br.close();
+		return liste ;
+	}
 	public static List<Localisation> charger_csv_coords() throws Exception {
 		BufferedReader br = new BufferedReader(new FileReader("../../data/pokemon_coordinates.csv"));
 		String ligne = null;
@@ -77,7 +97,7 @@ public abstract class Inventaire {
 		return localisations;
 	}
 
-	public static Pokemon getPokemons(int ind) {
+	public static Pokemon getDonnées(int ind) {
 		Pokemon p = pokemons.get(ind);
 		return p;
 	}
