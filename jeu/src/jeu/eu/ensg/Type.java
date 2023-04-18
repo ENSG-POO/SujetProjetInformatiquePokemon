@@ -39,6 +39,12 @@ public class Type {
 
 
 	public String getdata(Type b) {
+		
+		String[][] data = CSVReader.readCsvFile("./data/tableau-type.csv", ","); // ouverture du tableau des types.csv en tableau
+		return data[this.NumType()][b.NumType()]; // retourne le coefficient multiplicateur entre deux types
+		
+		/*
+		
         String csvFile = "C:/Users/Formation/Desktop/projet/Jmammou-Labbe-Bontoux/data/tableau-type.csv"; // "import" du fichier
         String line = "";
         String csvSplitBy = ","; // séparateur dans le csv qui permettra de "dispatcher" les valeurs dans le tableau crée
@@ -73,5 +79,6 @@ public class Type {
             e.printStackTrace();
         }
         return data[this.NumType()][b.NumType()];
+        */
 	}
 }
