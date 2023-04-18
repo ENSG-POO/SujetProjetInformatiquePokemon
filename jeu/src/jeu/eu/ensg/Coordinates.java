@@ -6,6 +6,7 @@ public class Coordinates {
 	
 	private double x;
 	private double y;
+	public static String none;
 	
 	public Coordinates(double x, double y) {
 		this.x = x;
@@ -14,18 +15,18 @@ public class Coordinates {
 	
 	
 
-	public Coordinates(String coord) {
-		coord = coord.substring(1, coord.length() - 1);
-		String[] coords = coord.split(",");
-		double x = Double.parseDouble(coords[0].trim());
-		double y = Double.parseDouble(coords[1].trim());
+	public Coordinates(String coord1,String coord2) {
+		coord1 = coord1.substring(2, coord1.length());
+		coord2 = coord2.substring(0, coord2.length()-2);
+		double x = Double.parseDouble(coord1.trim());
+		double y = Double.parseDouble(coord2.trim());
 		this.x=x;
 		this.y=y;
 	}
 
 	@Override
 	public String toString() {
-		return "Coordinates [" + x + ", " + y + "]";
+		return " [" + x + ", " + y + "]";
 	}
 
 
