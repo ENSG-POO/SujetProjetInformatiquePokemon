@@ -1,5 +1,9 @@
 package jeu.eu.ensg;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Combat {
 	
@@ -89,6 +93,53 @@ public class Combat {
 			}
 			int degat2 = (int)deg2;
 			pokPerso.setHP(pokPerso.getHP()-degat2);
+		}
+	}
+	
+	ArrayList <Pokemon> L = new ArrayList<Pokemon>();
+	public void jouer(Pokemon pokPerso, Pokemon pokSauv, ArrayList<Pokemon> L) {
+		while (!(isOver) || !(L.isEmpty()) || pokSauv.getHP()==0 ) {
+			// pour le pokémon sauvage
+			List<Attaque> listeAttSauv = pokSauv.getListAtck();
+			Random rand = new Random(); 
+			int choixAtt = rand.nextInt(2);
+			
+			//pour le pokémon du dresseur			
+			List<Attaque> listeAttPok = pokPerso.getListAtck();
+			String attaqueUn = listeAttPok.get(0).getNom();
+			String attaqueDeux = listeAttPok.get(1).getNom();
+			
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Veuillez choisir une attaque entre" + attaqueUn + " et " + attaqueDeux + " \n ou Taper 'CHANGER' si vous voulez changer de pokémon");
+			String str = sc.nextLine();
+			System.out.println("Vous avez saisi : " + str);
+			
+			//action durant le tour
+			if (str== attaqueUn) {
+				assault(listeAttPok.get(0), listeAttSauv.get(choixAtt), pokPerso, pokSauv);
+			}
+			else if (str == "CHANGER") {
+				int[][] nb = new int[5][10];
+				Scanner sc2 = new Scanner(System.in);
+				System.out.println("Vos autres pokémons sont: " + L + "\n" + nb + " \n Taper le NOMBRE correspondant à la position de votre nouveau pokémon " );
+				int nbr = sc2.nextInt(); // récupération de la position du nouveau pokémon dans la liste de pokémon du joueur
+				jouer(L.get(nbr), pokSauv, L);
+			}
+			else {
+				assault(listeAttPok.get(1), listeAttSauv.get(choixAtt), pokPerso, pokSauv);
+			}
+			
+		}
+		
+		if (pokSauv.getHP()==0) {
+			System.out.println("Bravo, vous avez capturé un nouveau pokémon");
+			L.add(pokSauv);
+		}
+		else if (L.isEmpty()) {
+			System.out.println("Game over, vous n'avez plus de pokémon en état de combattre.");
+		}
+		else {
+			System.out.println("Vous avez fuit le combat");
 		}
 	}
 	
