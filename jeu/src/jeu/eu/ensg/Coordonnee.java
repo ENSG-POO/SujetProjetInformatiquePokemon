@@ -25,6 +25,11 @@ public class Coordonnee {
 	public void setY(int y) {
 		this.y = y;
 	}
+
+	@Override
+	public String toString() {
+		return "Coordonnee [x=" + x + ", y=" + y + "]";
+	}
 	
 	
 

@@ -20,14 +20,16 @@ public class MainApplication {
 
 	/**
 	 * Méthode main pour lancer le programme.
+	 * 
 	 * @param args
+	 * @throws Exception
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 		// Look and Feel dépend de l'OS.
 		try {
 			String os = System.getProperty("os.name").toLowerCase();
-			
+
 			// For windows os
 			if (os.contains("windows")) {
 				UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
@@ -45,23 +47,21 @@ public class MainApplication {
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		}
-		
+
 		final JFrame fen = new JFrame();
-		fen.setSize(1000, 800);
+		fen.setSize(2000, 800);
 
 		// just a JPanel extension, add to any swing/awt container
-		final CartePanel mapPanel = new CartePanel(); 
+		final CartePanel mapPanel = new CartePanel();
 
 		fen.setLayout(new BorderLayout());
-		
+
 		fen.add(BorderLayout.CENTER, mapPanel);
 		fen.add(BorderLayout.EAST, new FichePanel());
 		fen.add(BorderLayout.SOUTH, new ControlePanel(mapPanel));
-		
-		
+
 		fen.setLocationRelativeTo(null);
-		fen.setResizable(false
-				);
+		fen.setResizable(false);
 		fen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		fen.setTitle("Jeu Pokémon");
 
