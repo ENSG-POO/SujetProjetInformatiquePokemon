@@ -75,12 +75,13 @@ public class MapWithPoints extends JFrame {
                 mapPanel.repaint();
             }
         });
-        
+        /*
         validateButton = new JButton("Valider la position");
         validateButton.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
         		if (point != null) {
+        			
                     System.out.println("Position du point : x=" + point.x + ", y=" + point.y);
                 }
         	}
@@ -89,11 +90,11 @@ public class MapWithPoints extends JFrame {
         JPanel controlPanel = new JPanel();
         controlPanel.add(validateButton);
         add(controlPanel, BorderLayout.NORTH);
-        
+        */
         add(mapPanel);
         pack();
         setLocationRelativeTo(null);
-		setSize(600, 600);
+		setSize(640, 640);
         setVisible(true);;
     }
     
