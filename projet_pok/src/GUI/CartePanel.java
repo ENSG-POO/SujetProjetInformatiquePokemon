@@ -4,10 +4,14 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.util.Random;
+
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
+
 
 public class CartePanel extends JPanel {
 
@@ -41,11 +45,11 @@ public class CartePanel extends JPanel {
 			g2D.setFont(new Font("TimesRoman", Font.PLAIN, 36));
 			g.drawString(message, 250, 50);
 		}
+				
 	}
 
 	public void ajoutMessage(String message) {
 		this.message = message;
-		this.repaint();
+		this.repaint();	
 	}
-
 }
