@@ -73,21 +73,23 @@ public class Combat {
 		pokSauv.setHP(pokSauv.getHP()-degat);
 		
 		//attaque de l'ordi
-		if (spe2 == false) {
-			deg2 = ((((0.4*pokSauv.getStats().getLvl() + 2)* pokSauv.getStats().getAttack()*puissance2)/(50*pokPerso.getStats().getDefense())) + 2 ); // *CE
-			//deg2 = ((((2*att.getStats().getLvl())/5)+2*puissance2*att.getStats().getAttack()/def.getStats().getDefense())/50)+2;
+		if (pokSauv.getHP()!= 0) {
+			if (spe2 == false) {
+				deg2 = ((((0.4*pokSauv.getStats().getLvl() + 2)* pokSauv.getStats().getAttack()*puissance2)/(50*pokPerso.getStats().getDefense())) + 2 ); // *CE
+				//deg2 = ((((2*att.getStats().getLvl())/5)+2*puissance2*att.getStats().getAttack()/def.getStats().getDefense())/50)+2;
+			}
+			else {
+				deg2 = ((((0.4*pokSauv.getStats().getLvl() + 2)* pokSauv.getStats().getSpAtk()*puissance2)/(50*pokPerso.getStats().getSpDef())) + 2 ); // *CE
+				//deg2 = ((((2*att.getStats().getLvl())/5)+2*puissance2*att.getStats().getSpAtk()/def.getStats().getSpDef())/50)+2;
+			}
+			double Coeff2 = testEfficacite(atkOrdi,pokPerso);
+			deg2 = deg2 * Coeff2;
+			if (pokSauv.getType()==atkOrdi.getType()) {
+				deg = deg*1.5;
+			}
+			int degat2 = (int)deg2;
+			pokPerso.setHP(pokPerso.getHP()-degat2);
 		}
-		else {
-			deg2 = ((((0.4*pokSauv.getStats().getLvl() + 2)* pokSauv.getStats().getSpAtk()*puissance2)/(50*pokPerso.getStats().getSpDef())) + 2 ); // *CE
-			//deg2 = ((((2*att.getStats().getLvl())/5)+2*puissance2*att.getStats().getSpAtk()/def.getStats().getSpDef())/50)+2;
-		}
-		double Coeff2 = testEfficacite(atkOrdi,pokPerso);
-		deg2 = deg2 * Coeff2;
-		if (pokSauv.getType()==atkOrdi.getType()) {
-			deg = deg*1.5;
-		}
-		int degat2 = (int)deg2;
-		pokPerso.setHP(pokPerso.getHP()-degat2);
 	}
 	
 	public void fuir() {
