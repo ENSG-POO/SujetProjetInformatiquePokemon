@@ -46,6 +46,46 @@ public class Pokemon {
 				+ ", sp_def=" + sp_def + ", speed=" + speed + ", generation=" + generation + ", legend=" + legend + "]";
 	}
 
+	public int getAttack() {
+		return attack;
+	}
+
+	public void setAttack(int attack) {
+		this.attack = attack;
+	}
+
+	public int getDefense() {
+		return defense;
+	}
+
+	public void setDefense(int defense) {
+		this.defense = defense;
+	}
+
+	public int getSp_atk() {
+		return sp_atk;
+	}
+
+	public void setSp_atk(int sp_atk) {
+		this.sp_atk = sp_atk;
+	}
+
+	public int getSp_def() {
+		return sp_def;
+	}
+
+	public void setSp_def(int sp_def) {
+		this.sp_def = sp_def;
+	}
+
+	public int getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+
 	public int getId() {
 		return id;
 	}
