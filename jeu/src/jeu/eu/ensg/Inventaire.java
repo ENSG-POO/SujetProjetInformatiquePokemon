@@ -38,6 +38,9 @@ public abstract class Inventaire {
 		}
 	}
 
+
+
+
 	public static ArrayList<type> charger_type() {
 		ArrayList<type> liste = new ArrayList<type>();
 		type n = new type(0, "Normal");
@@ -124,10 +127,11 @@ public abstract class Inventaire {
 		while ((ligne = br.readLine()) != null) {
 			// Retourner la ligne dans un tableau
 			String[] data = ligne.split(",");
-			int x = (int) Double.parseDouble(data[1].replace("[", "").replace("\"", "")); // on supprime les caracteres
-																							// inutiles
-			int y = (int) Double.parseDouble(data[2].replace("]", "").replace("\"", ""));
-			Coordonnee c = new Coordonnee(50 + x * 30, 50 + y * 70);
+			int x = (int) (30 * Double.parseDouble(data[1].replace("[", "").replace("\"", ""))); // on supprime les
+																									// caracteres
+			// inutiles
+			int y = (int) (65 * Double.parseDouble(data[2].replace("]", "").replace("\"", "")));
+			Coordonnee c = new Coordonnee(30 + x, 50 + y);
 			Localisation loc = new Localisation(data[0], c);
 			loc.setId(localisations.size());
 			localisations.add(loc);
@@ -140,5 +144,12 @@ public abstract class Inventaire {
 		Pokemon p = pokemons.get(ind);
 		return p;
 	}
+
+	public static List<Pokemon> getPokemons() {
+		return pokemons;
+	}
+
+	
+	
 
 }
