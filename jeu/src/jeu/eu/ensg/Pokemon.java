@@ -41,7 +41,7 @@ public class Pokemon {
 
 	@Override
 	public String toString() {
-		return "Vie_temporaire [id=" + id + ", name=" + name + ", type1=" + type1 + ", type2=" + type2 + ", total="
+		return "Pokemon [id=" + id + ", name=" + name + ", type1=" + type1 + ", type2=" + type2 + ", total="
 				+ total + ", hp=" + hp + ", attack=" + attack + ", defense=" + defense + ", sp_atk=" + sp_atk
 				+ ", sp_def=" + sp_def + ", speed=" + speed + ", generation=" + generation + ", legend=" + legend + "]";
 	}
