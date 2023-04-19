@@ -2,6 +2,8 @@
 
 package jeu.eu.ensg;
 
+import java.util.Random;
+
 public class Pokemon {
 	private int id;
 	private String name;
@@ -19,6 +21,9 @@ public class Pokemon {
 	private String legend;
 	private boolean statut;
 	private int attaqueID;
+	private int attaqueID2;
+	private int attaqueID3;
+	private int attaqueID4;
 
 	public Pokemon(int id, String name, String type1, String type2, int total, int hp, int attack, int defense,
 			int sp_atk, int sp_def, int speed, int generation, String legend, int attaqueID) {
@@ -38,13 +43,58 @@ public class Pokemon {
 		this.legend = legend;
 		this.statut = false;
 		this.attaqueID = attaqueID;
+		Random random = new Random();
+		this.attaqueID2 = random.nextInt(103);
+		this.attaqueID3 = random.nextInt(103);
+		this.attaqueID4 = random.nextInt(103);
 			}
+	
 
 	@Override
 	public String toString() {
 		return "Pokemon [id=" + id + ", name=" + name + ", type1=" + type1 + ", type2=" + type2 + ", total="
 				+ total + ", hp=" + hp + ", attack=" + attack + ", defense=" + defense + ", sp_atk=" + sp_atk
 				+ ", sp_def=" + sp_def + ", speed=" + speed + ", generation=" + generation + ", legend=" + legend + "]";
+	}
+
+	public int getAttack() {
+		return attack;
+	}
+
+	public void setAttack(int attack) {
+		this.attack = attack;
+	}
+
+	public int getDefense() {
+		return defense;
+	}
+
+	public void setDefense(int defense) {
+		this.defense = defense;
+	}
+
+	public int getSp_atk() {
+		return sp_atk;
+	}
+
+	public void setSp_atk(int sp_atk) {
+		this.sp_atk = sp_atk;
+	}
+
+	public int getSp_def() {
+		return sp_def;
+	}
+
+	public void setSp_def(int sp_def) {
+		this.sp_def = sp_def;
+	}
+
+	public int getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
 	}
 
 	public int getId() {

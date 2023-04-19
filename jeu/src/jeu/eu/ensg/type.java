@@ -49,4 +49,8 @@ public class type {
 
 		return table_faiblesse[this.id][a];
 	}
+	@Override
+	public String toString() {
+		return "type [id=" + id + ", name=" + name+"]";
+	}
 }
