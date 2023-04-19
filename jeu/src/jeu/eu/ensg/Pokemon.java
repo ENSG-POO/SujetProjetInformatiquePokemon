@@ -1,4 +1,5 @@
 
+
 package jeu.eu.ensg;
 
 public class Pokemon {
@@ -115,3 +116,4 @@ public class Pokemon {
 	}
 
 }
+
