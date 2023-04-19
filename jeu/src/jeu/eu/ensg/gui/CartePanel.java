@@ -29,7 +29,6 @@ public class CartePanel extends JPanel implements MouseListener {
 	private Image fond;
 	private Carte carte;
 	private List<Localisation> pokemons_proches;
-	private FichePanel fiche;
 
 	/**
 	 * Constructeur.
@@ -41,7 +40,7 @@ public class CartePanel extends JPanel implements MouseListener {
 		this.fond = ii.getImage(); // on recupere l'Image de l'icon
 		this.carte = new Carte();
 		this.addMouseListener(this);
-		this.fiche = new FichePanel();
+		//this.fiche = new FichePanel();
 	}
 
 	public CartePanel(Carte carte) throws Exception {
@@ -86,8 +85,6 @@ public class CartePanel extends JPanel implements MouseListener {
 		for (int i = 0; i < taille; i++) {
 			pok[i] = proches.get(i).getNom();
 		}
-		fiche.setItems(pok);
-		fiche.getItems();
 		MenuDeroulant menu = new MenuDeroulant(pok, dresseur);
 
 	}
