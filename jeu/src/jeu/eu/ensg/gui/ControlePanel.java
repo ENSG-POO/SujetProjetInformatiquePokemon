@@ -50,7 +50,7 @@ public class ControlePanel extends JPanel {
 				
 				BarreDeVie barre = new BarreDeVie(100, 25,200,2);
 				barre.setPreferredSize(new Dimension(200, 2));
-				fen.add(BorderLayout.WEST,barre);
+				fen.add(BorderLayout.CENTER,barre);
 				
 				
 				fen.add(BorderLayout.EAST, new ListePok());

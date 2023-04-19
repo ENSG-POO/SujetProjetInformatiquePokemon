@@ -28,19 +28,6 @@ public class Carte extends JPanel {
 		// on affiche l'image avec facteur d' echelle (0.5)
 		
 	
-		Graphics2D g2D = (Graphics2D) g;
-		
-		// On dessine 10 points bleus
-		for (int i = 0; i < 10; i++) {
-			g2D.setPaint(Color.blue);
-			g.fillOval(i*50 + 100, i*50 + 100, 10, 10);
-		}
-		
-		if (!this.message.equals("")) {
-			g2D.setColor(Color.RED);
-			g2D.setFont(new Font("TimesRoman", Font.PLAIN, 36)); 
-			g.drawString(message, 250, 50);
-		}
 	}
 	
 	private String message = "";

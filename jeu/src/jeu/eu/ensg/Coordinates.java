@@ -1,6 +1,7 @@
 package jeu.eu.ensg;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Coordinates {
 	
@@ -57,7 +58,7 @@ public class Coordinates {
 		
 	}
 	
-	public ArrayList<Pokemon> listePokemonsProximite(ArrayList<Pokemon> listePokemonSauvages, int rayon) {
+	public ArrayList<Pokemon> listePokemonsProximite(List<Pokemon> listePokemonSauvages, int rayon) {
 		ArrayList<Pokemon> listePokemonsProximite = new ArrayList<Pokemon>();
 		for (int i =0 ; i< listePokemonSauvages.size(); i++) {
 				if(this.isNear(listePokemonSauvages.get(i).getPosition(), rayon)) {

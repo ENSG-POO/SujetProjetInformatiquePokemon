@@ -30,15 +30,7 @@ public class Statistiques {
 		t=t+speed;
 		this.legendary=legendary;
 		this.total=total;
-		try {
-			if(t!=this.total) {
-				throw new IllegalArgumentException("La valeur de total doit valoir la somme des paramètres hpMax, attack, defense, spAtk, spDef et speed");
-			}
-			System.out.println("La somme vaut" + t);
-		}
-		catch  (IllegalArgumentException e) {
-			System.out.println(e.getMessage());
-		}
+		
 //ici l'intéret de la variable t et de l'exception levée en cas de non égalité avec total permet surtout de détecter une erreur dans l'importation des statistiques du pokémon depuis le CSV fourni
 	}
 	

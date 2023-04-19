@@ -95,6 +95,7 @@ public class MainApp {
 		      JComboBox<String> cb = new JComboBox<String>(new Vector<String>(nom));
 		      JFrame selec = new JFrame();
 		      selec.add(cb);
+		      selec.setSize(new Dimension(200,200));
 		      selec.pack();
 		      selec.setVisible(true);
 		      
@@ -121,9 +122,7 @@ public class MainApp {
 						fen.add(BorderLayout.EAST, new ListePok());
 
 						fen.add(BorderLayout.SOUTH, new BoutonCombat(fen));
-
 						
-
 						fen.setLocationRelativeTo(null);
 						fen.setResizable(false);
 						fen.setTitle("fenetre de combat");
