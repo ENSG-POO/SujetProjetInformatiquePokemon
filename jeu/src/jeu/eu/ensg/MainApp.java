@@ -76,7 +76,7 @@ public class MainApp {
 		      Double Y =(double) e.getY();
 		      Coordinates C = new Coordinates(X,Y);
 
-		      ArrayList<Pokemon> listePokemonSauvages = new ArrayList<Pokemon>();
+		      List<Pokemon> listePokemonSauvages = new ArrayList<Pokemon>();
 		      Statistiques s = new Statistiques(1,1,2,3,4,5,true,7);
 		      Coordinates c = new Coordinates(0.0,0.0);
 		      
@@ -95,7 +95,6 @@ public class MainApp {
 		      JComboBox<String> cb = new JComboBox<String>(new Vector<String>(nom));
 		      JFrame selec = new JFrame();
 		      selec.add(cb);
-		      selec.setSize(new Dimension(200,200));
 		      selec.pack();
 		      selec.setVisible(true);
 		      
@@ -122,7 +121,9 @@ public class MainApp {
 						fen.add(BorderLayout.EAST, new ListePok());
 
 						fen.add(BorderLayout.SOUTH, new BoutonCombat(fen));
+
 						
+
 						fen.setLocationRelativeTo(null);
 						fen.setResizable(false);
 						fen.setTitle("fenetre de combat");

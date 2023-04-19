@@ -1,9 +1,5 @@
 package jeu.eu.ensg;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
 
 public class Combat {
 	
@@ -96,6 +92,7 @@ public class Combat {
 		}
 	}
 	
+
 	public int changer(ArrayList <Pokemon> L) {
 		int[][] nb = new int[5][10];
 		Scanner sc2 = new Scanner(System.in);

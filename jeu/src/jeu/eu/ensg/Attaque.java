@@ -1,5 +1,7 @@
 package jeu.eu.ensg;
 
+import java.util.Objects;
+
 public class Attaque {
 	
 	private String nom;
@@ -31,6 +33,24 @@ public class Attaque {
 			str="Physical";
 		}
 		return "["+this.nom + ", " + type + "," + puissance + ", " + str + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(nom, puissance, spe, type);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Attaque other = (Attaque) obj;
+		return Objects.equals(nom, other.nom) && puissance == other.puissance && spe == other.spe
+				&& Objects.equals(type, other.type);
 	}
 
 	public String getNom() {

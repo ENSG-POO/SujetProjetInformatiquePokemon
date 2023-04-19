@@ -1,12 +1,13 @@
 package jeu.eu.ensg;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Coordinates {
 	
 	private double x;
 	private double y;
-	public static String none;
+	public static String none = "Pokemon capturé";
 	
 	public Coordinates(double x, double y) {
 		this.x = x;
@@ -52,12 +53,34 @@ public class Coordinates {
 		this.y += dy;
 	}
 	
-	// fonction qui teste si la coordonnée coord en entrée est située dans un rayon 'rayon' de l'élément this
+	// fonction qui teste si la coordonnée coord en entrée est située dans un rayon 'rayon' autour de l'élément this
 	public boolean isNear(Coordinates coord, int rayon) {
 		return (Math.pow(Math.pow(this.x - coord.x, 2) + Math.pow(this.y - coord.y, 2 ), 0.5) <= rayon);
 		
 	}
 	
+	@Override
+	public int hashCode() {
+		return Objects.hash(x, y);
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Coordinates other = (Coordinates) obj;
+		return Double.doubleToLongBits(x) == Double.doubleToLongBits(other.x)
+				&& Double.doubleToLongBits(y) == Double.doubleToLongBits(other.y);
+	}
+
+
+
 	public ArrayList<Pokemon> listePokemonsProximite(ArrayList<Pokemon> listePokemonSauvages, int rayon) {
 		ArrayList<Pokemon> listePokemonsProximite = new ArrayList<Pokemon>();
 		for (int i =0 ; i< listePokemonSauvages.size(); i++) {

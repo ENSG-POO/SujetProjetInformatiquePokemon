@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class Type {
 	
@@ -15,6 +16,23 @@ public class Type {
 	@Override
 	public String toString() {
 		return "Type " + this.nom;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(nom);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Type other = (Type) obj;
+		return Objects.equals(nom, other.nom);
 	}
 
 	public int NumType() {
@@ -42,8 +60,7 @@ public class Type {
 	}
 
 
-	public String getdata(Type b) {
-		
+	public String getdata(Type b) {		
 		String[][] data = CSVReader.readCsvFile("./data/tableau-type.csv", ","); // ouverture du fichier types.csv en tableau
 		return data[this.NumType()][b.NumType()]; // retourne le coefficient multiplicateur entre deux types
 		

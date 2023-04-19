@@ -2,6 +2,7 @@ package jeu.eu.ensg;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainPrincipal {
     public static void main(String[] args) {
@@ -28,14 +29,22 @@ public class MainPrincipal {
      // Nettoyages du tableau moves pour ne garder que les attaques qui peuvent infliger des dégats
         String[][] attacksClean = TableManips.cleanTable(moves, 6, "None");
      // Création d'une liste contenant toutes les attaques
-        ArrayList<Attaque> listeAttaques=new ArrayList<Attaque>();
+        ArrayList<Attaque> listAtckGlobale=new ArrayList<Attaque>();
         for (int i = 1; i < attacksClean.length; i++) {//on démare à i=0 car le tableau nettoyé ne contient pas de header
         	Attaque a= new Attaque(attacksClean, i);
-        	listeAttaques.add(a);
+        	listAtckGlobale.add(a);
         }
      // ===========================================================================================		
-        // attribution d'une liste d'attaque à chaque pokemon contenant deux attaques alléatoire depuis 
-        
+        // attribution d'une liste d'attaque à chaque pokemon sauvage
+        Type normal=new Type("Normal");
+        for(int i=0;i<listePokemonsSauvages.size();i++) {
+        	listePokemonsSauvages.get(i).setListAtckRandom(listAtckGlobale, 1, listePokemonsSauvages.get(i).getType());
+        	listePokemonsSauvages.get(i).setListAtckRandom(listAtckGlobale, 1, normal);
+
+        }
+        System.out.println(listePokemonsSauvages.get(100).getNom());
+        System.out.println(listePokemonsSauvages.get(100).getType());
+        System.out.println(listePokemonsSauvages.get(100).getListAtck());
         
         //for (int i = 1; i < attacks.length; i++) {
             //for (int j = 0; j < attacks[i].length; j++) {
@@ -44,8 +53,8 @@ public class MainPrincipal {
            // System.out.println();
         //System.out.println(listePokemonsSauvages);
         //System.out.println(listePokemonsSauvages.size());
-          System.out.println(listeAttaques);
-          System.out.println(listeAttaques.size());
+          //System.out.println(listAtckGlobale);
+          //System.out.println(listAtckGlobale.size());
     // }
     }   
 }
