@@ -1,5 +1,7 @@
 package jeu.eu.ensg;
 
+import java.util.Objects;
+
 public class Statistiques {
 	private Integer lvl; //niveau du pokemon
 	private Integer xpMax; //correspond au nombre de point d'expérience maximal à atteindre avant de changer de niveau
@@ -10,7 +12,6 @@ public class Statistiques {
 	private Integer spDef; //correspont au nombre de point de défense face aux attaques spéciales 
 	private Integer speed; //correspond aux points de vitesse
 	private Boolean legendary; //indique si le pokémon est légendaire ou non
-	private Integer total; // somme des points de competence, interviendra dans l'équilibrage des combats
 	
 	public Statistiques(Integer hpMax,Integer attack,Integer defense,Integer spAtk, Integer spDef, Integer speed, Boolean legendary, Integer total) {
 		this.lvl=1; //toujour initialisé à 1, le viveau pourra être modifié grâce à changeLvl(bool) lorsque nécessaire
@@ -29,50 +30,47 @@ public class Statistiques {
 		this.speed=speed;
 		t=t+speed;
 		this.legendary=legendary;
-		this.total=total;
-		try {
-			if(t!=this.total) {
-				throw new IllegalArgumentException("La valeur de total doit valoir la somme des paramètres hpMax, attack, defense, spAtk, spDef et speed");
-			}
-			System.out.println("La somme vaut" + t);
-		}
-		catch  (IllegalArgumentException e) {
-			System.out.println(e.getMessage());
-		}
-//ici l'intéret de la variable t et de l'exception levée en cas de non égalité avec total permet surtout de détecter une erreur dans l'importation des statistiques du pokémon depuis le CSV fourni
 	}
 	
 	public Statistiques(String[][] table, Integer ligne) {
-		//str=str.substring(1, str.length() - 1);
-		//String[] stats = str.split(",");
 		this.lvl=1; //toujour initialisé à 1, le viveau pourra être modifié grâce à changeLvl(bool) lorsque nécessaire
 		this.xpMax=1; // vaudra toujour Math.pox(lvl,3)
-		Integer t = 0; 
 		this.hpMax=Integer.parseInt(table[ligne][5]);
-		t=t+hpMax;
 		this.attack=Integer.parseInt(table[ligne][6]);
-		t=t+attack;
 		this.defense=Integer.parseInt(table[ligne][7]);
-		t=t+defense;
 		this.spAtk=Integer.parseInt(table[ligne][8]);
-		t=t+spAtk;
 		this.spDef=Integer.parseInt(table[ligne][9]);
-		t=t+spDef;
 		this.speed=Integer.parseInt(table[ligne][10]);
-		t=t+speed;
 		this.legendary=Boolean.valueOf(table[ligne][12].toLowerCase());
-		this.total=Integer.parseInt(table[ligne][4]);
-		/*try {
-			if(t!=this.total) {
-				throw new IllegalArgumentException("La valeur de total doit valoir la somme des paramètres hpMax, attack, defense, spAtk, spDef et speed");
-			}
-			System.out.println("La somme des points de compétence vaut" + t);
-		}
-		catch  (IllegalArgumentException e) {
-			System.out.println(e.getMessage());
-		}*/
-//ici l'intéret de la variable t et de l'exception levée en cas de non égalité avec total permet surtout de détecter une erreur dans l'importation des statistiques du pokémon depuis le CSV fourni
 	}
+	@Override
+	public String toString() {
+		return "Statistiques : [lvl=" + lvl + ", xpMax=" + xpMax + ", hpMax=" + hpMax + ", attack=" + attack
+				+ ", defense=" + defense + ", spAtk=" + spAtk + ", spDef=" + spDef + ", speed=" + speed + ", legendary="
+				+ "Legendary : " + legendary + ", total=" + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(attack, defense, hpMax, legendary, lvl, spAtk, spDef, speed, xpMax);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Statistiques other = (Statistiques) obj;
+		return Objects.equals(attack, other.attack) && Objects.equals(defense, other.defense)
+				&& Objects.equals(hpMax, other.hpMax) && Objects.equals(legendary, other.legendary)
+				&& Objects.equals(lvl, other.lvl) && Objects.equals(spAtk, other.spAtk)
+				&& Objects.equals(spDef, other.spDef) && Objects.equals(speed, other.speed)
+				&& Objects.equals(xpMax, other.xpMax);
+	}
+
 	public Integer getLvl() {
 		return this.lvl;
 	}
@@ -127,15 +125,9 @@ public class Statistiques {
 	public void setLegendary(Boolean legendary) {
 		this.legendary = legendary;
 	}
-	public Integer getTotal() {
-		return this.total;
-	}
-	public void setTotal(Integer total) {
-		this.total = total;
-	}
 	
 	public void changeLvl(Boolean bool) {
-		if (bool) {
+		if (bool) { //bool indique si les statistiques du pokemon doivent être mises à jour
 		this.setLvl(this.getLvl()+1);
 		this.setXpMax((int) Math.pow(this.getLvl(),3));
 		this.setHpMax((int) Math.floor(this.getHpMax()*1.5));
@@ -143,11 +135,8 @@ public class Statistiques {
 		this.setDefense((int) Math.floor(this.getDefense()*1.5));
 		this.setSpAtk((int) Math.floor(this.getSpAtk()*1.5));
 		this.setSpDef((int) Math.floor(this.getSpDef()*1.5));
-		this.setSpeed((int) Math.floor(this.getSpeed()*1.5)); //les points de compétense sont tous augmentés de manière proportionelle pour que les pokémons gardent leurs spécificités
-		this.setTotal(this.hpMax + this.attack + this.defense +this.spAtk + this.spDef + this.speed);
+		this.setSpeed((int) Math.floor(this.getSpeed()*1.5)); 
+		//les points de compétense sont tous augmentés de manière proportionelle pour que les pokémons gardent leurs spécificités		
 		}	
-	}
-	
-	
-	
+	}	
 }
