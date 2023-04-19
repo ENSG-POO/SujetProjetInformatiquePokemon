@@ -1,28 +1,34 @@
 package jeu.eu.ensg.gui;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import jeu.eu.ensg.Carte;
+import jeu.eu.ensg.Coordonnee;
+import jeu.eu.ensg.Dresseur;
 import jeu.eu.ensg.Localisation;
+import jeu.eu.ensg.Pokemon;
 
 /**
  * Exemple de panneau contenant un espace où on peut dessiner.
  * 
  *
  */
-public class CartePanel extends JPanel {
+public class CartePanel extends JPanel implements MouseListener {
 
 	private static final long serialVersionUID = 1L;
 	private Image fond;
 	private Carte carte;
+	private List<Localisation> pokemons_proches;
 
 	/**
 	 * Constructeur.
@@ -33,12 +39,14 @@ public class CartePanel extends JPanel {
 		ImageIcon ii = new ImageIcon("../../data/Images/fond.jpg");
 		this.fond = ii.getImage(); // on recupere l'Image de l'icon
 		this.carte = new Carte();
+		this.addMouseListener(this);
 	}
 
 	public CartePanel(Carte carte) throws Exception {
 		ImageIcon ii = new ImageIcon("../../data/Images/fond.jpg");
 		this.fond = ii.getImage(); // on recupere l'Image de l'icon
 		this.carte = carte;
+		this.addMouseListener(this);
 	}
 
 	/**
@@ -56,43 +64,66 @@ public class CartePanel extends JPanel {
 		}
 	}
 
+	public void mouseClicked(MouseEvent e) {
+		int x = e.getX(); // obtention des coordonnées de l'évènement
+		int y = e.getY();
+		Coordonnee clic = new Coordonnee(x, y);
+		List<Pokemon> inventaire = new ArrayList<Pokemon>();
+		Dresseur dresseur = new Dresseur("moi", clic, inventaire);
+		List<Localisation> proches = dresseur.PokemonsProches(carte);
+		this.pokemons_proches = proches;
+		System.out.println(proches);
+		System.out.println(this);
+		
+	}
+
 	public void paint(Graphics g) {
 		Graphics2D g2D = (Graphics2D) g;
 
 		Image fond = this.fond;
-
 		g2D.drawImage(fond, 0, 0, 1400, 800, getFocusCycleRootAncestor()); // on affiche le background
-		/*
-		 * ImageIcon icone = new ImageIcon("../../data/Images/pikachu.png"); Image img =
-		 * icone.getImage();
-		 */
 
 		try {
 			affiche_pokemons(g2D);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		// On dessine 10 points bleus
-
 		/*
-		 * for (int i = 0; i < 10; i++) { g2D.setPaint(Color.blue); g.fillOval(i * 50 +
-		 * 100, i * 50 + 100, 10, 10); }
+		 * if (!this.message.equals("")) { g2D.setColor(Color.RED); g2D.setFont(new
+		 * Font("TimesRoman", Font.PLAIN, 36)); g.drawString(message, 250, 50); }
 		 */
-
-		if (!this.message.equals("")) {
-			g2D.setColor(Color.RED);
-			g2D.setFont(new Font("TimesRoman", Font.PLAIN, 36));
-			g.drawString(message, 250, 50);
-		}
 	}
 
-	private String message = "";
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
 
-	public void ajoutMessage(String message) {
-		this.message = message;
-		this.repaint();
 	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public String toString() {
+		return "CartePanel [fond=" + fond + ", carte=" + carte + ", pokemons_proches=" + pokemons_proches + "]";
+	}
+	
+	
 
 }
