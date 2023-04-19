@@ -36,7 +36,7 @@ public class Pokemon {
 		Integer ligne2=trouverIndiceLigne(infosPokemons, this.nom);
 		this.stats = new Statistiques(infosPokemons,ligne2);
 		HP = this.stats.getHpMax();
-		this.position = new Coordinates(tablePokemonCoord[ligne1][1],tablePokemonCoord[ligne1][2]);
+		this.position = new Coordinates(tablePokemonCoord[ligne1][1]);
 		this.type = new Type(infosPokemons[ligne2][2]);
 		this.listAtck = new ArrayList<Attaque>();
 	}
