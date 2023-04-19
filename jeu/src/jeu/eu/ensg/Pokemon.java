@@ -1,6 +1,8 @@
 
 package jeu.eu.ensg;
 
+import java.util.Random;
+
 public class Pokemon {
 	private int id;
 	private String name;
@@ -18,6 +20,9 @@ public class Pokemon {
 	private String legend;
 	private boolean statut;
 	private int attaqueID;
+	private int attaqueID2;
+	private int attaqueID3;
+	private int attaqueID4;
 
 	public Pokemon(int id, String name, String type1, String type2, int total, int hp, int attack, int defense,
 			int sp_atk, int sp_def, int speed, int generation, String legend, int attaqueID) {
@@ -37,7 +42,12 @@ public class Pokemon {
 		this.legend = legend;
 		this.statut = false;
 		this.attaqueID = attaqueID;
+		Random random = new Random();
+		this.attaqueID2 = random.nextInt(103);
+		this.attaqueID3 = random.nextInt(103);
+		this.attaqueID4 = random.nextInt(103);
 			}
+	
 
 	@Override
 	public String toString() {

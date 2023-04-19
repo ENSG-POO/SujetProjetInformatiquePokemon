@@ -11,7 +11,7 @@ public class combat {
 		double degat;
 		double puissance;
 		int idatt;
-		double degatfinal;
+		double degatfinal =0;
 		type typea;
 		PokeListe poke = new PokeListe();
 		AttaqueList att = new AttaqueList();
@@ -47,9 +47,9 @@ public class combat {
 				degat = puissance * (a.getSp_atk() / b.getSp_def());
 
 			}
-			degatfinal = degat * ty.gettypes(myMap.get(a.getType1())).faiblesse(idatt);
+			degatfinal = degat *    ty.gettypes(myMap.get(att.getattaque(idatt).getType())).faiblesse(myMap.get(b.getType1()));
 		} else {
-			int degafinal = 0;
+			degatfinal = 0;
 		}
 		b.setHp((int) ((int) b.getHp() - degatfinal));
 

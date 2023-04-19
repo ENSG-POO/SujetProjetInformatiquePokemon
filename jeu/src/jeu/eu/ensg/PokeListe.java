@@ -33,6 +33,11 @@ public class PokeListe {
 		return Pokemons;
 	}
 
+	public Pokemon getPokemon(int a) {
+		Pokemon b = Pokemons.get(a);
+		return b;
+	}
+
 	@Override
 	public String toString() {
 		return "Pokemon [Pokemons=" + Pokemons + "]";
