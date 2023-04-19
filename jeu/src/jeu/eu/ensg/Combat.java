@@ -77,7 +77,7 @@ public class Combat {
 		pokSauv.setHP(pokSauv.getHP()-degat);
 		
 		//attaque de l'ordi
-		if (pokSauv.getHP()<= 0) {
+		if (pokSauv.getHP()>= 0) {
 			if (spe2 == false) {
 				deg2 = ((((0.4*pokSauv.getStats().getLvl() + 2)* pokSauv.getStats().getAttack()*puissance2)/(50*pokPerso.getStats().getDefense())) + 2 ); // *CE
 				//deg2 = ((((2*att.getStats().getLvl())/5)+2*puissance2*att.getStats().getAttack()/def.getStats().getDefense())/50)+2;
@@ -149,7 +149,7 @@ public class Combat {
 			}
 		}
 		
-		if (pokSauv.getHP()==0) {
+		if (pokSauv.getHP()<=0) {
 			System.out.println("Bravo, vous avez capturé un nouveau pokémon");
 			L.add(pokSauv);
 		}
