@@ -1,4 +1,5 @@
 
+
 package jeu.eu.ensg;
 
 import java.util.Random;
@@ -165,3 +166,4 @@ public class Pokemon {
 	}
 
 }
+
