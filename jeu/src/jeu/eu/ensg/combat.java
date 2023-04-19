@@ -11,7 +11,11 @@ public static void combattotal (Pokemon a,Pokemon b) throws Exception {
 	if (a.getSpeed()> b.getSpeed()) {
 		while (a.getHp()> 0 || b.getHp()>0) {
 			round(a,b);
-			round(b,a);
+			Pokemon c= a ;
+			a = b;
+			b =a ;
+			
+			
 		}
 	}
 	

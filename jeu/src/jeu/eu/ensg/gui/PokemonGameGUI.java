@@ -136,11 +136,11 @@ public class PokemonGameGUI extends JFrame implements ActionListener {
 			if (userScore == 10 || computerScore == 10) {
 				String message;
 				if (userScore == 10) {
-					message = "Bravo, vous avez gagné !";
+					message = "Vous avez capturez le Pokemon!";
 				} else {
-					message = "Dommage, vous avez perdu !";
+					message = "Votre pokemon est K.O !";
 				}
-				JOptionPane.showMessageDialog(this, message, "Fin du jeu", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this, message, "Fin du Combat", JOptionPane.INFORMATION_MESSAGE);
 				// Réinitialiser le jeu
 				userScore = 0;
 				computerScore = 0;
