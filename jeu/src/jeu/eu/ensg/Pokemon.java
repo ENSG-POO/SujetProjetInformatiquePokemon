@@ -1,10 +1,7 @@
 package jeu.eu.ensg;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class Pokemon {
 
@@ -97,35 +94,12 @@ public class Pokemon {
 		this.listAtck = listAtck;
 	}
 	
-	@Override
-	public int hashCode() {
-		return Objects.hash(HP, listAtck, nom, position, stats, type);
+	public static int FindbyName(List<Pokemon> L,String nom) {
+		for (int i = 0;i<L.size();i++) {
+			if (L.get(i).getNom()==nom) {
+				return i;
+			}
+		}
+		return -1;
 	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Pokemon other = (Pokemon) obj;
-		return HP == other.HP && Objects.equals(listAtck, other.listAtck) && Objects.equals(nom, other.nom)
-				&& Objects.equals(position, other.position) && Objects.equals(stats, other.stats)
-				&& Objects.equals(type, other.type);
-	}
-
-	public void setListAtckRandom(List<Attaque> listAtckGlobale, int nbAtck, Type typeAtck) {
-	    List<Attaque> attaquesFiltrees = listAtckGlobale.stream()
-	                                        .filter(a -> a.getType().equals(typeAtck))
-	                                        .collect(Collectors.toList());
-	    for (int i = 0; i < nbAtck; i++) {
-	        Collections.shuffle(attaquesFiltrees);
-	        Attaque attaqueRandom = attaquesFiltrees.get(0);
-	        this.listAtck.add(attaqueRandom);
-	    }
-	}
-
-	
 }
