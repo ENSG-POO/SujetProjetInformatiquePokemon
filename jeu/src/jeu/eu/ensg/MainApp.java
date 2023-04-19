@@ -76,7 +76,7 @@ public class MainApp {
 		      Double Y =(double) e.getY();
 		      Coordinates C = new Coordinates(X,Y);
 
-		      List<Pokemon> listePokemonSauvages = new ArrayList<Pokemon>();
+		      ArrayList<Pokemon> listePokemonSauvages = new ArrayList<Pokemon>();
 		      Statistiques s = new Statistiques(1,1,2,3,4,5,true,7);
 		      Coordinates c = new Coordinates(0.0,0.0);
 		      
