@@ -12,9 +12,9 @@ import javax.swing.JPanel;
 import jeu.eu.ensg.Dresseur;
 
 public class MenuDeroulant extends JPanel {
-	
-public MenuDeroulant(String[] items) {
-		
+
+	public MenuDeroulant(String[] items) {
+
 		final JFrame fen = new JFrame();
 		fen.setSize(300, 300);
 		fen.setTitle("Choix Pokemon");
@@ -30,7 +30,7 @@ public MenuDeroulant(String[] items) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
 					Object selectedItem = e.getItem();
 					String nom = selectedItem.toString();
-					MenuDeroulant inventaire = new MenuDeroulant(new String[] {"coucou", ""});
+					//MenuDeroulant inventaire = new MenuDeroulant(new String[] { "coucou", "" });
 					// Code à exécuter lorsque l'élément est sélectionné
 				} else if (e.getStateChange() == ItemEvent.DESELECTED) {
 					Object deselectedItem = e.getItem();
@@ -51,7 +51,7 @@ public MenuDeroulant(String[] items) {
 	}
 
 	public MenuDeroulant(String[] items, Dresseur dresseur) {
-		
+
 		final JFrame fen = new JFrame();
 		fen.setSize(300, 300);
 		fen.setTitle("Choix Pokemon");
