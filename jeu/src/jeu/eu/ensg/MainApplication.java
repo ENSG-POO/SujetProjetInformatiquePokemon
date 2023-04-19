@@ -56,7 +56,6 @@ public class MainApplication {
 		fen.setLayout(new BorderLayout());
 
 		fen.add(BorderLayout.CENTER, mapPanel);
-		// fen.add(BorderLayout.EAST, new FichePanel());
 		fen.add(BorderLayout.SOUTH, new ControlePanel(mapPanel));
 
 		fen.setLocationRelativeTo(null);
