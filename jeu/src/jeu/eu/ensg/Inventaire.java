@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Inventaire {
-	private static List<Pokemon> pokemons;
+	protected static List<Pokemon> pokemons;
 
 	public Inventaire(List<Pokemon> pokemons) {
 		this.pokemons = pokemons;

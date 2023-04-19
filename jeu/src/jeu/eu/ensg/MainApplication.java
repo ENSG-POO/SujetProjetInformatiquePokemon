@@ -66,6 +66,7 @@ public class MainApplication {
 		fen.setTitle("Jeu Pokémon");
 
 		fen.setVisible(true);
+		System.out.println(mapPanel);
 	}
 
 }

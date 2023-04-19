@@ -1,10 +1,7 @@
 
 package jeu.eu.ensg;
 
-import java.awt.Graphics2D;
-import java.awt.Graphics;
-import javax.swing.*;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class Dresseur extends Inventaire {
@@ -23,16 +20,15 @@ public class Dresseur extends Inventaire {
 		return Math.sqrt(selon_x * selon_x + selon_y * selon_y);
 	}
 
-	public List<Pokemon> PokemonsProches(Graphics g) {
-		Graphics2D g2d = (Graphics2D) g;
-		g.drawOval(this.coord.getX(), this.coord.getY(), 70, 70);
-		for (Pokemon p : super.pokemons) {
-			if (distance(this.coord, p.getCoord()) < 70) {
-				super.ajouter_pokemon(p);
+	public List<Localisation> PokemonsProches(Carte carte) {
+		List<Localisation> proches = new ArrayList<Localisation>();
+		for (Localisation p : carte.getPokemons()) {
+			if (distance(this.coord, p.getPosition()) < 30) {
+				proches.add(p);
 			}
 		}
+		return proches;
 
 	}
 
 }
-
