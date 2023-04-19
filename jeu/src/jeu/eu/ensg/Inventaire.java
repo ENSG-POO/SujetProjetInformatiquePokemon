@@ -38,7 +38,7 @@ public abstract class Inventaire {
 		}
 	}
 
-	public static ArrayList<Pokemon>  charger_csv_pokemons() throws Exception {
+	public static ArrayList<Pokemon> charger_csv_pokemons() throws Exception {
 		BufferedReader br = new BufferedReader(new FileReader("../../data/pokemon_first_gen.csv"));
 		String ligne = null;
 		ArrayList<Pokemon> liste = new ArrayList<Pokemon>();
@@ -51,15 +51,14 @@ public abstract class Inventaire {
 					Integer.parseInt(data[8]), Integer.parseInt(data[9]), Integer.parseInt(data[10]),
 					Integer.parseInt(data[11]), data[12], Integer.parseInt(data[13]));
 			liste.add(p);
-			
 
 		}
 		System.out.println(liste);
 		br.close();
-		return liste ;
+		return liste;
 	}
 
-	public static ArrayList<attaque>  charger_csv_attaque() throws Exception {
+	public static ArrayList<attaque> charger_csv_attaque() throws Exception {
 		BufferedReader br = new BufferedReader(new FileReader("../../data/attaque.csv"));
 		String ligne = null;
 		ArrayList<attaque> liste = new ArrayList<attaque>();
@@ -70,13 +69,13 @@ public abstract class Inventaire {
 			attaque a = new attaque(Integer.parseInt(data[0]), data[1], data[2], data[3], Integer.parseInt(data[4]),
 					Integer.parseInt(data[5]));
 			liste.add(a);
-			
 
 		}
 		System.out.println(liste);
 		br.close();
-		return liste ;
+		return liste;
 	}
+
 	public static List<Localisation> charger_csv_coords() throws Exception {
 		BufferedReader br = new BufferedReader(new FileReader("../../data/pokemon_coordinates.csv"));
 		String ligne = null;
@@ -85,10 +84,11 @@ public abstract class Inventaire {
 		while ((ligne = br.readLine()) != null) {
 			// Retourner la ligne dans un tableau
 			String[] data = ligne.split(",");
-			int x = (int) Double.parseDouble(data[1].replace("[", "").replace("\"", "")); // on supprime les caracteres
-																							// inutiles
-			int y = (int) Double.parseDouble(data[2].replace("]", "").replace("\"", ""));
-			Coordonnee c = new Coordonnee(50 + x * 30, 50 + y * 70);
+			int x = (int) (30 * Double.parseDouble(data[1].replace("[", "").replace("\"", ""))); // on supprime les
+																									// caracteres
+			// inutiles
+			int y = (int) (65 * Double.parseDouble(data[2].replace("]", "").replace("\"", "")));
+			Coordonnee c = new Coordonnee(30 + x, 50 + y);
 			Localisation loc = new Localisation(data[0], c);
 			loc.setId(localisations.size());
 			localisations.add(loc);
@@ -101,5 +101,12 @@ public abstract class Inventaire {
 		Pokemon p = pokemons.get(ind);
 		return p;
 	}
+
+	public static List<Pokemon> getPokemons() {
+		return pokemons;
+	}
+
+	
+	
 
 }

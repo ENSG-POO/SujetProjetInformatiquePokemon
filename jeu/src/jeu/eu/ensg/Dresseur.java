@@ -7,11 +7,13 @@ import java.util.List;
 public class Dresseur extends Inventaire {
 	private String nom;
 	private Coordonnee coord;
+	private List<Pokemon> pokemons_joueur;
 
-	public Dresseur(String nom, Coordonnee coord, List<Pokemon> inventaire) {
-		super(inventaire);
+	public Dresseur(String nom, Coordonnee coord, List<Pokemon> pokemons_joueur) {
+		//super(inventaire);
 		this.nom = nom;
 		this.coord = coord;
+		this.pokemons_joueur = pokemons_joueur;
 	}
 
 	public double distance(Coordonnee c1, Coordonnee c2) {
@@ -29,6 +31,17 @@ public class Dresseur extends Inventaire {
 		}
 		return proches;
 
+	}
+	
+	public String[] getNomsPokemons() {
+		List<Pokemon> pokemons_joueur = this.pokemons_joueur;
+		String[] noms = new String[pokemons_joueur.size()];
+		for (int i=0; i<pokemons_joueur.size(); i++) {
+			noms[i] = pokemons_joueur.get(i).getName();
+			System.out.println("tatat" + noms[i]);
+		}
+		return noms;
+		
 	}
 
 }
