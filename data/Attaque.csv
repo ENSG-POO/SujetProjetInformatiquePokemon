@@ -1,0 +1,100 @@
+#,Nom,Type,Classe,Puis.,Pr�c.,PP
+1,Double Pied,Combat,Physique,30,100,30
+2,Balayage,Combat,Physique,50,100,20
+3,Mawashi Geri,Combat,Physique,60,85,15
+4,Pied Saut�,Combat,Physique,70,95,25
+5,Sacrifice,Combat,Physique,80,80,25
+6,Pied Voltige,Combat,Physique,85,90,20
+7,Draco-Rage,Dragon,Sp�ciale,150,100,10
+8,�cume,Eau,Sp�ciale,20,100,30
+9,Claquoir,Eau,Sp�ciale,35,75,10
+10,Pistolet � O,Eau,Sp�ciale,40,100,25
+11,Bulles d'O,Eau,Sp�ciale,65,100,20
+12,Cascade,Eau,Sp�ciale,80,100,15
+13,Pince-Masse,Eau,Sp�ciale,90,85,10
+14,Surf,Eau,Sp�ciale,95,100,15
+15,Hydrocanon,Eau,Sp�ciale,120,80,5
+16,�clair,Electrik,Sp�ciale,40,100,30
+17,Poing-�clair,Electrik,Sp�ciale,75,100,15
+18,Tonnerre,Electrik,Sp�ciale,95,100,15
+19,Fatal-Foudre,Electrik,Sp�ciale,120,70,5
+20,DanseFlamme,Feu,Sp�ciale,15,70,15
+21,Flamm�che,Feu,Sp�ciale,40,100,25
+22,Poing de Feu,Feu,Sp�ciale,75,100,15
+23,Lance-Flamme,Feu,Sp�ciale,95,100,15
+24,D�flagration,Feu,Sp�ciale,120,85,5
+25,Onde Bor�ale,Glace,Sp�ciale,65,100,20
+26,Poing-Glace,Glace,Sp�ciale,75,100,15
+27,Laser Glace,Glace,Sp�ciale,95,100,10
+28,Blizzard,Glace,Sp�ciale,120,90,5
+29,Dard Nu�e,Insect,Physique,14,85,20
+30,Vampirisme,Insect,Physique,20,100,15
+31,Double-Dard,Insect,Physique,25,100,20
+32,Constriction,Normal,Physique,10,100,35
+33,�treinte,Normal,Physique,15,85,20
+34,Furie,Normal,Physique,15,85,20
+35,Ligotage,Normal,Physique,15,90,20
+36,Pilonnage,Normal,Physique,15,85,20
+37,Torgnoles,Normal,Physique,15,85,10
+38,Combo-Griffe,Normal,Physique,18,80,15
+39,Poing Com�te,Normal,Physique,18,85,15
+40,Fr�n�sie,Normal,Physique,20,100,20
+41,Picanon,Normal,Physique,20,100,15
+42,Charge,Normal,Physique,35,95,35
+43,Tornade,Normal,Physique,35,100,40
+44,�cras'Face,Normal,Physique,40,100,35
+45,Griffe,Normal,Physique,40,100,35
+46,Jackpot,Normal,Physique,40,100,20
+47,Vive-Attaque,Normal,Physique,40,100,30
+48,Coupe,Normal,Physique,50,95,30
+49,Poing Karat�,Normal,Physique,50,100,25
+51,Force Poigne,Normal,Physique,55,100,30
+53,Morsure,Normal,Physique,60,100,25
+54,�crasement,Normal,Physique,65,100,20
+55,Koud'Korne,Normal,Physique,65,100,25
+56,Coud'Boule,Normal,Physique,70,100,15
+57,Tranche,Normal,Physique,70,100,20
+58,Uppercut,Normal,Physique,70,100,10
+59,Coupe-Vent,Normal,Physique,80,100,10
+60,Croc de Mort,Normal,Physique,80,90,15
+61,Force,Normal,Physique,80,100,15
+62,Souplesse,Normal,Physique,80,75,20
+63,Triplattaque,Normal,Physique,80,100,10
+64,Ultimapoing,Normal,Physique,80,85,20
+65,Plaquage,Normal,Physique,85,100,15
+66,B�lier,Normal,Physique,90,85,20
+67,Mania,Normal,Physique,90,100,20
+68,Bomb'�uf,Normal,Physique,100,75,16
+69,Coud'Kr�ne,Normal,Physique,100,100,15
+70,Damocl�s,Normal,Physique,100,100,15
+71,Ultimawashi,Normal,Physique,120,75,5
+72,Destruction,Normal,Physique,130,100,5
+73,Ultralaser,Normal,Physique,150,90,5
+74,Explosion,Normal,Physique,170,100,5
+75,Vol-Vie,Plante,Sp�ciale,20,100,20
+76,Fouet Lianes,Plante,Sp�ciale,35,100,10
+77,M�ga-Sangsue,Plante,Sp�ciale,40,100,10
+78,Tranch'Herbe,Plante,Sp�ciale,55,95,25
+79,Danse-Fleur,Plante,Sp�ciale,70,100,20
+80,Lance-Soleil,Plante,Sp�ciale,120,100,10
+81,Dard-Venin,Poison,Physique,15,100,35
+82,Pur�dpois,Poison,Physique,20,70,20
+83,Acide,Poison,Physique,40,100,30
+84,D�tritus,Poison,Physique,65,100,20
+85,Choc Mental,Psy,Sp�ciale,50,100,25
+86,Rafale Psy,Psy,Sp�ciale,65,100,20
+87,Psyko,Psy,Sp�ciale,90,100,10
+88,D�vor�ve,Psy,Sp�ciale,100,100,15
+89,Jet-Pierres,Roche,Physique,50,65,15
+90,�boulement,Roche,Physique,75,90,10
+91,Osmerang,Sol,Physique,50,90,10
+92,Massd'Os,Sol,Physique,65,85,10
+93,S�isme,Sol,Physique,100,100,10
+94,Tunnel,Sol,Physique,100,100,10
+95,T�n�bres,Spectre,Physique,50,100,15
+96,L�chouille,Spectre,Physique,20,100,30
+97,Cru-Aile,Vol,Physique,35,100,35
+98,Picpic,Vol,Physique,35,100,35
+99,Vol,Vol,Physique,70,100,15
+100,Bec Vrille,Vol,Physique,80,100,20
+101,Piqu�,Vol,Physique,140,90,5
