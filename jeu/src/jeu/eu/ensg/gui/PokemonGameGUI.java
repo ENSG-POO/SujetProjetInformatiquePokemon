@@ -111,7 +111,7 @@ public class PokemonGameGUI extends JFrame implements ActionListener {
 			labelSelectedPokemon.setText(selectedButton.getText());
 			labelSelectedPokemon.setIcon(selectedButton.getIcon());
 
-			// Sélectionner un Pokemon au hasard pour l'ordinateur
+			// Sélectionner une attaque au hasard pour l'ordinateur
 			String[] pokemonNames = { "Pikachu", "Charmander", "Squirtle" };
 			int computerIndex = random.nextInt(pokemonNames.length);
 			String computerPokemon = pokemonNames[computerIndex];

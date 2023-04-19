@@ -6,7 +6,29 @@ import java.util.List;
 import java.util.Map;
 
 public class combat {
-
+public static void combattotal (Pokemon a,Pokemon b) throws Exception {
+	
+	if (a.getSpeed()> b.getSpeed()) {
+		while (a.getHp()> 0 || b.getHp()>0) {
+			round(a,b);
+			round(b,a);
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
 	public static void round(Pokemon a, Pokemon b) throws Exception {
 		double degat;
 		double puissance;
