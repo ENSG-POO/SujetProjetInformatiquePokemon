@@ -38,6 +38,47 @@ public abstract class Inventaire {
 		}
 	}
 
+
+	public static ArrayList<type> charger_type() {
+		ArrayList<type> liste = new ArrayList<type>();
+		type n = new type(0, "Normal");
+		liste.add(n);
+		type f = new type(1, "Feu");
+		liste.add(f);
+		type e = new type(2, "Eau");
+		liste.add(e);
+		type p = new type(3, "Plante");
+		liste.add(p);
+		type el = new type(4, "Electrik");
+		liste.add(el);
+		type g = new type(5, "Glace");
+		liste.add(g);
+		type c = new type(6, "Combat");
+		liste.add(c);
+		type po = new type(7, "Poison");
+		liste.add(po);
+		type s = new type(8, "Sol");
+		liste.add(s);
+		type v = new type(9, "Vol");
+		liste.add(v);
+		type ps = new type(10, "Psy");
+		liste.add(ps);
+		type i = new type(11, "Insecte");
+		liste.add(i);
+		type r = new type(12, "Roche");
+		liste.add(r);
+		type spe = new type(13, "Spectre");
+		liste.add(spe);
+		type d = new type(14, "Dragon");
+		liste.add(d);
+		type T = new type(15, "Tenebres");
+		liste.add(T);
+		type A = new type(16, "Acier");
+		liste.add(A);
+		return liste;
+
+	}
+
 	public static ArrayList<Pokemon> charger_csv_pokemons() throws Exception {
 		BufferedReader br = new BufferedReader(new FileReader("../../data/pokemon_first_gen.csv"));
 		String ligne = null;
