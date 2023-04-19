@@ -2,7 +2,6 @@ package jeu.eu.ensg.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -48,9 +47,8 @@ public class ControlePanel extends JPanel {
 				
 				fen.add(BorderLayout.CENTER, new ImageCombat());
 				
-				BarreDeVie barre = new BarreDeVie(100, 25,200,2);
-				barre.setPreferredSize(new Dimension(200, 2));
-				fen.add(BorderLayout.WEST,barre);
+				BarreDeVie barre = new BarreDeVie(100, 25);
+				barre.setPreferredSize(new Dimension(200, 20));
 				
 				
 				fen.add(BorderLayout.EAST, new ListePok());
