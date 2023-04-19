@@ -39,6 +39,8 @@ public abstract class Inventaire {
 	}
 
 
+
+
 	public static ArrayList<type> charger_type() {
 		ArrayList<type> liste = new ArrayList<type>();
 		type n = new type(0, "Normal");
