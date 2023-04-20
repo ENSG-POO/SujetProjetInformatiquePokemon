@@ -8,7 +8,6 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import jeu.eu.ensg.gui.CartePanel;
 import jeu.eu.ensg.gui.ControlePanel;
-import jeu.eu.ensg.gui.FichePanel;
 
 /**
  * Lancement de l'application graphique
@@ -57,15 +56,16 @@ public class MainApplication {
 		fen.setLayout(new BorderLayout());
 
 		fen.add(BorderLayout.CENTER, mapPanel);
-		fen.add(BorderLayout.EAST, new FichePanel());
 		fen.add(BorderLayout.SOUTH, new ControlePanel(mapPanel));
 
 		fen.setLocationRelativeTo(null);
 		fen.setResizable(false);
 		fen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		fen.setTitle("Jeu Pokémon");
-
+		mapPanel.repaint();
 		fen.setVisible(true);
+		System.out.println(mapPanel);
+
 	}
 
 }
