@@ -1,5 +1,9 @@
 package jeu.eu.ensg.gui;
 
+import java.awt.FlowLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -100,6 +104,26 @@ public class PokemonGameGUI extends JFrame implements ActionListener {
 
 	public static void main(String[] args) {
 		new PokemonGameGUI();
+	    // Charger les images
+        ImageIcon image1 = new ImageIcon("../../data/Images/1G/Charizard.png");
+        ImageIcon image2 = new ImageIcon("../../data/Images/1G/Charizard.png");
+
+        // Créer les JLabels pour chaque image
+        JLabel label1 = new JLabel(image1);
+        JLabel label2 = new JLabel(image2);
+
+        // Créer un conteneur pour les deux JLabels
+        JFrame frame = new JFrame();
+        frame.setLayout(new FlowLayout());
+        frame.add(label1);
+        frame.add(label2);
+
+        // Configurer la fenêtre
+        frame.setTitle("Deux images côte à côte");
+        frame.setPreferredSize(new Dimension(800, 400));
+        frame.pack();
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	@Override
