@@ -1,9 +1,8 @@
 package jeu.eu.ensg.gui;
 
-
-
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,13 +14,10 @@ public class TwoImagesExample {
         // Charger les images
         ImageIcon image1 = new ImageIcon("../../data/Images/1G/Charizard.png");
         ImageIcon image2 = new ImageIcon("../../data/Images/1G/Charizard.png");
+
         // Créer les JLabels pour chaque image
         JLabel label1 = new JLabel(image1);
         JLabel label2 = new JLabel(image2);
-
-        // Créer les JLabels pour chaque texte
-        JLabel text1 = new JLabel("Image 1");
-        JLabel text2 = new JLabel("Image 2");
 
         // Créer les boutons
         JButton button1 = new JButton("Bouton 1");
@@ -30,37 +26,34 @@ public class TwoImagesExample {
         JButton button4 = new JButton("Bouton 4");
         JButton fuiteButton = new JButton("Fuite");
 
-        // Créer un conteneur pour chaque paire d'image et de texte
+        // Créer un conteneur pour chaque paire d'image et de boutons
         JPanel imagePanel1 = new JPanel();
-        imagePanel1.setLayout(new FlowLayout());
+        imagePanel1.setLayout(new BoxLayout(imagePanel1, BoxLayout.PAGE_AXIS));
         imagePanel1.add(label1);
-        imagePanel1.add(text1);
+        imagePanel1.add(button1);
+        imagePanel1.add(button2);
 
         JPanel imagePanel2 = new JPanel();
-        imagePanel2.setLayout(new FlowLayout());
+        imagePanel2.setLayout(new BoxLayout(imagePanel2, BoxLayout.PAGE_AXIS));
         imagePanel2.add(label2);
-        imagePanel2.add(text2);
+        imagePanel2.add(button3);
+        imagePanel2.add(button4);
 
         // Créer un conteneur pour les boutons
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
-        buttonPanel.add(button1);
-        buttonPanel.add(button2);
-        buttonPanel.add(button3);
-        buttonPanel.add(button4);
+        buttonPanel.add(fuiteButton);
 
-        // Créer un autre conteneur pour le bouton "Fuite"
-        JPanel bottomPanel = new JPanel();
-        bottomPanel.setLayout(new FlowLayout());
-        bottomPanel.add(fuiteButton);
+        // Créer un conteneur pour les deux panneaux d'images et les boutons
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new FlowLayout());
+        mainPanel.add(imagePanel1);
+        mainPanel.add(imagePanel2);
+        mainPanel.add(buttonPanel);
 
-        // Créer un conteneur pour les trois panneaux
+        // Créer la fenêtre et ajouter le conteneur principal
         JFrame frame = new JFrame();
-        frame.setLayout(new FlowLayout());
-        frame.add(imagePanel1);
-        frame.add(imagePanel2);
-        frame.add(buttonPanel);
-        frame.add(bottomPanel);
+        frame.add(mainPanel);
 
         // Configurer la fenêtre
         frame.setTitle("Interface");
@@ -70,5 +63,3 @@ public class TwoImagesExample {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
-
-

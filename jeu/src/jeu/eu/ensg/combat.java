@@ -33,7 +33,7 @@ public static void combattotal (Pokemon a,Pokemon b) throws Exception {
 	
 	
 }
-	public static void round(Pokemon a, Pokemon b) throws Exception {
+	public static void round(Pokemon a, Pokemon b) {
 		double degat;
 		double puissance;
 		int idatt;

@@ -163,4 +163,28 @@ public class Pokemon {
 		this.statut = statut;
 	}
 
+	public int getAttaqueID2() {
+		return attaqueID2;
+	}
+
+	public void setAttaqueID2(int attaqueID2) {
+		this.attaqueID2 = attaqueID2;
+	}
+
+	public int getAttaqueID3() {
+		return attaqueID3;
+	}
+
+	public void setAttaqueID3(int attaqueID3) {
+		this.attaqueID3 = attaqueID3;
+	}
+
+	public int getAttaqueID4() {
+		return attaqueID4;
+	}
+
+	public void setAttaqueID4(int attaqueID4) {
+		this.attaqueID4 = attaqueID4;
+	}
+
 }
