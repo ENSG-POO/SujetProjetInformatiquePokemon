@@ -61,9 +61,14 @@ public class CartePanel extends JPanel implements MouseListener {
 
 	public void affiche_pokemons(Graphics2D g2D) throws Exception {
 		List<Localisation> localisations = this.carte.getPokemons();
+		String chemin;
 		for (Localisation loc : localisations) {
-			g2D.setPaint(Color.red);
-			g2D.fillOval(loc.getPosition().getX(), loc.getPosition().getY(), 10, 10);
+			/*g2D.setPaint(Color.red);
+			g2D.fillOval(loc.getPosition().getX(), loc.getPosition().getY(), 10, 10);*/
+			chemin = "../../data/Images/pokepedia/"+loc.getNom() + ".png";
+			Image image = new ImageIcon(chemin).getImage();
+			g2D.drawImage(image, loc.getPosition().getX(), loc.getPosition().getY(), 30, 30, getFocusCycleRootAncestor());
+			
 		}
 	}
 
