@@ -85,9 +85,10 @@ public class CartePanel extends JPanel implements MouseListener {
 		System.out.println(proches);
 		System.out.println(this);
 		int taille = proches.size();
-		String[] pok = new String[taille];
+		String[] pok = new String[taille+1];
+		pok[0] = "";
 		for (int i = 0; i < taille; i++) {
-			pok[i] = proches.get(i).getNom();
+			pok[i+1] = proches.get(i).getNom();
 		}
 		MenuDeroulant menu = new MenuDeroulant(pok, dresseur);
 
@@ -97,7 +98,7 @@ public class CartePanel extends JPanel implements MouseListener {
 		Graphics2D g2D = (Graphics2D) g;
 
 		Image fond = this.fond;
-		g2D.drawImage(fond, 0, 0, 1400, 800, getFocusCycleRootAncestor()); // on affiche le background
+		g2D.drawImage(fond, 0, 0, 1600, 800, getFocusCycleRootAncestor()); // on affiche le background
 
 		try {
 			affiche_pokemons(g2D);

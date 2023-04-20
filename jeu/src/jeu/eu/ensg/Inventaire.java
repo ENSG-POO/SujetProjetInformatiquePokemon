@@ -127,7 +127,7 @@ public abstract class Inventaire {
 		while ((ligne = br.readLine()) != null) {
 			// Retourner la ligne dans un tableau
 			String[] data = ligne.split(",");
-			int x = (int) (30 * Double.parseDouble(data[1].replace("[", "").replace("\"", ""))); // on supprime les
+			int x = (int) (35 * Double.parseDouble(data[1].replace("[", "").replace("\"", ""))); // on supprime les
 																									// caracteres
 			// inutiles
 			int y = (int) (65 * Double.parseDouble(data[2].replace("]", "").replace("\"", "")));
