@@ -1,32 +1,20 @@
 package pack1;
 
-public class PokeSauvage extends Pokemon{
+public class PokeSauvage {
 	
-	private String name;
-	private double positionX;
-	private double positionY;	
+	public PokeCharacter p1;
 	
-	public PokeSauvage(String name, double positionX, double positionY) {
-		this.name = name;
-		this.positionX = positionX;
-		this.positionY = positionY;
-	}
-	
-	public String getName() {
-    	return this.name;
-    }
-	
-	public double getPositionX() {
-    	return this.positionX;
-    }
-	
-	public double getPositionY() {
-    	return this.positionY;
+	public PokeSauvage (String name) {
+		ListePokeChara l1 = new ListePokeChara();
+		PokeCharacter p1 = l1.GetPoke(name);
+		this.p1 = p1;
+
     }
 	
 	@Override
 	public String toString() {
-		return "name= " + this.name + ", X= " + this.positionX 
-				+ ", Y= " + this.positionY;
-	}	
+		return this.p1.name+" est un pokémon sauvage, il est de type "+this.p1.type1+" il a "+this.p1.HP +"point de vie";
+	}
+	
+
 }
