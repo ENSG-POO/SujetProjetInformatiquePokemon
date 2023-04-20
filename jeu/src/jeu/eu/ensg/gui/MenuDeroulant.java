@@ -7,30 +7,34 @@ import java.awt.event.ItemListener;
 
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import jeu.eu.ensg.Dresseur;
 
 public class MenuDeroulant extends JPanel {
-	
-public MenuDeroulant(String[] items) {
-		
+
+	public MenuDeroulant(String[] items) {
+
 		final JFrame fen = new JFrame();
 		fen.setSize(300, 300);
 		fen.setTitle("Choix Pokemon");
 		fen.setVisible(true);
 
-		JPanel infoPokemon = new JPanel(new GridLayout(1, 1));
+		JPanel infoPokemon = new JPanel(new GridLayout(2, 1));
 		infoPokemon.setSize(200, 600);
 		infoPokemon.setBackground(Color.PINK);
 
+		JLabel labelNom = new JLabel("Choisissez le pokemon avec lequel vous voulez combattre :");
+		infoPokemon.add(labelNom);
+		
 		ItemListener itemListener = new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
 					Object selectedItem = e.getItem();
 					String nom = selectedItem.toString();
-					MenuDeroulant inventaire = new MenuDeroulant(new String[] {"coucou", ""});
+					//MenuDeroulant inventaire = new MenuDeroulant(new String[] { "coucou", "" });
 					// Code à exécuter lorsque l'élément est sélectionné
 				} else if (e.getStateChange() == ItemEvent.DESELECTED) {
 					Object deselectedItem = e.getItem();
@@ -51,16 +55,19 @@ public MenuDeroulant(String[] items) {
 	}
 
 	public MenuDeroulant(String[] items, Dresseur dresseur) {
-		
+
 		final JFrame fen = new JFrame();
 		fen.setSize(300, 300);
 		fen.setTitle("Choix Pokemon");
 		fen.setVisible(true);
 
-		JPanel infoPokemon = new JPanel(new GridLayout(1, 1));
+		JPanel infoPokemon = new JPanel(new GridLayout(2, 1));
 		infoPokemon.setSize(200, 600);
 		infoPokemon.setBackground(Color.PINK);
 
+		JLabel labelNom = new JLabel("Choisissez le pokemon que vous voulez combattre :");
+		infoPokemon.add(labelNom);
+		
 		ItemListener itemListener = new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
