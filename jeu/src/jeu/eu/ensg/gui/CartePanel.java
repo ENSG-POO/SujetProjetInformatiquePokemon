@@ -29,6 +29,7 @@ public class CartePanel extends JPanel implements MouseListener {
 	private Image fond;
 	private Carte carte;
 	private List<Localisation> pokemons_proches;
+	private Dresseur dresseur;
 
 	/**
 	 * Constructeur.
@@ -40,6 +41,7 @@ public class CartePanel extends JPanel implements MouseListener {
 		this.fond = ii.getImage(); // on recupere l'Image de l'icon
 		this.carte = new Carte();
 		this.addMouseListener(this);
+		this.dresseur = new Dresseur("moi");
 		//this.fiche = new FichePanel();
 	}
 
@@ -69,12 +71,14 @@ public class CartePanel extends JPanel implements MouseListener {
 		int x = e.getX(); // obtention des coordonnées de l'évènement
 		int y = e.getY();
 		Coordonnee clic = new Coordonnee(x, y);
-		List<Pokemon> inventaire = new ArrayList<Pokemon>();
+		/*List<Pokemon> inventaire = new ArrayList<Pokemon>();
 		Pokemon p1 = new Pokemon(1,"Bulbasaur","Plante","Poison",318,45,49,49,65,65,45,1,"legendaire",3);
 		Pokemon p2 = new Pokemon(2,"Ivysaur","Plante","Poison",405,60,62,63,80,80,60,1,"legendaire",1);
 		inventaire.add(p1);
 		inventaire.add(p2);
-		Dresseur dresseur = new Dresseur("moi", clic, inventaire);
+		Dresseur dresseur = new Dresseur("moi", clic, inventaire);*/
+		Coordonnee c = new Coordonnee(x, y);
+		this.dresseur.setCoord(c);
 		dresseur.getNomsPokemons();
 		List<Localisation> proches = dresseur.PokemonsProches(carte);
 		this.pokemons_proches = proches;

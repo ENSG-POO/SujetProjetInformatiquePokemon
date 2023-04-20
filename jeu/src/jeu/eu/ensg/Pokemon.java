@@ -1,5 +1,4 @@
 
-
 package jeu.eu.ensg;
 
 import java.util.Random;
@@ -47,14 +46,13 @@ public class Pokemon {
 		this.attaqueID2 = random.nextInt(103);
 		this.attaqueID3 = random.nextInt(103);
 		this.attaqueID4 = random.nextInt(103);
-			}
-	
+	}
 
 	@Override
 	public String toString() {
-		return "Pokemon [id=" + id + ", name=" + name + ", type1=" + type1 + ", type2=" + type2 + ", total="
-				+ total + ", hp=" + hp + ", attack=" + attack + ", defense=" + defense + ", sp_atk=" + sp_atk
-				+ ", sp_def=" + sp_def + ", speed=" + speed + ", generation=" + generation + ", legend=" + legend + "]";
+		return "Pokemon [id=" + id + ", name=" + name + ", type1=" + type1 + ", type2=" + type2 + ", total=" + total
+				+ ", hp=" + hp + ", attack=" + attack + ", defense=" + defense + ", sp_atk=" + sp_atk + ", sp_def="
+				+ sp_def + ", speed=" + speed + ", generation=" + generation + ", legend=" + legend + "]";
 	}
 
 	public int getAttack() {
@@ -166,4 +164,3 @@ public class Pokemon {
 	}
 
 }
-
