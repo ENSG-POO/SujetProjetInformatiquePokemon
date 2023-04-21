@@ -1,11 +1,14 @@
 package jeu.eu.ensg;
+
 import java.util.HashMap;
 import java.util.Objects;
 
 public class Type {
 	
 	private String nom;
+	public static String[][] tableauType = CSVReader.readCsvFile("./data/tableau-type.csv", ","); // ouverture du fichier types.csv en tableau
 
+	// constructeur Type avec le nom du type en argument
 	public Type(String nom) {
 		this.nom = nom;
 	}
@@ -32,7 +35,9 @@ public class Type {
 		return Objects.equals(nom, other.nom);
 	}
 
+	// méthode qui retourne le numéro correspondant au type
 	public int NumType() {
+		// création d'un dictionnaire associant chaque type à un numéro
 		HashMap<String,Double> NumType = new HashMap<String,Double>();
 		NumType.put("Steel",0.0);
 		NumType.put("Fighting",1.0);
@@ -52,15 +57,14 @@ public class Type {
 		NumType.put("Ghost",15.0);
 		NumType.put("Dark",16.0);
 		NumType.put("Flying",17.0);
+		// récupération du numéro correspondant au type de l'instance actuelle
 		int nt = NumType.get(this.nom).intValue();
 		return nt;
 	}
 
-
-	public String getdata(Type b) {		
-		String[][] data = CSVReader.readCsvFile("./data/tableau-type.csv", ","); // ouverture du fichier types.csv en tableau
-		return data[this.NumType()][b.NumType()]; // retourne le coefficient multiplicateur entre deux types
-		
-
+	// méthode qui retourne le coefficient multiplicateur entre deux types
+	public String getdata(Type b) {
+		// accès à la case correspondant au type de l'instance actuelle et au type b dans le tableau de types
+		return tableauType[this.NumType()][b.NumType()];
 	}
 }
