@@ -6,7 +6,6 @@ import java.util.Random;
 
 import jeu.eu.ensg.gui.FenetreCombat;
 
-
 public class Combat {
 	
 	private Pokemon PJ;
@@ -71,7 +70,7 @@ public void changer(List<Pokemon> sac) {
 public void attaque_enemi() {
 	Random rand = new Random(); 
 	int choixAtt = rand.nextInt(2);
-	if (choixAtt == 0) {
+	if (choixAtt == 1) {
 		Attaque att = this.getPS().getListAtck().get(0);
 		int puissance = att.getPuissance();
 		Type t = att.getType();
@@ -88,17 +87,6 @@ public void attaque_enemi() {
 		this.getPJ().setHP(this.getPJ().getHP()-degat);
 		System.out.println("L'ennemi utilise " + att.getNom());
 		System.out.println("L'ennemi vous inflige " + Integer.toString(degat) + " PV");
-		if (this.getPJ().getHP()<=0) {
-			System.out.println("Votre Pokemon est Mort");
-			if (trainer.getEquipe().size()==0) {
-				System.out.println("Défaite");
-				this.setOver(true);
-			}
-			this.changer(trainer.getEquipe());
-			ArrayList<Pokemon> Temp = trainer.getEquipe();
-			Temp.remove(Temp.size()-1);
-			trainer.setEquipe(Temp);
-		}
 	}
 	else  {
 		Attaque att = this.getPS().getListAtck().get(0);
@@ -117,23 +105,11 @@ public void attaque_enemi() {
 		this.getPJ().setHP(this.getPJ().getHP()-degat);
 		System.out.println("L'ennemi utilise " + att.getNom());
 		System.out.println("L'ennemi vous inflige " + Integer.toString(degat) + " PV");
-		if (this.getPJ().getHP()<=0) {
-			System.out.println("Votre Pokemon est Mort");
-			if (trainer.getEquipe().size()==0) {
-				System.out.println("Défaite");
-				this.setOver(true);
-			}
-			this.changer(trainer.getEquipe());
-			ArrayList<Pokemon> Temp = trainer.getEquipe();
-			Temp.remove(Temp.size()-1);
-			trainer.setEquipe(Temp);
-		}
-
 	}
 }
 
 public void attaque() {
-	Attaque att = this.getPJ().getListAtck().get(1);
+	Attaque att = this.getPJ().getListAtck().get(0);
 	Type t = att.getType();
 	Type t_enemi = this.getPS().getType();
 	int puissance = att.getPuissance();
@@ -149,22 +125,11 @@ public void attaque() {
 	this.getPS().setHP(this.getPS().getHP()-degat);
 	System.out.println("Vous utilisez " + att.getNom());
 	System.out.println("Vous infligez " + Integer.toString(degat) + " PV");
-	if (this.getPS().getHP()<=0) {
-		System.out.println("Victoire!");
-		System.out.println("Vous avez capturé: "+this.getPS().getNom());
-		ArrayList<Pokemon> Temp = trainer.getEquipe();
-		Temp.add(this.getPS());
-		LPS.remove(this.getPS());
-		trainer.setEquipe(Temp);
-		this.setOver(true);
-	}
-	else {
-	attaque_enemi();
-	}
+
 }
 
 public void attaque_spe() {
-	Attaque att = this.getPJ().getListAtck().get(0);
+	Attaque att = this.getPJ().getListAtck().get(1);
 	Type t = att.getType();
 	Type t_enemi = this.getPS().getType();
 	int puissance = att.getPuissance();
@@ -181,17 +146,21 @@ public void attaque_spe() {
 	System.out.println("Vous utilisez " + att.getNom());
 	System.out.println("Vous infligez " + Integer.toString(degat) + " PV");
 
-	if (this.getPS().getHP()<=0) {
-		System.out.println("Victoire!");
-		System.out.println("Vous avez capturé: "+this.getPS().getNom());
-		ArrayList<Pokemon> Temp = trainer.getEquipe();
-		Temp.add(this.getPS());
-		LPS.remove(this.getPS());
-		trainer.setEquipe(Temp);
-		this.setOver(true);
-	}
-	else {
-	attaque_enemi();
-	}
+
 }
+
+public void Heal() {
+	ArrayList<Pokemon> Temp = trainer.getEquipe();
+	for (int i=0; i<Temp.size();i++) {
+		Temp.get(i).setHP(Temp.get(i).getStats().getHpMax());
+	}
+	trainer.setEquipe(Temp);
+}
+
+
+
+
+
+
+
 }
