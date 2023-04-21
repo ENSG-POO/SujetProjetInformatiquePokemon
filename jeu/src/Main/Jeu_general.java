@@ -6,6 +6,7 @@ import java.util.Random;
 import gestionDesPokemons.Coordinate;
 import gestionDesPokemons.Pokemon;
 import gestionDesPokemons.PokemonDuJeu;
+import java.awt.MouseInfo;
 
 public class Jeu_general {
 	
@@ -29,9 +30,9 @@ public class Jeu_general {
 		// présents à moins de 5 unités de lui
 		ArrayList<PokemonDuJeu> PokProches = new ArrayList<PokemonDuJeu>();
 		while (PokProches.size() == 0) {
-			Coordinate coord = ActionListener() ;
+			Coordinate coord = new Coordinate(MouseInfo.getPointerInfo().getLocation().getX(),MouseInfo.getPointerInfo().getLocation().getY()) ;
 			for (int i=0; i<=listePokemon.size(); i++) {
-				if (coord.distance(listePokemon.get(i).getCoord()) <= 5) {
+				if (coord.distance(listePokemon.get(i).getCoord()) <= 50) {
 					PokProches.add(listePokemon.get(i));
 				}
 			}
@@ -64,21 +65,5 @@ public class Jeu_general {
 		Pokemon PokS = ActionListener(PokProches);
 		return PokS;
 	}
-    public boolean derouleDuCombat () {
-        boolean victoire = false ;
-        while (hpS > 0 && hpD > 0) {
-            attaque (true, pokemonD, pokemonS);
-            if (Math.random() > 0.5) {
-                    attaque(false, pokemonS, pokemonD) ; }
 
-                else {
-                    attaque(true, pokemonS, pokemonD) ; }
-        }
-        if (hpS > 0) {
-            victoire = true ;
-            pokemonS.setisSauvage(false);
-            MainJoueur.addPokemon(pokemonS);
-        }
-        return victoire ;
-    }
 }
