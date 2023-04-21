@@ -1,8 +1,13 @@
 package pack1;
 
+import java.awt.Point;
+
+
+// classe intermédiaire pour manipuler les coordonnées des pokémons
 public class coord {
 	public double x; 
 	public double y; 
+	public Point p;
 	
 	public coord (double x, double y) {
 		this.x = x; 
@@ -34,6 +39,14 @@ public class coord {
 	public static void main(String[] args) {
 		coord coord1 = new coord(0,0);
 		System.out.println(coord1);
+	}
+	
+	public coord pointToCoord(Point p) {
+		double x = p.x;
+		double y = p.y;
+		
+		coord c1 = new coord(x,y);
+		return c1;
 	}
 
 

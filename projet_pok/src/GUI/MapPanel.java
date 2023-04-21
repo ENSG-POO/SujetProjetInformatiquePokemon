@@ -7,8 +7,6 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
@@ -22,8 +20,10 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
+import gestion_jeu.Jeu;
 import pack1.ListePoke;
 import pack1.Pokemon;
 import pack1.coord;
@@ -48,7 +48,7 @@ public class MapPanel extends JPanel {
             @Override
             public void keyPressed(KeyEvent e) {
                 int keyCode = e.getKeyCode();
-                int step = 5;
+                int step = 2;
                 if (keyCode == KeyEvent.VK_UP) {
                     point.y -= step;
                 } else if (keyCode == KeyEvent.VK_DOWN) {
@@ -64,10 +64,6 @@ public class MapPanel extends JPanel {
                     System.out.println("- " + p.getName() + " à une distance de " + p.getDistance());
                 }
                 repaint();
-            }
-            
-            public Point getPoint() {
-                return point;
             }
         });
         
@@ -112,6 +108,7 @@ public class MapPanel extends JPanel {
         setFocusable(true);   
     }
     
+    
     public ListePoke getListePoke() {
         return listePoke;
     }
@@ -142,8 +139,8 @@ public class MapPanel extends JPanel {
             int panelWidth = getWidth();
             int panelHeight = getHeight();
             
-            int maxX = Math.max(0, imageWidth - panelWidth);
-            int maxY = Math.max(0, imageHeight - panelHeight);
+            //int maxX = Math.max(0, imageWidth - panelWidth);
+            //int maxY = Math.max(0, imageHeight - panelHeight);
             
             int xOffset = (panelWidth - imageWidth) / 2;
             int yOffset = (panelHeight - imageHeight) / 2;            

@@ -1,5 +1,10 @@
 # Pokémon: projet informatique
 
+## Equipe sur le projet 
+* FAGUET Jules
+* LEROUX Léonie
+* PALOS Johan
+
 
 ## Matériel de départ
 

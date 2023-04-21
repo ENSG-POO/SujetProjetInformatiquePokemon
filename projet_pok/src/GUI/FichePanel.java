@@ -17,11 +17,7 @@ import gestion_jeu.Joueur;
 import pack1.Pokemon;
 import pack1.coord;
 
-/**
- * Exemple de panneau contenant des composants de formulaire. 
- * 
- *
- */
+// Panel qui permet de créer l'avatar du joueur
 public class FichePanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;

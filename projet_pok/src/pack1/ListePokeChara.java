@@ -1,8 +1,14 @@
 package pack1;
 
 import java.io.BufferedReader;
+
 import java.io.FileReader;
 import java.io.IOException;
+
+
+//classe qui permet de lire les données du CSV1 (CSV avec toutes les caractéristique des pokémons) 
+//et de les stoker les données dans une liste ListePokeChara
+// sous la forme de PokeCharacter (pokémon)
 
 public class ListePokeChara {
 	PokeCharacter[] ListeChara;

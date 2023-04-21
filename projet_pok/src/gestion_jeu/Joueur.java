@@ -1,10 +1,10 @@
 package gestion_jeu;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import pack1.PokeSauvage;
 import pack1.Pokemon;
 import pack1.coord;
+
+// classe qui permet de créer l'avatar du joueur
 
 public class Joueur {
 	
@@ -17,6 +17,7 @@ public class Joueur {
 		this.pokedex = pokedex ;
 		this.position = position;
 	}
+	
 	
 	@Override 
 	public String toString() {

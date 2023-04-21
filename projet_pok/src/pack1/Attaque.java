@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 import gestion_jeu.Joueur;
 
+//classe qui permet de générer une Attaque: les attributs sont un pokémon qui défend et 
+// un qui attaque: ces deux pokémons sont de type PokeCharacter, car il faut un type qui confonde 
+// pokémon domestique et pokémon sauvage afin d'alterner le pokémon qui attaque et celui qui défend dans les combats 
+
 public class Attaque {
 	
 	public PokeCharacter pokeAt; 
@@ -14,27 +18,21 @@ public class Attaque {
 		this.pokeDef = pokeDef;
 	}
 	
-	public Attaque() {
+	public Attaque() { // constructeur utile lorsque l'on fait une attaque neutre: en effet, peut importe le type du pokémon
+		 			// qui attaque, le dégat d'une attaque neutre est de -5 pv
 		
 	}
 	
-	/*public double savePVA () {
-		double pvA = this.pokeAt.HP;
-		return pvA;
-	}
-	
-	public double savePVD () {
-		double pvD = this.pokeDef.HP;
-		return pvD;
-	}*/
-	
-	public double attackN () {
+	public double attackN () { // une attaque neutre provoque 5 points de dégats, peu importe 
+		 					// le type des pokémons qui combattent. Return les dégats de l'attaque 
 		double cout = 5;
 		return cout;
 	
 	}
 	
 	public double GetCoeff(int a, int b) {
+		//fonction qui permet d'obtenir le coefficients multiplicateur des attaques spéciales en fonction des types
+		// des pokémons qui attaquent et défendent
 	 double[][] tab;
 	        tab = new double[18][18];
 	        for (int i = 0; i < tab.length; i++) {
@@ -172,6 +170,8 @@ public class Attaque {
 	}
 	
 	public double attackS() {
+		//une attaque spécifique provoque 10*k dégats, k dépendant du type du pokémon qui attaque et de celui qui défend
+		// return les dégats
 		Type y1 = new Type();
 		
 		int inta = y1.idType(this.pokeAt.type1);

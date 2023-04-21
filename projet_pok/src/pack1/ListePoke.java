@@ -6,6 +6,10 @@ import java.io.IOException;
 
 import GUI.MapPanel;
 
+//classe qui permet de lire les données du CSV2 (CSV les coordonnées des pokémons) 
+//et de les stoker les données dans une liste ListePokeChara
+//sous la forme de PokeCharacter (pokémon)
+
 public class ListePoke {
 	public Pokemon[] ListePoke;
 	public ListePoke() {
@@ -56,8 +60,7 @@ public class ListePoke {
         e.printStackTrace();
     }
 
-    this.ListePoke = ListePoke;
-    
+    this.ListePoke=ListePoke;
 	}
    
 	public Pokemon GetListePoke(int i) {

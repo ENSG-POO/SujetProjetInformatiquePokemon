@@ -3,35 +3,51 @@ package GUI;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import gestion_jeu.Jeu;
 import gestion_jeu.Joueur;
 import pack1.Attaque;
 import pack1.Combat;
 import pack1.PokeDomestique;
 import pack1.PokeSauvage;
 import pack1.Pokemon;
+import pack1.coord;
 
 public class CombatPanel extends JPanel {
 	
 	public Joueur j;
 	public Combat c;
+	public Jeu game;
+	public double pvS;
+	public double pvD;
+	public MapPanel map;
+	public List<Pokemon> pokemonsProches;
 	
-	public CombatPanel(Joueur j, Combat c) {
+	public CombatPanel(Joueur j, Combat c, Jeu game, MapPanel map) {
 		
 		this.setSize(200, 50);
 		
 		//création du premier panel pour le choix des pokémons qui vont combattre 
-		JPanel infoCombat = new JPanel (new GridLayout (10,2));
+		JPanel infoCombat = new JPanel (new GridLayout (25 ,2));
 		
 		JLabel label = new JLabel("Choisissez le pokémon sauvage");
         infoCombat.add(label);
-        String[] choixPokS = {"Bulbasaur", "Mew", "Poliwag"}; //liste à modifier selon les pokémons autour sur map
-        JComboBox cb = new JComboBox(choixPokS);
+        coord coord1 = new coord(map.getX(),map.getY());
+        
+        pokemonsProches = game.trouverPokemonProche(5, coord1.x, coord1.y); //liste à modifier selon les pokémons autour sur map
+        String[] l = game.listToString(pokemonsProches);
+        
+        JComboBox<String> cb = new JComboBox<>(l);
+        ComboBoxModel<String> cbTest = new DefaultComboBoxModel<>(l);
+        cb.setModel(cbTest);
         infoCombat.add(cb);
         
         JLabel labe2 = new JLabel("Choisissez votre pokémon pour combattre");
@@ -62,14 +78,13 @@ public class CombatPanel extends JPanel {
 				JLabel vide = new JLabel (" ");
 				infoCombat.add(vide);
 				
-				
-				double pvS = c.pokeS.getPV();
-				double pvD = c.pokeD.getPVd();
+				pvS = c.pokeS.getPV();
+				pvD = c.pokeD.getPVd();
 				
 				//while (pvS != 0 && pvD != 0) {
 				
 				
-				//avant de commencer le combat, on affiche les PV des 2 pok au départ
+				//avant de commencer le combat, on affiche les PV des 2 pokémons au départ
 				JLabel afPVS = new JLabel ("PV pokémon sauvage: " + pvS);
 				JLabel afPVD = new JLabel ("PV de ton pokémon: " + pvD);
 				
@@ -95,23 +110,37 @@ public class CombatPanel extends JPanel {
 					public void actionPerformed(ActionEvent e) {
 						Attaque a1 = new Attaque();
 						double coutN = a1.attackN ();
-						afPVS.setText("PV pokémon sauvage: " + (pvS-coutN)); //trouver moyen de modifier pvS et pvD pour le remettre à jour
+						pvS -= coutN;
+						afPVS.setText("PV pokémon sauvage: " + pvS); 
 						
 						//on crée ensuite une action "aléatoire" qui lance l'attaque du pokemon sauvage
-						double m = Math.random()*10; // si inf à 5 attaque N sinon attaque S
+						double m = Math.random()*10; // si inférieur à 5 attaque Neutre sinon attaque Spéciale
 						System.out.println(m);
 						
 						if (m<5) {
 							Attaque a2 = new Attaque();
 							double coutN2 = a2.attackN();
-							afPVD.setText("Attaque neutre du Pokemon Sauvage : tu perds " + coutN2 + " de PV. Nouveau PV de ton pokémon: " + (pvD-coutN2));
-							
+							pvD-= coutN2;
+							afPVD.setText("Attaque du Pokemon Sauvage. PV de ton Pokémon: " + pvD);
 						}
 						
 						else {
 							Attaque a2p = new Attaque(pokeS.toPokeCharacter(), pokeD.toPokeCharacter());
 							double coutS2 = a2p.attackS();
-							afPVD.setText("Attaque spécifique du Pokemon Sauvage : tu perds " + coutS2 + " de PV. Nouveau PV de ton pokémon: " + (pvD-coutS2));
+							pvD -= coutS2;
+							afPVD.setText("Attaque du Pokemon Sauvage. PV de ton Pokémon " + pvD);
+						}
+						
+						if (pvS <= 0) {
+							JLabel fin = new JLabel ("Le combat est terminé, tu peux maintenant capturer le pokemon");
+							infoCombat.add(fin);
+							
+							
+						}
+						
+						if (pvD <= 0) {
+							JLabel fin = new JLabel ("Tu as perdu le combat!");
+							infoCombat.add(fin);
 						}
 						
 					}
@@ -127,7 +156,8 @@ public class CombatPanel extends JPanel {
 					public void actionPerformed(ActionEvent e) {
 						Attaque a2 = new Attaque(c.pokeD.toPokeCharacter(),c.pokeS.toPokeCharacter());
 						double coutS = a2.attackS();
-						afPVS.setText("PV pokémon sauvage: " + (pvS-coutS));
+						pvS -= coutS;
+						afPVS.setText("PV pokémon sauvage: " + pvS);
 						
 						//on crée ensuite une action "aléatoire" qui lance l'attaque du pokemon sauvage
 						double m = Math.random()*10; // si inf à 5 attaque N sinon attaque S
@@ -136,19 +166,29 @@ public class CombatPanel extends JPanel {
 						if (m<5) {
 							Attaque a3 = new Attaque();
 							double coutN2 = a2.attackN();
-							afPVD.setText("Attaque neutre du Pokemon Sauvage : tu perds " + coutN2 + " de PV. Nouveau PV de ton pokémon: " + (pvD-coutN2));
-							
+							pvD -= coutN2;
+							afPVD.setText("Attaque du Pokemon Sauvage. PV de ton Pokémon: " + pvD);
 						}
 						
 						else {
 							Attaque a2p = new Attaque(pokeS.toPokeCharacter(), pokeD.toPokeCharacter());
 							double coutS2 = a2p.attackS();
-							afPVD.setText("Attaque spécifique du Pokemon Sauvage : tu perds " + coutS2 + " de PV. Nouveau PV de ton pokémon: " + (pvD-coutS2));
+							pvD -= coutS2;
+							afPVD.setText("Attaque du Pokemon Sauvage. PV de ton Pokémon " + pvD);
+						}
+						
+						if (pvS <= 0) {
+							JLabel fin = new JLabel ("Le combat est terminé; tu peux maintenant capturer le pokemon");
+							infoCombat.add(fin);
+						}
+						
+						if (pvD <= 0) {
+							JLabel fin = new JLabel ("Tu as perdu !");
+							infoCombat.add(fin);
 						}
 					}
 				});
-				
-				
+
 				//Boutton fait changer de Pokémon
 				/*JButton change = new JButton ("changer de Pokémon");
 				change.setBounds(50, 50, 20, 100);
@@ -164,7 +204,6 @@ public class CombatPanel extends JPanel {
 				        JComboBox nv_choix = new JComboBox(choixPokD);
 				        infoCombat.add(nv_choix);
 				        
-				        
 				        //création du boutton pour valider nouveau choix pok
 				        JButton nv = new JButton("Valider");
 						nv.setBounds(50, 50, 20, 100);
@@ -175,27 +214,31 @@ public class CombatPanel extends JPanel {
 							public void actionPerformed(ActionEvent e) {
 								PokeDomestique nv_pok = new PokeDomestique(nv_choix.getSelectedItem().toString(), j);
 								c.changerpokeD(nv_pok);
-								
 							}
 						});
-						
 						
 					}
 				}); */
 				
+			//}
 				
+				//Boutton pour fuir
+				JButton fuir = new JButton("fuir");
+				fuir.setBounds(50, 50, 20, 100);
+				infoCombat.add(fuir);   
+				fuir.setVisible(true);
 				
-				
-				
-				
-				
-				
-				
+				fuir.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						JLabel fuite = new JLabel ("Tu abandonnes le combat");
+						System.out.println("fuite");
+						infoCombat.add(fuite);
+						}
+				});
 				
 			}
-			//}
+			
 		});
-        
         
 	}
 

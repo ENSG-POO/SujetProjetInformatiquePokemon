@@ -2,6 +2,8 @@ package pack1;
 
 public class Pokemon {
 	
+	//classe mère pour créer les Pokémons
+	
 	public String name;
 	public coord position;
 	public double distance;
@@ -18,21 +20,23 @@ public class Pokemon {
 
 	}
 	
-	public String getName() {
-		return this.name;
-	}
-	
 	public coord getPosition() {
 		return this.position;
 	}
 	
-    public double getDistance() {
-        return this.distance;
-    }
-    
-    public void setDistance(double distance) {
-        this.distance = distance;
-    }
+	public String getName() {
+		return this.name;
+	}
+	
+	public void setDistance(double distance) {
+		this.distance = distance;
+	}
+	
+	public double getDistance() {
+		return this.distance;
+	}
+
+
 		
 	
 	@Override
