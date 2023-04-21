@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import jeu.eu.ensg.Dresseur;
+import jeu.eu.ensg.PokeListe;
 
 public class MenuDeroulant extends JPanel {
 
@@ -192,7 +193,7 @@ public class MenuDeroulant extends JPanel {
 		return dictionary;
 	}
 
-	public MenuDeroulant(String[] items, String adversaire, Dresseur dresseur) {
+	public MenuDeroulant(String[] items, String adversaire, Dresseur dresseur) throws Exception {
 
 		final JFrame fen = new JFrame();
 		fen.setSize(300, 300);
@@ -206,6 +207,7 @@ public class MenuDeroulant extends JPanel {
 		JLabel labelNom = new JLabel("<html>Quel pokemon de votre inventaire souhaitez-vous utiliser pour combattre "
 				+ adversaire + " ?</html>");
 		infoPokemon.add(labelNom);
+		PokeListe types = new PokeListe();
 
 		ItemListener itemListener = new ItemListener() {
 
@@ -215,9 +217,11 @@ public class MenuDeroulant extends JPanel {
 					Object selectedItem = e.getItem();
 					String nom = selectedItem.toString();
 					HashMap<String, Integer> dictionnaire = cree_dictionnaire();
+					
 					int id_pokemon_sauvage = dictionnaire.get(adversaire);
-					int id_pokemon_inventaire = dictionnaire.get(nom);
-					setPokemon_sauvage(adversaire);
+					int id_pokemon_choisi = dictionnaire.get(nom);
+					int id_pokemon_inventaire = dresseur.getPokemons_joueur().indexOf(types.getPokemons().get(id_pokemon_choisi-1));
+					setPokemon_sauvage(adversaire); 
 					setPokemon_joueur(nom);
 					setId_pokemon_joueur(id_pokemon_inventaire);
 					setId_pokemon_sauvage(id_pokemon_sauvage);
@@ -264,7 +268,13 @@ public class MenuDeroulant extends JPanel {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
 					Object selectedItem = e.getItem();
 					String nom = selectedItem.toString();
-					MenuDeroulant inventaire = new MenuDeroulant(dresseur.getNomsPokemons(), nom, dresseur);
+					try {
+						System.out.println("coucou");
+						MenuDeroulant inventaire = new MenuDeroulant(dresseur.getNomsPokemons(), nom, dresseur);
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					fen.dispose();
 					return;
 
@@ -302,6 +312,8 @@ public class MenuDeroulant extends JPanel {
 	public void setId_pokemon_joueur(int id_pokemon_joueur) {
 		this.id_pokemon_joueur = id_pokemon_joueur;
 	}
+	
+	
 	
 	
 }
