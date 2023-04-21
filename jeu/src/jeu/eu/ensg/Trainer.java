@@ -29,7 +29,6 @@ public class Trainer {
 		return equipe.isEmpty();
 	}
 	
-
 	// Getter pour la position du dresseur
 	public Coordinates getPosition() {
 		return this.position;
