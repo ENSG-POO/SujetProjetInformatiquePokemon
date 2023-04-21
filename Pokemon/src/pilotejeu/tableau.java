@@ -96,21 +96,22 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class tableau {
-	
+	// Classe qui permet de lire le fichier csv contenant tous les pokemons et leurs attributs
 
+	
 	public String nom;
-	private static final String FILE_PATH = "/Users/clementcambours/Documents/ENSG-geomatique/Java/projet/pokemon_first_gen.csv";
+	private static final String FILE_PATH = "../data/pokemon_first_gen.csv";
+	
+	public tableau() {	
+	}
 	
 	public tableau(String nom) {
 		this.nom = nom;
-	}
+	}		
 	
-	
-	
-	
-	
-	
+		
 	public String[] getPokemon() {
+		// Cette fonction renvoie les attributs d'un pokemon 
 		String[] attribut_pokemon = {""};
 		for (int i = 0; i < data.length; i++) {
 			if (data[i][1].equals(nom)) {
@@ -120,17 +121,13 @@ public class tableau {
 		return attribut_pokemon;
 	}
 	
-	
-	
-	
-	
+
 	File pokemon = new File(FILE_PATH);
 	BufferedReader br = null;
 	String line = null;
 	String[][] data = new String[167][13];
 	int row = 0;
 	{
-
 	
 	try {
 		br = new BufferedReader(new FileReader(pokemon));
@@ -162,16 +159,12 @@ public class tableau {
 		}
 	}
 	
-	//System.out.println("Tableau pokémon:");
-	//System.out.println(Arrays.deepToString(data));
-	//System.out.println(data[2][4]);
 	
 	
 	}
 	
 	
 	
-
 	public static void main(String[] args) {
 		
 		Scanner scanner = new Scanner(System.in);

@@ -5,10 +5,10 @@ import java.util.Scanner;
 
 public class Feu {
 	
-	public static final String[] Efficace= {"Acier","Plante","Glace","Insecte"};
-	public static final String[] PasEfficace= {"Roche","Dragon","Feu","Eau"};
-	public static final String[] Neutre= {"Combat","Fee","Electrique"
-			,"Normal","Psy","Spectre","Tenebres","Vol","Sol","Poison"};
+	public static final String[] Efficace= {"Steel","Grass","Ice","Bug"};
+	public static final String[] PasEfficace= {"Rock","Dragon","Fire","Water"};
+	public static final String[] Neutre= {"Fighting","Fairy","Electric"
+			,"Normal","Psychic","Ghost","Dark","Fly","Ground","Poison"};
 	public static final String[] Inefficace= {};
 	
 

@@ -22,55 +22,55 @@ import Type.Vol;
 public class Efficacite {
 	
 	public static String[] Efficace(String type) {
-		if (type=="Acier") {
+		if (type.equals("Steel")) {
 			return Acier.Efficace;
 		}
-		if (type=="Combat") {
+		if (type.equals("Fighting")) {
 			return Combat.Efficace;
 		}
-		if (type=="Dragon") {
+		if (type.equals("Dragon")) {
 			return Dragon.Efficace;
 		}
-		if (type=="Eau") {
+		if (type.equals("Water")) {
 			return Eau.Efficace;
 		}
-		if (type=="Electrique") {
+		if (type.equals("Electric")) {
 			return Electrique.Efficace;
 		}
-		if (type=="Fee") {
+		if (type.equals("Fairy")) {
 			return Fee.Efficace;
 		}
-		if (type=="Feu") {
+		if (type.equals("Fire")) {
 			return Feu.Efficace;
 		}
-		if (type=="Glace") {
+		if (type.equals("Ice")) {
 			return Glace.Efficace;
 		}
-		if (type=="Insecte") {
+		if (type.equals("Bug")) {
 			return Insecte.Efficace;
 		}
-		if (type=="Normal") {
+		if (type.equals("Normal")) {
 			return Normal.Efficace;
 		}
-		if (type=="Plante") {
+		if (type.equals("Grass")) {
 			return Plante.Efficace;
 		}
-		if (type=="Poison") {
+		if (type.equals("Poison")) {
 			return Poison.Efficace;
 		}
-		if (type=="Psy") {
+		if (type.equals("Psychic")) {
 			return Psy.Efficace;
 		}
-		if (type=="Roche") {
+		if (type.equals("Rock")) {
 			return Roche.Efficace;
 		}
-		if (type=="Sol") {
+		if (type.equals("Ground")) {
 			return Sol.Efficace;
 		}
-		if (type=="Spectre") {
+		if (type.equals("Ghost")) {
 			return Spectre.Efficace;
 		}
-		if (type=="Tenebres") {
+		if (type.equals("Dark")) {
 			return Tenebres.Efficace;
 		}
 		else {
@@ -80,55 +80,55 @@ public class Efficacite {
 	}
 	
 	public static String[] PasEfficace(String type) {
-		if (type=="Acier") {
+		if (type.equals("Steel")) {
 			return Acier.PasEfficace;
 		}
-		if (type=="Combat") {
+		if (type.equals("Fighting")) {
 			return Combat.PasEfficace;
 		}
-		if (type=="Dragon") {
+		if (type.equals("Dragon")) {
 			return Dragon.PasEfficace;
 		}
-		if (type=="Eau") {
+		if (type.equals("Water")) {
 			return Eau.PasEfficace;
 		}
-		if (type=="Electrique") {
+		if (type.equals("Electric")) {
 			return Electrique.PasEfficace;
 		}
-		if (type=="Fee") {
+		if (type.equals("Fairy")) {
 			return Fee.PasEfficace;
 		}
-		if (type=="Feu") {
+		if (type.equals("Fire")) {
 			return Feu.PasEfficace;
 		}
-		if (type=="Glace") {
+		if (type.equals("Ice")) {
 			return Glace.PasEfficace;
 		}
-		if (type=="Insecte") {
+		if (type.equals("Bug")) {
 			return Insecte.PasEfficace;
 		}
-		if (type=="Normal") {
+		if (type.equals("Normal")) {
 			return Normal.PasEfficace;
 		}
-		if (type=="Plante") {
+		if (type.equals("Grass")) {
 			return Plante.PasEfficace;
 		}
-		if (type=="Poison") {
+		if (type.equals("Poison")) {
 			return Poison.PasEfficace;
 		}
-		if (type=="Psy") {
+		if (type.equals("Psychic")) {
 			return Psy.PasEfficace;
 		}
-		if (type=="Roche") {
+		if (type.equals("Rock")) {
 			return Roche.PasEfficace;
 		}
-		if (type=="Sol") {
+		if (type.equals("Ground")) {
 			return Sol.PasEfficace;
 		}
-		if (type=="Spectre") {
+		if (type.equals("Ghost")) {
 			return Spectre.PasEfficace;
 		}
-		if (type=="Tenebres") {
+		if (type.equals("Dark")) {
 			return Tenebres.PasEfficace;
 		}
 		else {
@@ -138,55 +138,56 @@ public class Efficacite {
 	}
 
 	public static String[] Neutre(String type) {
-		if (type=="Acier") {
+		if (type.equals("Steel")) {
 			return Acier.Neutre;
 		}
-		if (type=="Combat") {
+		
+		if (type.equals("Fighting")) {
 			return Combat.Neutre;
 		}
-		if (type=="Dragon") {
+		if (type.equals("Dragon")) {
 			return Dragon.Neutre;
 		}
-		if (type=="Eau") {
+		if (type.equals("Water")) {
 			return Eau.Neutre;
 		}
-		if (type=="Electrique") {
+		if (type.equals("Electric")) {
 			return Electrique.Neutre;
 		}
-		if (type=="Fee") {
+		if (type.equals("Fairy")) {
 			return Fee.Neutre;
 		}
-		if (type=="Feu") {
+		if (type.equals("Fire")) {
 			return Feu.Neutre;
 		}
-		if (type=="Glace") {
+		if (type.equals("Ice")) {
 			return Glace.Neutre;
 		}
-		if (type=="Insecte") {
+		if (type.equals("Bug")) {
 			return Insecte.Neutre;
 		}
-		if (type=="Normal") {
+		if (type.equals("Normal")) {
 			return Normal.Neutre;
 		}
-		if (type=="Plante") {
+		if (type.equals("Grass")) {
 			return Plante.Neutre;
 		}
-		if (type=="Poison") {
+		if (type.equals("Poison")) {
 			return Poison.Neutre;
 		}
-		if (type=="Psy") {
+		if (type.equals("Psychic")) {
 			return Psy.Neutre;
 		}
-		if (type=="Roche") {
+		if (type.equals("Rock")) {
 			return Roche.Neutre;
 		}
-		if (type=="Sol") {
+		if (type.equals("Ground")) {
 			return Sol.Neutre;
 		}
-		if (type=="Spectre") {
+		if (type.equals("Ghost")) {
 			return Spectre.Neutre;
 		}
-		if (type=="Tenebres") {
+		if (type.equals("Dark")) {
 			return Tenebres.Neutre;
 		}
 		else {
@@ -196,55 +197,55 @@ public class Efficacite {
 	}
 	
 	public static String[] Inefficace(String type) {
-		if (type=="Acier") {
+		if (type.equals("Steel")) {
 			return Acier.Inefficace;
 		}
-		if (type=="Combat") {
+		if (type.equals("Fighting")) {
 			return Combat.Inefficace;
 		}
-		if (type=="Dragon") {
+		if (type.equals("Dragon")) {
 			return Dragon.Inefficace;
 		}
-		if (type=="Eau") {
+		if (type.equals("Water")) {
 			return Eau.Inefficace;
 		}
-		if (type=="Electrique") {
+		if (type.equals("Electric")) {
 			return Electrique.Inefficace;
 		}
-		if (type=="Fee") {
+		if (type.equals("Fairy")) {
 			return Fee.Inefficace;
 		}
-		if (type=="Feu") {
+		if (type.equals("Fire")) {
 			return Feu.Inefficace;
 		}
-		if (type=="Glace") {
+		if (type.equals("Ice")) {
 			return Glace.Inefficace;
 		}
-		if (type=="Insecte") {
+		if (type.equals("Bug")) {
 			return Insecte.Inefficace;
 		}
-		if (type=="Normal") {
+		if (type.equals("Normal")) {
 			return Normal.Inefficace;
 		}
-		if (type=="Plante") {
+		if (type.equals("Grass")) {
 			return Plante.Inefficace;
 		}
-		if (type=="Poison") {
+		if (type.equals("Poison")) {
 			return Poison.Inefficace;
 		}
-		if (type=="Psy") {
+		if (type.equals("Psychic")) {
 			return Psy.Inefficace;
 		}
-		if (type=="Roche") {
+		if (type.equals("Rock")) {
 			return Roche.Inefficace;
 		}
-		if (type=="Sol") {
+		if (type.equals("Ground")) {
 			return Sol.Inefficace;
 		}
-		if (type=="Spectre") {
+		if (type.equals("Ghost")) {
 			return Spectre.Inefficace;
 		}
-		if (type=="Tenebres") {
+		if (type.equals("Dark")) {
 			return Tenebres.Inefficace;
 		}
 		else {
@@ -253,4 +254,8 @@ public class Efficacite {
 		
 	}
 	
+	
+	public static void main(String[] args) {
+		System.out.println(Efficace("Poison")[0]);
+	}
 }

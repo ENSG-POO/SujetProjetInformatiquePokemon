@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/Type/CODES_ELIOT</name>
-			<type>2</type>
-			<location>C:/Users/alexa/git/EsteoulleCamboursBarriere/Pokemon/src/CODES_ELIOT</location>
-		</link>
-	</linkedResources>
 </projectDescription>

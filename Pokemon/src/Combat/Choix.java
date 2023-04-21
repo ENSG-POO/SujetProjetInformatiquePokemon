@@ -19,8 +19,8 @@ public class Choix {
 	public static String choix_attaqueD(){
 	    String Attaque = "";
 	        Scanner input2 = new Scanner(System.in);
-	        while(!(Attaque.equals("neutre")) && !(Attaque.equals("typé")) ){
-	            System.out.println("quelle attaque ? --> Neutre ou Typé?");
+	        while(!(Attaque.equals("neutre")) && !(Attaque.equals("type1")) && !(Attaque.equals("type2")) ){
+	            System.out.println("quelle attaque ? --> Neutre ou Type1 ou Type2 ");
 	            Attaque = input2.next();
 	        }
 	     // boucle qui permet de forcer l'utilisateur a faire un des choix propose
@@ -38,5 +38,4 @@ public class Choix {
 	public static void main(String[] args) {
 		System.out.println(choix_action());
 	}
-
 }

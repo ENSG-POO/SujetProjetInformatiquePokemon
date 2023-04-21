@@ -19,7 +19,7 @@ public class TypeNeutre {
 	}
 	
 	public static double formule_degat(double HP, double attaque , double defense ) {
-		return(((((1*0.4+2)*attaque*40)/(defense*50))+2)*1);
+		return(((((50*0.4+2)*attaque*40)/(defense*50))+2)*1);
 		}
 
 }
