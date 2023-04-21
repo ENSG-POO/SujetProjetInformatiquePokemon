@@ -1,5 +1,9 @@
 package jeu.eu.ensg.gui;
 
+import java.awt.FlowLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -100,6 +104,26 @@ public class PokemonGameGUI extends JFrame implements ActionListener {
 
 	public static void main(String[] args) {
 		new PokemonGameGUI();
+	    // Charger les images
+        ImageIcon image1 = new ImageIcon("../../data/Images/1G/Charizard.png");
+        ImageIcon image2 = new ImageIcon("../../data/Images/1G/Charizard.png");
+
+        // Créer les JLabels pour chaque image
+        JLabel label1 = new JLabel(image1);
+        JLabel label2 = new JLabel(image2);
+
+        // Créer un conteneur pour les deux JLabels
+        JFrame frame = new JFrame();
+        frame.setLayout(new FlowLayout());
+        frame.add(label1);
+        frame.add(label2);
+
+        // Configurer la fenêtre
+        frame.setTitle("Deux images côte à côte");
+        frame.setPreferredSize(new Dimension(800, 400));
+        frame.pack();
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	@Override
@@ -111,7 +135,7 @@ public class PokemonGameGUI extends JFrame implements ActionListener {
 			labelSelectedPokemon.setText(selectedButton.getText());
 			labelSelectedPokemon.setIcon(selectedButton.getIcon());
 
-			// Sélectionner un Pokemon au hasard pour l'ordinateur
+			// Sélectionner une attaque au hasard pour l'ordinateur
 			String[] pokemonNames = { "Pikachu", "Charmander", "Squirtle" };
 			int computerIndex = random.nextInt(pokemonNames.length);
 			String computerPokemon = pokemonNames[computerIndex];
@@ -136,11 +160,11 @@ public class PokemonGameGUI extends JFrame implements ActionListener {
 			if (userScore == 10 || computerScore == 10) {
 				String message;
 				if (userScore == 10) {
-					message = "Bravo, vous avez gagné !";
+					message = "Vous avez capturez le Pokemon!";
 				} else {
-					message = "Dommage, vous avez perdu !";
+					message = "Votre pokemon est K.O !";
 				}
-				JOptionPane.showMessageDialog(this, message, "Fin du jeu", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this, message, "Fin du Combat", JOptionPane.INFORMATION_MESSAGE);
 				// Réinitialiser le jeu
 				userScore = 0;
 				computerScore = 0;

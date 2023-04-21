@@ -6,16 +6,55 @@ import java.util.List;
 import java.util.Map;
 
 public class combat {
-
-	public static void round(Pokemon a, Pokemon b) throws Exception {
+public static void combattotal (Pokemon a,Pokemon b,  int aa,int ab)  {
+	System.out.println(a.getHp());
+	System.out.println(b.getHp());
+	if (a.getSpeed()> b.getSpeed()) {
+		
+			round(a,b,aa);
+			round(b,a,ab);
+			
+		}
+	else {
+		round(b,a,ab);
+		round(a,b,aa);
+		
+	}
+	
+	System.out.println(a.getHp());
+	System.out.println(b.getHp());
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+	public static void round(Pokemon a, Pokemon b, int aa) {
 		double degat;
 		double puissance;
 		int idatt;
 		double degatfinal =0;
 		type typea;
-		PokeListe poke = new PokeListe();
-		AttaqueList att = new AttaqueList();
-		ListType ty = new ListType();
+		PokeListe poke = null;
+		ListType ty = null;
+		AttaqueList att =null;
+		try {
+			att = new AttaqueList();
+			poke = new PokeListe();
+			ty = new ListType();
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		
 		Random random = new Random();
 		Map<String, Integer> myMap = new HashMap<String, Integer>();
 		myMap.put("Normal", 0);
@@ -36,7 +75,7 @@ public class combat {
 		myMap.put("Tenebres", 15);
 		myMap.put("Acier", 16);
 
-		idatt = a.getAttaqueID();
+		idatt = aa;
 		puissance = att.getPuissance(idatt);
 
 		int randomNumber = random.nextInt(101);

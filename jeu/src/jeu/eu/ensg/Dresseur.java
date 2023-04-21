@@ -10,27 +10,23 @@ public class Dresseur extends Inventaire {
 	private List<Pokemon> pokemons_joueur;
 
 	public Dresseur(String nom, Coordonnee coord, List<Pokemon> pokemons_joueur) {
-		//super(inventaire);
+		// super(inventaire);
 		this.nom = nom;
 		this.coord = coord;
 		this.pokemons_joueur = pokemons_joueur;
 	}
-	
-	
 
 	public Dresseur(String nom) {
 		this.nom = nom;
 		List<Pokemon> pokemons_joueur = new ArrayList<Pokemon>();
-		Pokemon p1 = new Pokemon(1,"Bulbasaur","Plante","Poison",318,45,49,49,65,65,45,1,"legendaire", 77);
-		Pokemon p2 = new Pokemon(2,"Ivysaur","Plante","Poison",405,60,62,63,80,80,60,1,"legendaire",76);
-		Pokemon p3 = new Pokemon(3,"Venusaur","Plante","Poison",525,80,82,83,100,100,80,1,"legendaire",79);
+		Pokemon p1 = new Pokemon(1,"Bulbasaur","Plante","Poison",318,45,49,49,65,65,45,1,"False", 77);
+		Pokemon p2 = new Pokemon(4	,"Charmander","Feu","",	309	,39,52,43,60,50,65,1,"False",20);
+		Pokemon p3 = new Pokemon(7,"Squirtle","Eau","",314,44,48,65,50,64,43,1,"False",7);
 		pokemons_joueur.add(p1);
 		pokemons_joueur.add(p2);
 		pokemons_joueur.add(p3);
 		this.pokemons_joueur = pokemons_joueur;
 	}
-
-
 
 	public double distance(Coordonnee c1, Coordonnee c2) {
 		double selon_x = c1.getX() - c2.getX();
@@ -48,7 +44,7 @@ public class Dresseur extends Inventaire {
 		return proches;
 
 	}
-	
+
 	public String[] getNomsPokemons() {
 		List<Pokemon> pokemons_joueur = this.pokemons_joueur;
 		String[] noms = new String[pokemons_joueur.size()+1];
@@ -57,13 +53,11 @@ public class Dresseur extends Inventaire {
 			noms[i+1] = pokemons_joueur.get(i).getName();
 		}
 		return noms;
-		
+
 	}
 
 	public void setCoord(Coordonnee coord) {
 		this.coord = coord;
 	}
 
-	
-	
 }
