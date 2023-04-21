@@ -60,4 +60,11 @@ public class Dresseur extends Inventaire {
 		this.coord = coord;
 	}
 
+	@Override
+	public String toString() {
+		return "Dresseur [nom=" + nom + ", coord=" + coord + ", pokemons_joueur=" + pokemons_joueur + "]";
+	}
+	
+	
+
 }

@@ -192,7 +192,7 @@ public class MenuDeroulant extends JPanel {
 		return dictionary;
 	}
 
-	public MenuDeroulant(String[] items, String adversaire) {
+	public MenuDeroulant(String[] items, String adversaire, Dresseur dresseur) {
 
 		final JFrame fen = new JFrame();
 		fen.setSize(300, 300);
@@ -221,7 +221,7 @@ public class MenuDeroulant extends JPanel {
 					setPokemon_joueur(nom);
 					setId_pokemon_joueur(id_pokemon_inventaire);
 					setId_pokemon_sauvage(id_pokemon_sauvage);
-					Combat_temporaire combat = new Combat_temporaire(nom, adversaire, id_pokemon_inventaire, id_pokemon_sauvage);
+					Combat_temporaire combat = new Combat_temporaire(nom, adversaire, id_pokemon_inventaire, id_pokemon_sauvage, dresseur);
 					fen.dispose();
 					return;
 					// Code à exécuter lorsque l'élément est sélectionné
@@ -264,7 +264,7 @@ public class MenuDeroulant extends JPanel {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
 					Object selectedItem = e.getItem();
 					String nom = selectedItem.toString();
-					MenuDeroulant inventaire = new MenuDeroulant(dresseur.getNomsPokemons(), nom);
+					MenuDeroulant inventaire = new MenuDeroulant(dresseur.getNomsPokemons(), nom, dresseur);
 					fen.dispose();
 					return;
 

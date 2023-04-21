@@ -1,48 +1,32 @@
 package jeu.eu.ensg.gui;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
-
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.FlowLayout;
 
 import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
-import java.util.List;
-import java.util.Random;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 
 import jeu.eu.ensg.AttaqueList;
+import jeu.eu.ensg.Dresseur;
 import jeu.eu.ensg.PokeListe;
 import jeu.eu.ensg.combat;
 
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 public class Combat_temporaire extends JPanel implements ActionListener{
 	
-	public Combat_temporaire(String pokemon_inventaire, String adversaire, int id_pokemon, int id_adversaire)  {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public Combat_temporaire(String pokemon_inventaire, String adversaire, int id_pokemon, int id_adversaire, Dresseur dresseur)  {
 		PokeListe poke = null;
 		AttaqueList att = null;
 		try {
@@ -52,7 +36,7 @@ public class Combat_temporaire extends JPanel implements ActionListener{
 
 			e.printStackTrace();
 		}
-
+		System.out.println(dresseur);
 		final JFrame fen = new JFrame();
 		fen.setSize(1000, 1000);
 		fen.setTitle("Choix Pokemon");
@@ -191,7 +175,7 @@ PokeListe poke = null;
         frame.setPreferredSize(new Dimension(800, 600));
         frame.pack();
         frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         
 		JLabel labelNom = new JLabel("<html>     "+pokemon_inventaire+"<br><br>    " + id_pokemon +"</html>");
