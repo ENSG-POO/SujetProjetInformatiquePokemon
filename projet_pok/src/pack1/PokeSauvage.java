@@ -1,6 +1,6 @@
 package pack1;
 
-public class PokeSauvage {
+public class PokeSauvage  {
 	
 	public PokeCharacter p1;
 	
@@ -10,11 +10,22 @@ public class PokeSauvage {
 		this.p1 = p1;
 
     }
+	public PokeCharacter toPokeCharacter() {
+		return p1;
+		
+	}
 	
 	@Override
 	public String toString() {
-		return this.p1.name+" est un pokémon sauvage, il est de type "+this.p1.type1+" il a "+this.p1.HP +"point de vie";
+		return this.p1.name;
 	}
 	
+	public double getPV () {
+		return this.p1.HP;
+	}
+	
+	public String getType1() {
+		return this.p1.type1;
+	}
 
 }

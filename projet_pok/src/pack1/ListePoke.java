@@ -40,8 +40,8 @@ public class ListePoke {
             positionX = positionX.replace("[", "").replace("]", "").replace("\"" , "");
             positionY = positionY.replace("[", "").replace("]", "").replace("\"" , "");
                        
-            double positionXDouble = Double.parseDouble(positionX.trim())*24.65;
-            double positionYDouble = Double.parseDouble(positionY.trim())*70;
+            double positionXDouble = Double.parseDouble(positionX.trim())*16;
+            double positionYDouble = Double.parseDouble(positionY.trim())*64;
             
             coord c1 = new coord(positionXDouble,positionYDouble);
             Pokemon p1 = new Pokemon(name,c1);
@@ -56,7 +56,8 @@ public class ListePoke {
         e.printStackTrace();
     }
 
-    this.ListePoke=ListePoke;
+    this.ListePoke = ListePoke;
+    
 	}
    
 	public Pokemon GetListePoke(int i) {

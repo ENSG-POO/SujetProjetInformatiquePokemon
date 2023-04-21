@@ -14,10 +14,23 @@ public class PokeDomestique extends Pokemon {
 		PokeCharacter p1 = l1.GetPoke(name);
 		this.p1 = p1;
 	}
+	public PokeCharacter toPokeCharacter() {
+		return p1;
+	}
 	
-	@Override
+	@Override // on redéfinit la méthode pour qu'elle affiche seulement le nom, sinon mauvais affichage dans les boutons 
 	public String toString() {
-		return this.name+" est ton pokémon, il est de type "+this.p1.type1+" il a "+this.p1.HP;
+		return this.name;
+	}
+	
+	public double getPVd() {
+		return this.p1.HP;
+	}
+	
+	public String getType() {
+		return this.p1.type1;
+	}
+	
 	}
 
-}
+

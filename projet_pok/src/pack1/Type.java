@@ -10,7 +10,7 @@ public class Type {
 	public int idType(String a) {
 		int i = 0;
 		 while (i < type.length) {
-	     if (type[i] == a ) {
+	     if (type[i].equals(a) ) {
 	     return i;
 	           }
 	     else {
@@ -20,6 +20,7 @@ public class Type {
 		return 20000;
 	
 	}
+	
 	
 }
 

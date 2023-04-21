@@ -33,11 +33,13 @@ public class Pokemon {
     public void setDistance(double distance) {
         this.distance = distance;
     }
+		
 	
 	@Override
     public String toString() {
-        return "Pokemon" + this.name + "ses coordonnées sont " + this.position;
+        return this.name ;
     }
+
 	
 	
 

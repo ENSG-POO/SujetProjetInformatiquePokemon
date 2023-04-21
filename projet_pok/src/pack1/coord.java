@@ -17,10 +17,6 @@ public class coord {
 		return this.y;
 	}
 	
-	public coord getCoord() {
-	    return new coord(this.getX(), this.getY());
-	}
-	
 	public double distance (coord c1) {
 		return Math.sqrt(Math.pow(c1.x-this.x, 2) + Math.pow(c1.y, this.y));
 	}
@@ -30,9 +26,15 @@ public class coord {
 		return "X=" + this.x +" " +"Y=" + this.y ;
 	}
 	
+	public void setCoord(double new_x, double new_y) {
+		this.x = new_x;
+		this.y = new_y;
+	}
+	
 	public static void main(String[] args) {
 		coord coord1 = new coord(0,0);
 		System.out.println(coord1);
 	}
+
 
 }

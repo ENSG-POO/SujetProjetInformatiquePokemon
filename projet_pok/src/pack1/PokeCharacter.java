@@ -14,6 +14,9 @@ public class PokeCharacter extends Pokemon {
 	}
 	
 	public String toString() {
-        return "Pokemon " + this.name + "ses coordonnées sont " + this.position +".Description"+ this.id+","+this.type1+","+this.HP;
+        return this.name ;
 }
+	public String getType1() {
+		return this.type1;
+	}
 }

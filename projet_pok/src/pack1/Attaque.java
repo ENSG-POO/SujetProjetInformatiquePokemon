@@ -8,15 +8,17 @@ public class Attaque {
 	
 	public PokeCharacter pokeAt; 
 	public PokeCharacter pokeDef;
-	public Joueur joueur;
 	
-	public Attaque (PokeCharacter pokeAt, PokeCharacter pokeDef, Joueur joueur) {
+	public Attaque (PokeCharacter pokeAt, PokeCharacter pokeDef) {
 		this.pokeAt = pokeAt; 
 		this.pokeDef = pokeDef;
-		this.joueur = joueur; 
 	}
 	
-	public double savePVA () {
+	public Attaque() {
+		
+	}
+	
+	/*public double savePVA () {
 		double pvA = this.pokeAt.HP;
 		return pvA;
 	}
@@ -24,12 +26,14 @@ public class Attaque {
 	public double savePVD () {
 		double pvD = this.pokeDef.HP;
 		return pvD;
+	}*/
+	
+	public double attackN () {
+		double cout = 5;
+		return cout;
+	
 	}
 	
-	public void attackN () {
-		this.pokeDef.HP = this.pokeDef.HP-5;
-	
-	}
 	public double GetCoeff(int a, int b) {
 	 double[][] tab;
 	        tab = new double[18][18];
@@ -174,12 +178,17 @@ public class Attaque {
 		int intb = y1.idType(this.pokeDef.type1);
 		
 		double k = GetCoeff(inta,intb);
-		double new_PV = this.pokeDef.HP - 10*k;
+		double new_PV = 10*k;
 		
 		return new_PV;
 		
 		
 		//this.pokeDef.HP = this.pokeDef.HP-10*k;
+	}
+	
+	@Override 
+	public String toString() {
+		return this.pokeAt + " attaque " + this.pokeDef;
 	}
 	
 	

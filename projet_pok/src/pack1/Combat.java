@@ -1,7 +1,5 @@
 package pack1;
 
-import gestion_jeu.Joueur;
-
 public class Combat {
 	
 	public PokeDomestique pokeD;

@@ -30,12 +30,12 @@ import pack1.coord;
 
 public class MapPanel extends JPanel {
 
-	private Point point; // Point sélectionné par l'utilisateur
-    private JButton validButton; // Bouton pour valider la position
-    private Image mapImage; // Image de la carte
-	private ListePoke listePoke;	// Liste de Pokemons sur la carte
-	public int mouseX; // Position en X de la souris
-	public int mouseY; // Position en Y de la souris
+	private Point point; 			// Point sélectionné par l'utilisateur
+    private JButton validButton; 	// Bouton pour valider la position
+    private Image mapImage; 		// Image de la carte
+	private ListePoke listePoke;	// Liste des Pokemons sur la carte
+	public int mouseX; 				// Position en X de la souris
+	public int mouseY; 				// Position en Y de la souris
 	
 
     public MapPanel(ListePoke listePoke) {
@@ -65,7 +65,14 @@ public class MapPanel extends JPanel {
                 }
                 repaint();
             }
+            
+            public Point getPoint() {
+                return point;
+            }
         });
+        
+        
+        
 
         validButton = new JButton("Valider la position");
         validButton.addActionListener(new ActionListener() {
@@ -92,7 +99,7 @@ public class MapPanel extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 mouseX = e.getX();
-                mouseY = e.getY();
+                mouseY = e.getY(); 
                 point = new Point(mouseX, mouseY);
                 List<Pokemon> pokemonsProches = trouverPokemonProche(5, mouseX, mouseY);
                 System.out.println("Les Pokemons les plus proches sont : ");
@@ -100,12 +107,9 @@ public class MapPanel extends JPanel {
                     System.out.println("- " + p.getName() + " à une distance de " + p.getDistance());
                 }
                 repaint();
-            }
-            
+            } 
         });
-
         setFocusable(true);   
-
     }
     
     public ListePoke getListePoke() {
@@ -114,7 +118,6 @@ public class MapPanel extends JPanel {
     
     public List<Pokemon> trouverPokemonProche(int k, int x, int y) {
         List<Pokemon> pokemons = Arrays.asList(listePoke.ListePoke);
-        
         for (Pokemon p : pokemons) {
             double distance = Math.sqrt(Math.pow(p.getPosition().getX() - x, 2) + Math.pow(p.getPosition().getY() - y, 2));
             p.setDistance(distance);
@@ -143,8 +146,7 @@ public class MapPanel extends JPanel {
             int maxY = Math.max(0, imageHeight - panelHeight);
             
             int xOffset = (panelWidth - imageWidth) / 2;
-            int yOffset = (panelHeight - imageHeight) / 2;
-            
+            int yOffset = (panelHeight - imageHeight) / 2;            
             g.drawImage(mapImage, xOffset, yOffset, this);
 
             int borderWidth = 10;
@@ -200,37 +202,6 @@ public class MapPanel extends JPanel {
             
             }
         }
-
-        
-        /*
-        List<Pokemon> pokemonsProches = trouverPokemonProche(5, mouseX, mouseY);   
-        if (pokemonsProches != null) {
-            for (Pokemon pokemon : pokemonsProches) {
-                coord coord = pokemon.getPosition();
-                g.setColor(Color.BLUE);
-                int x = (int) (coord.getX());
-                int y = (int) (coord.getY());
-                g.fillOval(x - 5, y - 5, 10, 10);
-                //g.drawString(pokemon.getName(), x + 10, y - 10);
-            }
-        }        
-        
-        List<Pokemon> pokemonsProches2 = trouverPokemonProche(5, point.x, point.y);   
-        if (pokemonsProches2 != null) {
-            for (Pokemon pokemon : pokemonsProches2) {
-                coord coord = pokemon.getPosition();
-                g.setColor(Color.BLUE);
-                int x = (int) (coord.getX());
-                int y = (int) (coord.getY());
-                g.fillOval(x - 5, y - 5, 10, 10);
-                g.drawString(pokemon.getName(), x + 10, y - 10);
-            }
-        }
-        
-        if (point != null) {
-            g.setColor(Color.RED);
-            g.fillOval(point.x - 5, point.y - 5, 10, 10);
-        }*/
     }
-    
+        
 }
