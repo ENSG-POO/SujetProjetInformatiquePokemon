@@ -1,6 +1,6 @@
 {
     "java.project.referencedLibraries": [
-        "lib/**/*.jar",
-        "/Users/lila.cassan/Downloads/opencsv-5.7.1.jar"
+        "jeu/lib/*.jar",
+     //   "/home/ai/pokemonproject/PokemonElisabethAiLila/jeu/lib/opencsv-5.7.1.jar"
     ]
 }

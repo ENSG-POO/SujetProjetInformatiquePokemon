@@ -9,14 +9,16 @@ import java.util.List;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
-import gestionDesPokemons.Famille;
-import gestionDesPokemons.Pokemon;
+//import gestionDesPokemons.Famille
+
+import gestionDesPokemons.Famille ;
+import gestionDesPokemons.Pokemon ;
 
 public class ChargerPoke {
     
     public static void main(String[] args) {
 
-        String csvFile = "/Users/lila.cassan/Desktop/PokemonElisabethAiLila/data/pokemon_first_gen.csv";
+        String csvFile = "PokemonElisabethAiLila/data/pokemon_first_gen.csv";
 
         try (CSVReader reader = new CSVReader(new FileReader(csvFile))) {
             String[] headers = reader.readNext(); // ignorer la première ligne qui contient les en-têtes

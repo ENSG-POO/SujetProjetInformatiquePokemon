@@ -64,5 +64,21 @@ public class Jeu_general {
 		Pokemon PokS = ActionListener(PokProches);
 		return PokS;
 	}
+    public boolean derouleDuCombat () {
+        boolean victoire = false ;
+        while (hpS > 0 && hpD > 0) {
+            attaque (true, pokemonD, pokemonS);
+            if (Math.random() > 0.5) {
+                    attaque(false, pokemonS, pokemonD) ; }
 
+                else {
+                    attaque(true, pokemonS, pokemonD) ; }
+        }
+        if (hpS > 0) {
+            victoire = true ;
+            pokemonS.setisSauvage(false);
+            MainJoueur.addPokemon(pokemonS);
+        }
+        return victoire ;
+    }
 }
