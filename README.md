@@ -40,3 +40,34 @@ Pour tester l'interface graphique:
 1. Se créer un identifiant github
 2. Demander à un enseignant de vous ajouter dans le dépôt
 3. Fork ....
+
+
+##Instructions d'exécution
+#### Dans le répertoire, ouvrir le fichier \verb|MainApplication| et l'exécuter. Ce fichier contient tous les éléments nécessaires pour faire fonctionner le jeu.
+##Livrables
+\n
+#Jeu dur
+*"attaque.java"
+*"Attaquelist.java"
+*"Carte.java"
+*"combat.java"
+*"Coordonnee.java"
+*"dictionnaireType.java"
+*"Dresseur.java"
+*"Inventaire.java"
+*"Lecture_pokemons.java"
+*"ListType.java"
+*"Localisation.java"
+*"MainApplication.java"
+*"PokeListe.java"
+*"Pokemon.java"
+*"type.java"
+\n
+#Interface graphique
+*"CartePanel.java"
+*"Combat_temporaire.java"
+*"ControlePanel.java"
+*"FichePanel.java"
+*"MenuDeroulant.java"
+*"PokemonGameGUI.java"
+*"TwoImagesExample.java"
