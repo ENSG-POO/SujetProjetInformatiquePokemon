@@ -51,7 +51,6 @@ public class Dresseur extends Inventaire {
 		noms[0] = "";
 		for (int i=0; i<pokemons_joueur.size(); i++) {
 			noms[i+1] = pokemons_joueur.get(i).getName();
-			System.out.println("tatat" + noms[i]);
 		}
 		return noms;
 
@@ -60,5 +59,12 @@ public class Dresseur extends Inventaire {
 	public void setCoord(Coordonnee coord) {
 		this.coord = coord;
 	}
+
+	@Override
+	public String toString() {
+		return "Dresseur [nom=" + nom + ", coord=" + coord + ", pokemons_joueur=" + pokemons_joueur + "]";
+	}
+	
+	
 
 }

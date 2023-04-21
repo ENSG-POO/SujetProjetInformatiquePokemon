@@ -96,7 +96,6 @@ public abstract class Inventaire {
 			liste.add(p);
 
 		}
-		System.out.println(liste);
 		br.close();
 		return liste;
 	}
@@ -114,7 +113,6 @@ public abstract class Inventaire {
 			liste.add(a);
 
 		}
-		System.out.println(liste);
 		br.close();
 		return liste;
 	}

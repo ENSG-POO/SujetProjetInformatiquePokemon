@@ -15,6 +15,11 @@ import jeu.eu.ensg.Dresseur;
 
 public class MenuDeroulant extends JPanel {
 
+	private String pokemon_sauvage;
+	private String pokemon_joueur;
+	private int id_pokemon_sauvage;
+	private int id_pokemon_joueur;
+
 	public HashMap<String, Integer> cree_dictionnaire() {
 		HashMap<String, Integer> dictionary = new HashMap<>();
 
@@ -187,7 +192,7 @@ public class MenuDeroulant extends JPanel {
 		return dictionary;
 	}
 
-	public MenuDeroulant(String[] items, String adversaire) {
+	public MenuDeroulant(String[] items, String adversaire, Dresseur dresseur) {
 
 		final JFrame fen = new JFrame();
 		fen.setSize(300, 300);
@@ -201,9 +206,9 @@ public class MenuDeroulant extends JPanel {
 		JLabel labelNom = new JLabel("<html>Quel pokemon de votre inventaire souhaitez-vous utiliser pour combattre "
 				+ adversaire + " ?</html>");
 		infoPokemon.add(labelNom);
-		// "<html>Ligne 1<br>Ligne 2<br>Ligne 3</html>"
 
 		ItemListener itemListener = new ItemListener() {
+
 			@Override
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
@@ -212,16 +217,20 @@ public class MenuDeroulant extends JPanel {
 					HashMap<String, Integer> dictionnaire = cree_dictionnaire();
 					int id_pokemon_sauvage = dictionnaire.get(adversaire);
 					int id_pokemon_inventaire = dictionnaire.get(nom);
-					Combat_temporaire combat = new Combat_temporaire(nom, adversaire, id_pokemon_inventaire, id_pokemon_sauvage);
+					setPokemon_sauvage(adversaire);
+					setPokemon_joueur(nom);
+					setId_pokemon_joueur(id_pokemon_inventaire);
+					setId_pokemon_sauvage(id_pokemon_sauvage);
+					Combat_temporaire combat = new Combat_temporaire(nom, adversaire, id_pokemon_inventaire, id_pokemon_sauvage, dresseur);
 					fen.dispose();
 					return;
 					// Code à exécuter lorsque l'élément est sélectionné
 				} else if (e.getStateChange() == ItemEvent.DESELECTED) {
 					Object deselectedItem = e.getItem();
-					System.out.println("Élément désélectionné : " + deselectedItem.toString());
 					// Code à exécuter lorsque l'élément est désélectionné
 				}
 			}
+			
 		};
 
 		if (items == null) {
@@ -255,16 +264,13 @@ public class MenuDeroulant extends JPanel {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
 					Object selectedItem = e.getItem();
 					String nom = selectedItem.toString();
-					System.out.println(dresseur.getNomsPokemons());
-					MenuDeroulant inventaire = new MenuDeroulant(dresseur.getNomsPokemons(), nom);
-					System.out.println("sorti");
+					MenuDeroulant inventaire = new MenuDeroulant(dresseur.getNomsPokemons(), nom, dresseur);
 					fen.dispose();
 					return;
 
 					// Code à exécuter lorsque l'élément est sélectionné
 				} else if (e.getStateChange() == ItemEvent.DESELECTED) {
 					Object deselectedItem = e.getItem();
-					System.out.println("Élément désélectionné : " + deselectedItem.toString());
 					// Code à exécuter lorsque l'élément est désélectionné
 				}
 			}
@@ -279,4 +285,23 @@ public class MenuDeroulant extends JPanel {
 		fen.add(infoPokemon);
 
 	}
+	
+
+	public void setPokemon_sauvage(String pokemon_sauvage) {
+		this.pokemon_sauvage = pokemon_sauvage;
+	}
+
+	public void setPokemon_joueur(String pokemon_joueur) {
+		this.pokemon_joueur = pokemon_joueur;
+	}
+
+	public void setId_pokemon_sauvage(int id_pokemon_sauvage) {
+		this.id_pokemon_sauvage = id_pokemon_sauvage;
+	}
+
+	public void setId_pokemon_joueur(int id_pokemon_joueur) {
+		this.id_pokemon_joueur = id_pokemon_joueur;
+	}
+	
+	
 }
