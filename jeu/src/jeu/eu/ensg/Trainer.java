@@ -29,17 +29,6 @@ public class Trainer {
 		return equipe.isEmpty();
 	}
 	
-	// Méthode pour retourner une liste de Pokémon sauvages se trouvant à proximité du dresseur
-	public ArrayList<Pokemon> listePokemonsProximite(ArrayList<Pokemon> listePokemonSauvages, int rayon) {
-		ArrayList<Pokemon> listePokemonsProximite = new ArrayList<Pokemon>(); // initialisation d'une nouvelle liste de Pokémon
-		for (int i =0 ; i< listePokemonSauvages.size(); i++) { // pour chaque Pokémon sauvage dans la liste des Pokémon sauvages
-				if(this.getPosition().isNear(listePokemonSauvages.get(i).getPosition(), rayon)) { // si le Pokémon sauvage est à proximité du dresseur
-					listePokemonsProximite.add(listePokemonSauvages.get(i)); // on ajoute le Pokémon à la liste des Pokémon à proximité du dresseur
-				}
-		}
-		return listePokemonsProximite; // on retourne la liste des Pokémon à proximité du dresseur
-	}
-
 	// Getter pour la position du dresseur
 	public Coordinates getPosition() {
 		return this.position;
