@@ -11,6 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import jeu.eu.ensg.Attaque;
+import jeu.eu.ensg.Pokemon;
+
 
 
 public class BoutonCombat extends JPanel{
@@ -38,6 +41,14 @@ public class BoutonCombat extends JPanel{
 		attaque.setBounds(50, 50, 20, 100);
 		this.add(attaque);  
 		attaque.setVisible(true);
+		
+		attaque.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	assault(Attaque atk,Combat.getPJ(),Pokemon def);
+            }
+        });
+
 		
 		// On construit un bouton
 		JButton attaque1 = new JButton("Attaque de base");

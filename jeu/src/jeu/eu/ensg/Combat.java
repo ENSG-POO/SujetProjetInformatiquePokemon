@@ -1,21 +1,27 @@
 package jeu.eu.ensg;
 
-import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.List;
+import java.util.Random;
+
+import jeu.eu.ensg.gui.FenetreCombat;
+
 
 public class Combat {
 	
 	private Pokemon PJ;
 	private Pokemon PS;
 	private boolean isOver;
+	private Trainer trainer;
+	private ArrayList<Pokemon> LPS;
 
-	public Combat(Pokemon pJ, Pokemon pS, boolean isOver) {
+	public Combat(Pokemon pJ, Pokemon pS, boolean isOver,Trainer t,ArrayList<Pokemon> LPS) {
 		super();
 		PJ = pJ;
 		PS = pS;
 		this.isOver = isOver;
+		this.trainer = t;
+		this.LPS = LPS;
 	}
 	
 
@@ -50,135 +56,142 @@ public class Combat {
 	}
 	
 	
-	public void assault(Attaque atkPerso, Attaque atkOrdi, Pokemon pokPerso,Pokemon pokSauv) {
-		int puissance = atkPerso.getPuissance();
-		boolean spe = atkPerso.isSpe();
-		double deg = 0.0;
-		
-		int puissance2 = atkOrdi.getPuissance();
-		boolean spe2 = atkOrdi.isSpe();
-		double deg2 = 0.0;
-		
-		// attaque du joueur
-		if (spe == false) {
-			deg = ((((0.4*pokPerso.getStats().getLvl() + 2)* pokPerso.getStats().getAttack()*puissance)/(50*pokSauv.getStats().getDefense())) + 2 ); // *CE
-			//deg = ((((2*att.getStats().getLvl())/5)+2*puissance*att.getStats().getAttack()/def.getStats().getDefense())/50)+2;
-		}
-		else {
-			deg = ((((0.4*pokPerso.getStats().getLvl() + 2)* pokPerso.getStats().getSpAtk()*puissance)/(50*pokSauv.getStats().getSpDef())) + 2 ); // *CE
-			//deg = ((((2*att.getStats().getLvl())/5)+2*puissance*att.getStats().getSpAtk()/def.getStats().getSpDef())/50)+2;
-		}
-		double Coeff = testEfficacite(atkPerso,pokSauv);
-		deg = deg * Coeff;
-		if (pokPerso.getType()==atkPerso.getType()) {
-			deg = deg*1.5;
-		}
-		int degat = (int)deg;
-		pokSauv.setHP(pokSauv.getHP()-degat);
-		
-		//attaque de l'ordi
-		if (pokSauv.getHP()>= 0) {
-			if (spe2 == false) {
-				deg2 = ((((0.4*pokSauv.getStats().getLvl() + 2)* pokSauv.getStats().getAttack()*puissance2)/(50*pokPerso.getStats().getDefense())) + 2 ); // *CE
-				//deg2 = ((((2*att.getStats().getLvl())/5)+2*puissance2*att.getStats().getAttack()/def.getStats().getDefense())/50)+2;
-			}
-			else {
-				deg2 = ((((0.4*pokSauv.getStats().getLvl() + 2)* pokSauv.getStats().getSpAtk()*puissance2)/(50*pokPerso.getStats().getSpDef())) + 2 ); // *CE
-				//deg2 = ((((2*att.getStats().getLvl())/5)+2*puissance2*att.getStats().getSpAtk()/def.getStats().getSpDef())/50)+2;
-			}
-			double Coeff2 = testEfficacite(atkOrdi,pokPerso);
-			deg2 = deg2 * Coeff2;
-			if (pokSauv.getType()==atkOrdi.getType()) {
-				deg = deg*1.5;
-			}
-			int degat2 = (int)deg2;
-			pokPerso.setHP(pokPerso.getHP()-degat2);
-		}
-	}
-	
+public void fuir() {
+	this.setOver(true);
+	System.out.println("Vous avez fuis");
+}
 
-	public int changer(ArrayList <Pokemon> L) {
-		int[][] nb = new int[5][10];
-		Scanner sc2 = new Scanner(System.in);
-		System.out.println("Vos autres pokémons sont: " + L + "\n" + nb + " \n Taper le NOMBRE correspondant à la position de votre nouveau pokémon " );
-		int nbr = sc2.nextInt(); // récupération de la position du nouveau pokémon dans la liste de pokémon du joueur
-		return nbr;
-	}
-	
-	ArrayList <Pokemon> L = new ArrayList<Pokemon>();
-	
-	public void jouer(Pokemon pokPerso, Pokemon pokSauv, ArrayList<Pokemon> L) {
-		while (!(isOver) || !(L.isEmpty()) || pokSauv.getHP()==0 || pokPerso.getHP()==0) {
-			// pour le pokémon sauvage
-			List<Attaque> listeAttSauv = pokSauv.getListAtck();
-			Random rand = new Random(); 
-			int choixAtt = rand.nextInt(2);
-			
-			//pour le pokémon du dresseur			
-			List<Attaque> listeAttPok = pokPerso.getListAtck();
-			String attaqueUn = listeAttPok.get(0).getNom();
-			String attaqueDeux = listeAttPok.get(1).getNom();
-			
-			//demande au joueur le mouvement désiré
-			Scanner sc = new Scanner(System.in);
-			System.out.println("Veuillez choisir entre attaquer, changer de pokémon ou fuir \n Taper 'FUIR' pour fuir 'ATTAQUER' por attaquer et 'CHANGER' pour changer de pokémon");
-			String str = sc.nextLine();
-			System.out.println("Vous avez saisi : " + str);
-			
-			if (str == "FUIR") {
-				isOver = true;
-			}
-			else if (str == "CHANGER") {
-				int nbr = changer(L);
-				jouer(L.get(nbr), pokSauv, L);
-			}
-			// commande pour attaquer
-			else {
-			
-				Scanner sc1 = new Scanner(System.in);
-				System.out.println("Veuillez choisir une attaque entre" + attaqueUn + " et " + attaqueDeux + ". Taper le nom de l'attaque ");
-				String str1 = sc.nextLine();
-				System.out.println("Vous avez saisi : " + str1);
-				
-				//action durant le tour
-				if (str1== attaqueUn) {
-					assault(listeAttPok.get(0), listeAttSauv.get(choixAtt), pokPerso, pokSauv);
-				}
-				else {
-					assault(listeAttPok.get(1), listeAttSauv.get(choixAtt), pokPerso, pokSauv);
-				}
-			}
-		}
-		
-		if (pokSauv.getHP()<=0) {
-			System.out.println("Bravo, vous avez capturé un nouveau pokémon");
-			L.add(pokSauv);
-		}
-		else if (isOver==true) {
-			System.out.println("Vous avez fuit le combat");
-		}
-		else if (L.isEmpty()) {
-			System.out.println("Game over, vous n'avez plus de pokémon en état de combattre.");
-		}
-		else {
-			L.removeIf(element -> element.equals(pokPerso));
-			
-			Scanner sc3 = new Scanner(System.in);
-			System.out.println("Votre pokémon est KO, Voulez-vous changer de pokémon parmi ceux restants \n Taper 'YES' ou 'NO'");
-			String str3 = sc3.nextLine();
-			
-			if (str3 == "YES") {
-				int nbr = changer(L);
-				jouer(L.get(nbr), pokSauv, L);
-			}
-			else {
-				System.out.println("Vous avez fuit le combat (mais vous avez perdu vos pokémon KO");
-			}
+public void changer(List<Pokemon> sac) {
+	Pokemon ancien = this.getPJ();
+	this.setPJ(sac.get(0));
+	sac.add(ancien);
+	System.out.println("Votre Pokemon à été changé par le plus haut dans votre sac et à été placé au point le plus bas du sac");
+}
 
+public void attaque_enemi() {
+	Random rand = new Random(); 
+	int choixAtt = rand.nextInt(2);
+	if (choixAtt == 0) {
+		Attaque att = this.getPS().getListAtck().get(0);
+		int puissance = att.getPuissance();
+		Type t = att.getType();
+		Type t_enemi = this.getPJ().getType();
+		int lvl = this.getPS().getStats().getLvl();
+		int atk = this.getPS().getStats().getAttack();
+		int def = this.getPJ().getStats().getDefense();
+		Double deg = ((((0.4*lvl + 2)* atk * puissance)/(50*def)) + 2 );
+		
+		String eff = t.getdata(t_enemi);
+		Double ef = Double.parseDouble(eff);
+		int degat = (int) Math.round(ef*deg);
+
+		this.getPJ().setHP(this.getPJ().getHP()-degat);
+		System.out.println("L'ennemi utilise " + att.getNom());
+		System.out.println("L'ennemi vous inflige " + Integer.toString(degat) + " PV");
+		if (this.getPJ().getHP()<=0) {
+			System.out.println("Votre Pokemon est Mort");
+			if (trainer.getEquipe().size()==0) {
+				System.out.println("Défaite");
+				this.setOver(true);
+			}
+			this.changer(trainer.getEquipe());
+			ArrayList<Pokemon> Temp = trainer.getEquipe();
+			Temp.remove(Temp.size()-1);
+			trainer.setEquipe(Temp);
 		}
 	}
-	
-	public void fuir() {
-		setOver(true);
+	else  {
+		Attaque att = this.getPS().getListAtck().get(0);
+		int puissance = att.getPuissance();
+		Type t = att.getType();
+		Type t_enemi = this.getPJ().getType();
+		int lvl = this.getPS().getStats().getLvl();
+		int atk_spe = this.getPS().getStats().getSpAtk();
+		int def_spe = this.getPJ().getStats().getSpDef();
+		Double deg = ((((0.4*lvl + 2)* atk_spe * puissance)/(50*def_spe)) + 2 );
+		
+		String eff = t.getdata(t_enemi);
+		Double ef = Double.parseDouble(eff);
+		int degat = (int) Math.round(ef*deg);
+
+		this.getPJ().setHP(this.getPJ().getHP()-degat);
+		System.out.println("L'ennemi utilise " + att.getNom());
+		System.out.println("L'ennemi vous inflige " + Integer.toString(degat) + " PV");
+		if (this.getPJ().getHP()<=0) {
+			System.out.println("Votre Pokemon est Mort");
+			if (trainer.getEquipe().size()==0) {
+				System.out.println("Défaite");
+				this.setOver(true);
+			}
+			this.changer(trainer.getEquipe());
+			ArrayList<Pokemon> Temp = trainer.getEquipe();
+			Temp.remove(Temp.size()-1);
+			trainer.setEquipe(Temp);
+		}
+
 	}
+}
+
+public void attaque() {
+	Attaque att = this.getPJ().getListAtck().get(1);
+	Type t = att.getType();
+	Type t_enemi = this.getPS().getType();
+	int puissance = att.getPuissance();
+	int lvl = this.getPJ().getStats().getLvl();
+	int atk = this.getPJ().getStats().getAttack();
+	int def = this.getPS().getStats().getDefense();
+	Double deg = ((((0.4*lvl + 2)* atk * puissance)/(50*def)) + 2 );
+
+	String eff = t.getdata(t_enemi);
+	Double ef = Double.parseDouble(eff);
+	int degat = (int) Math.round(ef*deg);
+
+	this.getPS().setHP(this.getPS().getHP()-degat);
+	System.out.println("Vous utilisez " + att.getNom());
+	System.out.println("Vous infligez " + Integer.toString(degat) + " PV");
+	if (this.getPS().getHP()<=0) {
+		System.out.println("Victoire!");
+		System.out.println("Vous avez capturé: "+this.getPS().getNom());
+		ArrayList<Pokemon> Temp = trainer.getEquipe();
+		Temp.add(this.getPS());
+		LPS.remove(this.getPS());
+		trainer.setEquipe(Temp);
+		this.setOver(true);
+	}
+	else {
+	attaque_enemi();
+	}
+}
+
+public void attaque_spe() {
+	Attaque att = this.getPJ().getListAtck().get(0);
+	Type t = att.getType();
+	Type t_enemi = this.getPS().getType();
+	int puissance = att.getPuissance();
+	int lvl = this.getPJ().getStats().getLvl();
+	int atk_spe = this.getPJ().getStats().getSpAtk();
+	int def_spe = this.getPS().getStats().getSpDef();
+	Double deg = ((((0.4*lvl + 2)* atk_spe * puissance)/(50*def_spe)) + 2 );
+
+	String eff = t.getdata(t_enemi);
+	Double ef = Double.parseDouble(eff);
+	int degat = (int) Math.round(ef*deg);
+
+	this.getPS().setHP(this.getPS().getHP()-degat);
+	System.out.println("Vous utilisez " + att.getNom());
+	System.out.println("Vous infligez " + Integer.toString(degat) + " PV");
+
+	if (this.getPS().getHP()<=0) {
+		System.out.println("Victoire!");
+		System.out.println("Vous avez capturé: "+this.getPS().getNom());
+		ArrayList<Pokemon> Temp = trainer.getEquipe();
+		Temp.add(this.getPS());
+		LPS.remove(this.getPS());
+		trainer.setEquipe(Temp);
+		this.setOver(true);
+	}
+	else {
+	attaque_enemi();
+	}
+}
 }
