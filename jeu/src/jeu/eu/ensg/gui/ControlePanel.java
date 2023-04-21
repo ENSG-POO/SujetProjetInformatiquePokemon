@@ -53,7 +53,7 @@ public class ControlePanel extends JPanel {
 				
 				fen.add(BorderLayout.EAST, new ListePok());
 
-				fen.add(BorderLayout.SOUTH, new BoutonCombat(fen));
+
 
 				
 
