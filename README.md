@@ -44,3 +44,13 @@ Pour tester l'interface graphique:
 1. Se créer un identifiant github
 2. Demander à un enseignant de vous ajouter dans le dépôt
 3. Fork ....
+
+
+####Instructions d'exécution
+Ouvrir le fichier "MainApplication.java" pour lancer le jeu.
+
+####Scripts
+*"CartePanel.java"
+*"Combat_temporaire.java"
+*"ControlePanel.class"
+*"FichePanel.class"
