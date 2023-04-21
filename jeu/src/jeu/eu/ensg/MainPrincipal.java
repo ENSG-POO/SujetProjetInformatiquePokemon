@@ -2,6 +2,7 @@ package jeu.eu.ensg;
 
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 public class MainPrincipal {
@@ -56,5 +57,18 @@ public class MainPrincipal {
           //System.out.println(listAtckGlobale);
           //System.out.println(listAtckGlobale.size());
     // }
-    }   
+        
+        ArrayList<Pokemon> sac = new ArrayList<Pokemon>();
+         sac.add(listePokemonsSauvages.get(0));
+         sac.add(listePokemonsSauvages.get(1));
+         sac.add(listePokemonsSauvages.get(2));
+         Trainer tra = new Trainer(new Coordinates(0.0, 0.0),sac);
+         listePokemonsSauvages.remove(0);
+         listePokemonsSauvages.remove(0);
+         listePokemonsSauvages.remove(0);
+         MainApp.xaxa(tra,listePokemonsSauvages);
+
+        }   
 }
+
+// METTRE LES CONDITIONS D'ARRETS DANS ACTION LISTENER COMME POUR FUIR

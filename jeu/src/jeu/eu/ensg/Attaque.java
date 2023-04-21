@@ -18,6 +18,7 @@ public class Attaque {
 		this.spe = spe;
 	}
 	
+
 	//construction qui initialise des attaques à partir du fichier csv des attaques
 	public Attaque(String[][] attaquesTable, int ligne) {
 		this.nom=attaquesTable[ligne][1];
@@ -25,7 +26,7 @@ public class Attaque {
 		this.puissance = Integer.parseInt(attaquesTable[ligne][6]);
 		this.spe = attaquesTable[ligne][3].equals("Special");
 	}
-	
+
 	// méthode qui décrit l'affichage visuel de l'attaque crée dans la console
 	@Override
 	public String toString() {
@@ -38,6 +39,7 @@ public class Attaque {
 		}
 		return "["+this.nom + ", " + type + "," + puissance + ", " + str + "]";
 	}
+
 	
 	// accesseur de l'attribut nom
 	public String getNom() {
