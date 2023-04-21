@@ -6,6 +6,7 @@ import java.util.Random;
 
 import jeu.eu.ensg.gui.FenetreCombat;
 
+
 public class Combat {
 	
 	private Pokemon PJ;
@@ -127,6 +128,7 @@ public void attaque_enemi() {
 			Temp.remove(Temp.size()-1);
 			trainer.setEquipe(Temp);
 		}
+
 	}
 }
 
@@ -192,12 +194,4 @@ public void attaque_spe() {
 	attaque_enemi();
 	}
 }
-
-
-
-
-
-
-
-
 }

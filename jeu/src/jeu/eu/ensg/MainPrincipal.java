@@ -3,6 +3,8 @@ package jeu.eu.ensg;
 
 import java.util.ArrayList;
 
+import java.util.List;
+
 public class MainPrincipal {
     public static void main(String[] args) {
      // "import" des fichiers csv
@@ -70,48 +72,3 @@ public class MainPrincipal {
 }
 
 // METTRE LES CONDITIONS D'ARRETS DANS ACTION LISTENER COMME POUR FUIR
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

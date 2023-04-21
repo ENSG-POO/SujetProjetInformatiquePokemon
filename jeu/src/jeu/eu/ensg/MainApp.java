@@ -4,13 +4,21 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.*; // import pour les coordonnée de la souris
 import java.util.*;
+
 import javax.swing.*;
 
 import jeu.eu.ensg.gui.CartePanel;
 import jeu.eu.ensg.gui.ControlePanel;
 import jeu.eu.ensg.gui.FenetreCombat;
 import jeu.eu.ensg.gui.FichePanel;
+
+import jeu.eu.ensg.gui.ImageCombat;
+import jeu.eu.ensg.gui.ListePok;
+import jeu.eu.ensg.gui.BarreDeVie;
+import jeu.eu.ensg.gui.BoutonCombat;
 import jeu.eu.ensg.gui.Carte;
+import jeu.eu.ensg.Combat;
+import jeu.eu.ensg.Pokemon;
 
 
 public class MainApp {
@@ -146,51 +154,6 @@ public class MainApp {
 
 								}
 								fen.setVisible(false);
-
-
-								
-					
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 		    	    	  }
 		    	      });
