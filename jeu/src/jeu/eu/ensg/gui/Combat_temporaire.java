@@ -37,10 +37,10 @@ public class Combat_temporaire extends JPanel implements ActionListener{
 			e.printStackTrace();
 		}
 		System.out.println(dresseur);
-		final JFrame fen = new JFrame();
+		/*final JFrame fen = new JFrame();
 		fen.setSize(1000, 1000);
 		fen.setTitle("Choix Pokemon");
-		fen.setVisible(true);
+		fen.setVisible(true);*/
 
 		JPanel infoPokemon = new JPanel(new GridLayout(1, 3));
 		infoPokemon.setSize(200, 600);
@@ -178,14 +178,14 @@ PokeListe poke = null;
         //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         
-		JLabel labelNom = new JLabel("<html>     "+pokemon_inventaire+"<br><br>    " + id_pokemon +"</html>");
+		/*JLabel labelNom = new JLabel("<html>     "+pokemon_inventaire+"<br><br>    " + id_pokemon +"</html>");
 		infoPokemon.add(labelNom);
 		JLabel labelNom2 = new JLabel("<html>"+adversaire+"<br><br>" + id_adversaire +"</html>");
 		infoPokemon.add(labelNom2);
 		JLabel versus = new JLabel("versus");
 		infoPokemon.add(versus);
 		infoPokemon.add(labelNom2);
-		fen.add(infoPokemon);
+		fen.add(infoPokemon);*/
 
 	}
 
