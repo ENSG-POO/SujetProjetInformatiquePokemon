@@ -31,7 +31,7 @@ import javax.swing.JPanel;
 public class Combat_temporaire extends JPanel implements ActionListener {
 
 	public Combat_temporaire(String pokemon_inventaire, String adversaire, int id_pokemon, int id_adversaire,
-			Dresseur dresseur) {
+			int id_pokemon_choisi, Dresseur dresseur) {
 		PokeListe poke = null;
 		AttaqueList att = null;
 		try {
@@ -64,12 +64,13 @@ public class Combat_temporaire extends JPanel implements ActionListener {
 		JLabel label2 = new JLabel(image2);
 
 		// Créer les boutons
-		JButton button1 = new JButton(att.getattaque(poke.getPokemon(id_pokemon).getAttaqueID()).getName());
-		JButton button2 = new JButton(att.getattaque(poke.getPokemon(id_pokemon).getAttaqueID2()).getName());
-		JButton button3 = new JButton(att.getattaque(poke.getPokemon(id_pokemon).getAttaqueID3()).getName());
-		JButton button4 = new JButton(att.getattaque(poke.getPokemon(id_pokemon).getAttaqueID4()).getName());
+		JButton button1 = new JButton(att.getattaque(poke.getPokemon(id_pokemon_choisi).getAttaqueID()-1).getName());
+		JButton button2 = new JButton(att.getattaque(poke.getPokemon(id_pokemon_choisi).getAttaqueID2()).getName());
+		JButton button3 = new JButton(att.getattaque(poke.getPokemon(id_pokemon_choisi).getAttaqueID3()).getName());
+		JButton button4 = new JButton(att.getattaque(poke.getPokemon(id_pokemon_choisi).getAttaqueID4()).getName());
 		JButton fuiteButton = new JButton("Fuite");
-		
+
+	
 	
 
 		button1.addActionListener(new ActionListener() {
@@ -86,19 +87,19 @@ public class Combat_temporaire extends JPanel implements ActionListener {
 				}
 				
 				
-				double[]pv =combat.combattotal(dresseur.getPoke_joueur(id_pokemon), poke.getPokemon(id_adversaire),
-						dresseur.getPoke_joueur(id_pokemon).getAttaqueID(), poke.getPokemon(id_adversaire).getAttaqueID());
+				double[]pv =combat.combattotal(dresseur.getPoke_joueur(id_pokemon), poke.getPokemon(id_adversaire-1),
+						dresseur.getPoke_joueur(id_pokemon).getAttaqueID(), poke.getPokemon(id_adversaire-1).getAttaqueID());
 				int pva = ((int)  pv[0]) ;
 				int pvb = ((int)  pv[1]) ;
-				dresseur.getPoke_joueur(id_pokemon).setHp(poke.getPokemon(id_adversaire).getHp()-pva) ;
-				poke.getPokemon(id_adversaire).setHp(poke.getPokemon(id_adversaire).getHp()-pvb);
+				dresseur.getPoke_joueur(id_pokemon).setHp(dresseur.getPoke_joueur(id_pokemon).getHp()-pva) ;
+				poke.getPokemon(id_adversaire-1).setHp(poke.getPokemon(id_adversaire-1).getHp()-pvb);
 				// fin de combat
-				System.out.println(poke.getPokemon(id_adversaire).getHp());
+				System.out.println(poke.getPokemon(id_adversaire-1).getHp());
 				System.out.println(dresseur.getPoke_joueur(id_pokemon).getHp());
 				String message =null;
-				if (poke.getPokemon(id_adversaire).getHp() <= 0) {
+				if (poke.getPokemon(id_adversaire-1).getHp() <= 0) {
 					message = "Vous avez capturez le Pokemon!!";
-					dresseur.addPokemons_joueur(poke.getPokemon(id_adversaire));
+					dresseur.addPokemons_joueur(poke.getPokemon(id_adversaire-1));
 					frame.dispose();
 					JOptionPane.showInternalMessageDialog(null,message);
 				//	JOptionPane.showInternalConfirmDialog(this, message, "Fin du Combat", JOptionPane.INFORMATION_MESSAGE);
@@ -119,12 +120,12 @@ public class Combat_temporaire extends JPanel implements ActionListener {
 			String message2 = null;
 			if (dresseur.liste().size()<1) {
 				 message2 = "Plus de pokemon en vie , vous avez perdu";
-				 JOptionPane.showInternalMessageDialog(null,message);
+				 JOptionPane.showInternalMessageDialog(null,message2);
 					//JOptionPane.showMessageDialog(this, message2, "Fin du Jeu", JOptionPane.INFORMATION_MESSAGE);
 			}
-			if (dresseur.liste().size()>10) {
+			if (dresseur.liste().size()>9) {
 				 message2 = "Vous avez capturé 10 pokemons , vous avez gagné";
-				 JOptionPane.showInternalMessageDialog(null,message);
+				 JOptionPane.showInternalMessageDialog(null,message2);
 				}
 			}
 		});
@@ -141,20 +142,21 @@ public class Combat_temporaire extends JPanel implements ActionListener {
 
 					a.printStackTrace();
 				}
-
-				double[]pv =combat.combattotal(dresseur.getPoke_joueur(id_pokemon), poke.getPokemon(id_adversaire),
-						dresseur.getPoke_joueur(id_pokemon).getAttaqueID2(), poke.getPokemon(id_adversaire).getAttaqueID());
+				
+				
+				double[]pv =combat.combattotal(dresseur.getPoke_joueur(id_pokemon), poke.getPokemon(id_adversaire-1),
+						dresseur.getPoke_joueur(id_pokemon).getAttaqueID(), poke.getPokemon(id_adversaire-1).getAttaqueID());
 				int pva = ((int)  pv[0]) ;
-				int pvb =  ( (int) pv[1]) ;
-				dresseur.getPoke_joueur(id_pokemon).setHp(pva) ;
-				poke.getPokemon(id_adversaire).setHp(pvb);
+				int pvb = ((int)  pv[1]) ;
+				dresseur.getPoke_joueur(id_pokemon).setHp(dresseur.getPoke_joueur(id_pokemon).getHp()-pva) ;
+				poke.getPokemon(id_adversaire-1).setHp(poke.getPokemon(id_adversaire-1).getHp()-pvb);
 				// fin de combat
-				dresseur.getPoke_joueur(id_pokemon).setHp(poke.getPokemon(id_adversaire).getHp()-pva) ;
-				poke.getPokemon(id_adversaire).setHp(poke.getPokemon(id_adversaire).getHp()-pvb);
+				System.out.println(poke.getPokemon(id_adversaire-1).getHp());
+				System.out.println(dresseur.getPoke_joueur(id_pokemon).getHp());
 				String message =null;
-				if (poke.getPokemon(id_adversaire).getHp() <= 0) {
+				if (poke.getPokemon(id_adversaire-1).getHp() <= 0) {
 					message = "Vous avez capturez le Pokemon!!";
-					dresseur.addPokemons_joueur(poke.getPokemon(id_adversaire));
+					dresseur.addPokemons_joueur(poke.getPokemon(id_adversaire-1));
 					frame.dispose();
 					JOptionPane.showInternalMessageDialog(null,message);
 				//	JOptionPane.showInternalConfirmDialog(this, message, "Fin du Combat", JOptionPane.INFORMATION_MESSAGE);
@@ -169,18 +171,19 @@ public class Combat_temporaire extends JPanel implements ActionListener {
 				
 				
 				
+				
 			
 			
 			//fin de jeu
 			String message2 = null;
 			if (dresseur.liste().size()<1) {
 				 message2 = "Plus de pokemon en vie , vous avez perdu";
-				 JOptionPane.showInternalMessageDialog(null,message);
+				 JOptionPane.showInternalMessageDialog(null,message2);
 					//JOptionPane.showMessageDialog(this, message2, "Fin du Jeu", JOptionPane.INFORMATION_MESSAGE);
 			}
-			if (dresseur.liste().size()>10) {
+			if (dresseur.liste().size()>9) {
 				 message2 = "Vous avez capturé 10 pokemons , vous avez gagné";
-				 JOptionPane.showInternalMessageDialog(null,message);
+				 JOptionPane.showInternalMessageDialog(null,message2);
 				
 				}
 			}
@@ -199,20 +202,21 @@ public class Combat_temporaire extends JPanel implements ActionListener {
 
 					a.printStackTrace();
 				}
-
-				double[]pv =combat.combattotal(dresseur.getPoke_joueur(id_pokemon), poke.getPokemon(id_adversaire),
-						dresseur.getPoke_joueur(id_pokemon).getAttaqueID3(), poke.getPokemon(id_adversaire).getAttaqueID());
-				int pva = ((int) pv[0]) ;
-				int pvb = ((int) pv[1]) ;
-				dresseur.getPoke_joueur(id_pokemon).setHp(poke.getPokemon(id_adversaire).getHp()-pva) ;
-				poke.getPokemon(id_adversaire).setHp(poke.getPokemon(id_adversaire).getHp()-pvb);
+				
+				
+				double[]pv =combat.combattotal(dresseur.getPoke_joueur(id_pokemon), poke.getPokemon(id_adversaire-1),
+						dresseur.getPoke_joueur(id_pokemon).getAttaqueID(), poke.getPokemon(id_adversaire-1).getAttaqueID());
+				int pva = ((int)  pv[0]) ;
+				int pvb = ((int)  pv[1]) ;
+				dresseur.getPoke_joueur(id_pokemon).setHp(dresseur.getPoke_joueur(id_pokemon).getHp()-pva) ;
+				poke.getPokemon(id_adversaire-1).setHp(poke.getPokemon(id_adversaire-1).getHp()-pvb);
 				// fin de combat
-				System.out.println(poke.getPokemon(id_adversaire).getHp());
+				System.out.println(poke.getPokemon(id_adversaire-1).getHp());
 				System.out.println(dresseur.getPoke_joueur(id_pokemon).getHp());
 				String message =null;
-				if (poke.getPokemon(id_adversaire).getHp() <= 0) {
+				if (poke.getPokemon(id_adversaire-1).getHp() <= 0) {
 					message = "Vous avez capturez le Pokemon!!";
-					dresseur.addPokemons_joueur(poke.getPokemon(id_adversaire));
+					dresseur.addPokemons_joueur(poke.getPokemon(id_adversaire-1));
 					frame.dispose();
 					JOptionPane.showInternalMessageDialog(null,message);
 				//	JOptionPane.showInternalConfirmDialog(this, message, "Fin du Combat", JOptionPane.INFORMATION_MESSAGE);
@@ -227,18 +231,19 @@ public class Combat_temporaire extends JPanel implements ActionListener {
 				
 				
 				
+				
 			
 			
 			//fin de jeu
 			String message2 = null;
 			if (dresseur.liste().size()<1) {
 				 message2 = "Plus de pokemon en vie , vous avez perdu";
-				 JOptionPane.showInternalMessageDialog(null,message);
+				 JOptionPane.showInternalMessageDialog(null,message2);
 					//JOptionPane.showMessageDialog(this, message2, "Fin du Jeu", JOptionPane.INFORMATION_MESSAGE);
 			}
-			if (dresseur.liste().size()>10) {
+			if (dresseur.liste().size()>9) {
 				 message2 = "Vous avez capturé 10 pokemons , vous avez gagné";
-				 JOptionPane.showInternalMessageDialog(null,message);
+				 JOptionPane.showInternalMessageDialog(null,message2);
 				}
 			}
 		});
@@ -255,20 +260,21 @@ public class Combat_temporaire extends JPanel implements ActionListener {
 
 					a.printStackTrace();
 				}
-
-				double[]pv =combat.combattotal(dresseur.getPoke_joueur(id_pokemon), poke.getPokemon(id_adversaire),
-						dresseur.getPoke_joueur(id_pokemon).getAttaqueID4(), poke.getPokemon(id_adversaire).getAttaqueID());
+				
+				
+				double[]pv =combat.combattotal(dresseur.getPoke_joueur(id_pokemon), poke.getPokemon(id_adversaire-1),
+						dresseur.getPoke_joueur(id_pokemon).getAttaqueID(), poke.getPokemon(id_adversaire-1).getAttaqueID());
 				int pva = ((int)  pv[0]) ;
-				int pvb = ((int) pv[1]) ;
-				dresseur.getPoke_joueur(id_pokemon).setHp(poke.getPokemon(id_adversaire).getHp()-pva) ;
-				poke.getPokemon(id_adversaire).setHp(poke.getPokemon(id_adversaire).getHp()-pvb);
+				int pvb = ((int)  pv[1]) ;
+				dresseur.getPoke_joueur(id_pokemon).setHp(dresseur.getPoke_joueur(id_pokemon).getHp()-pva) ;
+				poke.getPokemon(id_adversaire-1).setHp(poke.getPokemon(id_adversaire-1).getHp()-pvb);
 				// fin de combat
-				System.out.println(poke.getPokemon(id_adversaire).getHp());
+				System.out.println(poke.getPokemon(id_adversaire-1).getHp());
 				System.out.println(dresseur.getPoke_joueur(id_pokemon).getHp());
 				String message =null;
-				if (poke.getPokemon(id_adversaire).getHp() <= 0) {
+				if (poke.getPokemon(id_adversaire-1).getHp() <= 0) {
 					message = "Vous avez capturez le Pokemon!!";
-					dresseur.addPokemons_joueur(poke.getPokemon(id_adversaire));
+					dresseur.addPokemons_joueur(poke.getPokemon(id_adversaire-1));
 					frame.dispose();
 					JOptionPane.showInternalMessageDialog(null,message);
 				//	JOptionPane.showInternalConfirmDialog(this, message, "Fin du Combat", JOptionPane.INFORMATION_MESSAGE);
@@ -283,18 +289,20 @@ public class Combat_temporaire extends JPanel implements ActionListener {
 				
 				
 				
+				
 			
 			
 			//fin de jeu
 			String message2 = null;
 			if (dresseur.liste().size()<1) {
 				 message2 = "Plus de pokemon en vie , vous avez perdu";
-				 JOptionPane.showInternalMessageDialog(null,message);
+				 JOptionPane.showInternalMessageDialog(null,message2);
 					//JOptionPane.showMessageDialog(this, message2, "Fin du Jeu", JOptionPane.INFORMATION_MESSAGE);
 			}
-			if (dresseur.liste().size()>10) {
+			if (dresseur.liste().size()>9) {
 				 message2 = "Vous avez capturé 10 pokemons , vous avez gagné";
-				 JOptionPane.showInternalMessageDialog(null,message);
+				 JOptionPane.showInternalMessageDialog(null,message2);
+				 frame.dispose();
 				}
 				
 			}

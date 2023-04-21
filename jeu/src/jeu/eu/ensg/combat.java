@@ -65,7 +65,7 @@ public static double[] combattotal (Pokemon a,Pokemon b,  int aa,int ab)  {
 		myMap.put("Roche", 12);
 		myMap.put("Spectre", 13);
 		myMap.put("Dragon", 14);
-		myMap.put("Tenebres", 15);
+		myMap.put("Ténèbres", 15);
 		myMap.put("Acier", 16);
 
 		idatt = aa;

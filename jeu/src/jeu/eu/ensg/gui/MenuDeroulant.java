@@ -225,7 +225,7 @@ public class MenuDeroulant extends JPanel {
 					setPokemon_joueur(nom);
 					setId_pokemon_joueur(id_pokemon_inventaire);
 					setId_pokemon_sauvage(id_pokemon_sauvage);
-					Combat_temporaire combat = new Combat_temporaire(nom, adversaire, id_pokemon_inventaire, id_pokemon_sauvage, dresseur);
+					Combat_temporaire combat = new Combat_temporaire(nom, adversaire, id_pokemon_inventaire, id_pokemon_sauvage,id_pokemon_choisi, dresseur);
 					fen.dispose();
 					return;
 					// Code à exécuter lorsque l'élément est sélectionné

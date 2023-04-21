@@ -84,6 +84,7 @@ public class CartePanel extends JPanel implements MouseListener {
 			pok[i + 1] = proches.get(i).getNom();
 		}
 		MenuDeroulant menu = new MenuDeroulant(pok, dresseur);
+		
 		//Combat_temporaire combat = new Combat_temporaire(menu.getPokemon_joueur(), menu.getPokemon_sauvage(), menu.getId_pokemon_joueur(), menu.getId_pokemon_sauvage());
 
 	}
