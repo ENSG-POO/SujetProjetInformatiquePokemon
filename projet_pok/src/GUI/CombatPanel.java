@@ -149,7 +149,7 @@ public class CombatPanel extends JPanel {
 				//Boutton qui lance une attaque Special
 				JButton atS = new JButton ("attaque spéciale");
 				atS.setBounds(50, 50, 20, 100);
-				infoCombat.add(atS);   
+				infoCombat.add(atS);
 				atS.setVisible(true);
 				
 				atS.addActionListener(new ActionListener() {
