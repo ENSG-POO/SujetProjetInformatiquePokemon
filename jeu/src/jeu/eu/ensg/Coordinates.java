@@ -1,7 +1,6 @@
 package jeu.eu.ensg;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Coordinates {
 	
