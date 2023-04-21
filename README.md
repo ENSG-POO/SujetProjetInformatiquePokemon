@@ -51,8 +51,8 @@ Pour tester l'interface graphique:
 Ouvrir le fichier "MainApplication.java" pour lancer le jeu.
 \n
 
-####Scripts \n
-##Noyau
+##Scripts \n
+####Noyau
 *"attaque.java": construit les variables où seront incrémentées les informations associées (id, type, puissance et précision)  \n
 *"AttaqueList.java": incrémente les informations liées aux attaques à partir des fichiers ".csv" \n
 *"Carte.java": construit la carte et incrémente les coordonnées des différents pokemons depuis les ".csv" \n
