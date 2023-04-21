@@ -6,12 +6,14 @@ import java.util.ArrayList;
 public class MainPrincipal {
     public static void main(String[] args) {
      // "import" des fichiers csv
+        String tableauTypeCsv = "./data/tableau-type.csv"; 
         String infosPokemonCsv = "./data/pokemon_first_gen.csv";
         String pokemonCoordinatesCsv = "./data/pokemon_coordinates.csv";
         String movesCsv = "./data/moves.csv"; 
      // choix du séparateur dans les csv
         String csvSeparator = ",";  
      // création des tableaux à partir des csv
+        String[][] tableauType = CSVReader.readCsvFile(tableauTypeCsv, csvSeparator);
         String[][] infosPokemon = CSVReader.readCsvFile(infosPokemonCsv, csvSeparator);
         String[][] pokemonCoordinates = CSVReader.readCsvFile(pokemonCoordinatesCsv, csvSeparator);
         String[][] moves=CSVReader.readCsvFile(movesCsv,csvSeparator);
@@ -67,4 +69,49 @@ public class MainPrincipal {
         }   
 }
 
-// METTRE LES CONDITIONS D'ARRETS DANS ACTION LISTENER COMME POUR FUIR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

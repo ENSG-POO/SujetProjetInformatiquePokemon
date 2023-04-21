@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.*; // import pour les coordonnée de la souris
 import java.util.*;
-
 import javax.swing.*;
 
 import jeu.eu.ensg.gui.CartePanel;
@@ -116,7 +115,7 @@ public class MainApp {
 								Pokemon pok_allie = pok.get(Pokemon.FindbyName(pok, selectedOption2));
 								Combat ca = new Combat(pok_allie,pok_enemi,false,t,listePokemonSauvages);
 								
-								FenetreCombat fen = new FenetreCombat(t, ca.getPJ(), ca);
+								FenetreCombat fen = new FenetreCombat(t, ca.getPJ(), ca,listePokemonSauvages);
 								fen.setVisible(true);
 
 								System.out.println("Debut du combat!");
@@ -147,6 +146,51 @@ public class MainApp {
 
 								}
 								fen.setVisible(false);
+
+
+								
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		    	    	  }
 		    	      });
