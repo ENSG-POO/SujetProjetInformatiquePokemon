@@ -7,16 +7,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-/**
- * Exemple de panneau contenant des composants de formulaire. 
- * 
- *
- */
-public class FichePanel extends JPanel {
+public class ListePok extends JPanel{
 
 	private static final long serialVersionUID = 1L;
 
-	public FichePanel() {
+	public ListePok() {
 		
 		this.setSize(200, 600);
 		this.setBackground(Color.PINK);
@@ -34,8 +29,7 @@ public class FichePanel extends JPanel {
 		JTextField pokemonType = new JTextField(10);
 		pokemonType.setText("Plante");
 		infoPokemon.add(pokemonType);
-		
+			
 		add(infoPokemon);
 	}
-
 }
