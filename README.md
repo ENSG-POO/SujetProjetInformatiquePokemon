@@ -53,13 +53,13 @@ Ouvrir le fichier "MainApplication.java" pour lancer le jeu.
 
 ##Scripts \n
 ####Noyau
-*"attaque.java": construit les variables où seront incrémentées les informations associées (id, type, puissance et précision)  \n
-*"AttaqueList.java": incrémente les informations liées aux attaques à partir des fichiers ".csv" \n
-*"Carte.java": construit la carte et incrémente les coordonnées des différents pokemons depuis les ".csv" \n
-*"combat.java": rassemble les données nécessaires à la constrution de la fenêtre combat  \n
-*"Coordonnee.java": construire les coordonnées à remplir ensuite \n
-*"Dresseur.java": construit les attributs liées au dresseur (noms, pokemon, coordonnées)  \n
-*"Inventaire.java": incrémente les pokemons capturés ajoutés aux pokemons de départ ainsi que les types associés  \n
+*"attaque.java": construit les variables où seront incrémentées les informations associées (id, type, puissance et précision)  
+*"AttaqueList.java": incrémente les informations liées aux attaques à partir des fichiers ".csv"  
+*"Carte.java": construit la carte et incrémente les coordonnées des différents pokemons depuis les ".csv"  
+*"combat.java": rassemble les données nécessaires à la constrution de la fenêtre combat,  
+*"Coordonnee.java": construire les coordonnées à remplir ensuite,  
+*"Dresseur.java": construit les attributs liées au dresseur (noms, pokemon, coordonnées), 
+*"Inventaire.java": incrémente les pokemons capturés ajoutés aux pokemons de départ ainsi que les types associés,  
 *"Lecture_pokemons.java": incrémente les pokemons sauvages dans les environs du dresseur \n
 *"ListType.java" charge et affiche les types des pokemons \n
 *"Localisation.java": rassemble les attributs utiles pour localiser les pokemons \n
