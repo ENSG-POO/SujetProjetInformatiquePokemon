@@ -4,11 +4,13 @@ import java.util.Objects;
 
 public class Attaque {
 	
+	//attribut
 	private String nom;
 	private Type type;
 	private int puissance;
 	private boolean spe;
-
+	
+	// constructeur de base depuis les attribut
 	public Attaque(String nom, Type type, int puissance,boolean spe) {
 		this.nom = nom;
 		this.type = type;
@@ -16,13 +18,15 @@ public class Attaque {
 		this.spe = spe;
 	}
 	
+	//construction qui initialise des attaques à partir du fichier csv des attaques
 	public Attaque(String[][] attaquesTable, int ligne) {
 		this.nom=attaquesTable[ligne][1];
 		this.type = new Type(attaquesTable[ligne][2]);
 		this.puissance = Integer.parseInt(attaquesTable[ligne][6]);
 		this.spe = attaquesTable[ligne][3].equals("Special");
 	}
-
+	
+	// méthode qui décrit l'affichage visuel de l'attaque crée dans la console
 	@Override
 	public String toString() {
 		String str=new String();
@@ -34,55 +38,45 @@ public class Attaque {
 		}
 		return "["+this.nom + ", " + type + "," + puissance + ", " + str + "]";
 	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(nom, puissance, spe, type);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Attaque other = (Attaque) obj;
-		return Objects.equals(nom, other.nom) && puissance == other.puissance && spe == other.spe
-				&& Objects.equals(type, other.type);
-	}
-
+	
+	// accesseur de l'attribut nom
 	public String getNom() {
 		return nom;
 		
 	}
 
+	// mutateur de l'attibut nom
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
 
+	// accesseur de l'attribut type
 	public Type getType() {
 		return type;
 	}
 
+	// mutateur de l'attibut type
 	public void setType(Type type) {
 		this.type = type;
 	}
 
+	// accesseur de l'attribut puissance
 	public int getPuissance() {
 		return puissance;
 	}
 
+	// mutateur de l'attibut puisssance
 	public void setPuissance(int puissance) {
 		this.puissance = puissance;
 	}
 
 
+	// accesseur de l'attribut spe
 	public boolean isSpe() {
 		return spe;
 	}
 
+	// mutateur de l'attibut spe
 	public void setSpe(boolean spe) {
 		this.spe = spe;
 	}
