@@ -28,7 +28,7 @@ public class FenetreCombat extends JFrame {
     public JTextArea PVJ;
     public JTextArea PVS;
 
-    public FenetreCombat(Trainer t,Pokemon PJ,Combat ca) {
+    public FenetreCombat(Trainer t,Pokemon PJ,Combat ca,ArrayList<Pokemon> LPS) {
     
 
         // CREATION ET OUVERTURE DE LA FENETRE DE COMBAT
@@ -117,8 +117,42 @@ public class FenetreCombat extends JFrame {
     ActionListener Attaque = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent f) {
+
             ca.attaque();
-            ButtonPanel.setEnabled(false);
+
+            if (ca.getPS().getHP()<=0) {
+                System.out.println("Victoire!");
+                System.out.println("Vous avez capturé: "+ca.getPS().getNom());
+                ArrayList<Pokemon> Temp = t.getEquipe();
+                Temp.add(ca.getPS());
+                Temp.add(ca.getPJ());
+                LPS.remove(ca.getPS());
+                t.setEquipe(Temp);
+                ca.Heal();
+                ca.setOver(true);
+                fen.dispose();
+            }
+            else {
+               ca.attaque_enemi();
+               if (ca.getPJ().getHP()<=0) {
+                System.out.println("Votre Pokemon est Mort!");
+                if (t.getEquipe().size()==0) {
+                    System.out.println("Defaite!");
+                    fen.dispose();
+                }
+                else {
+                    Pokemon ancien = ca.getPJ();
+                    ca.setPJ(t.getEquipe().get(0));
+                    ArrayList<Pokemon> Temp = t.getEquipe();
+                    Temp.remove(0);
+                    t.setEquipe(Temp);
+                    System.out.println("Votre "+ancien.getNom()+" a été remplacé par "+ca.getPJ().getNom());
+                    ch.setText("Prochain Pokemon: "+ t.getEquipe().get(0).getNom());
+                }
+
+            }
+        }
+             ButtonPanel.setEnabled(false);
             PVJ.setText(ca.getPJ().getNom() + " " + ca.getPJ().getHP()+"/"+ca.getPJ().getStats().getHpMax());
             PVS.setText(ca.getPS().getNom() + " " + ca.getPS().getHP()+"/"+ca.getPS().getStats().getHpMax());
         }
@@ -128,7 +162,13 @@ public class FenetreCombat extends JFrame {
         @Override
         public void actionPerformed(ActionEvent f) {
             ca.fuir();
+            if (ca.getPJ().getHP()>=0) {
+                ArrayList<Pokemon> Temp = t.getEquipe();
+                Temp.add(ca.getPJ());
+                ca.Heal();
+            }
             fen.dispose();
+            ca.Heal();
             ButtonPanel.setEnabled(false);
         }
     };
@@ -137,6 +177,40 @@ public class FenetreCombat extends JFrame {
         @Override
         public void actionPerformed(ActionEvent f) {
             ca.attaque_spe();
+
+            if (ca.getPS().getHP()<=0) {
+                System.out.println("Victoire!");
+                System.out.println("Vous avez capturé: "+ca.getPS().getNom());
+                ArrayList<Pokemon> Temp = t.getEquipe();
+                Temp.add(ca.getPS());
+                Temp.add(ca.getPJ());
+                LPS.remove(ca.getPS());
+                t.setEquipe(Temp);
+                ca.Heal();
+                ca.setOver(true);
+                fen.dispose();
+            }
+            
+            else {
+            ca.attaque_enemi();
+            if (ca.getPJ().getHP()<=0) {
+                System.out.println("Votre Pokemon est Mort!");
+                if (t.getEquipe().size()==0) {
+                    System.out.println("Defaite!");
+                    fen.dispose();
+                }
+                else {
+                    Pokemon ancien = ca.getPJ();
+                    ca.setPJ(t.getEquipe().get(0));
+                    ArrayList<Pokemon> Temp = t.getEquipe();
+                    Temp.remove(0);
+                    t.setEquipe(Temp);
+                    System.out.println("Votre "+ancien.getNom()+" a été remplacé par "+ca.getPJ().getNom());
+                    ch.setText("Prochain Pokemon: "+ t.getEquipe().get(0).getNom());
+                }
+
+            }
+        }
             ButtonPanel.setEnabled(false);
             PVJ.setText(ca.getPJ().getNom() + " " + ca.getPJ().getHP()+"/"+ca.getPJ().getStats().getHpMax());
             PVS.setText(ca.getPS().getNom() + " " + ca.getPS().getHP()+"/"+ca.getPS().getStats().getHpMax());
