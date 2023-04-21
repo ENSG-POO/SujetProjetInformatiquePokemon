@@ -6,37 +6,30 @@ import java.util.List;
 import java.util.Map;
 
 public class combat {
-public static void combattotal (Pokemon a,Pokemon b,  int aa,int ab)  {
-	System.out.println(a.getHp());
-	System.out.println(b.getHp());
+	
+	
+public static double[] combattotal (Pokemon a,Pokemon b,  int aa,int ab)  {
+	double hpa =a.getHp();
+	double hpb =b.getHp();
 	if (a.getSpeed()> b.getSpeed()) {
 		
-			round(a,b,aa);
-			round(b,a,ab);
+			hpa = hpa-round(a,b,aa);
+			hpb = hpb -round(b,a,ab);
 			
 		}
 	else {
-		round(b,a,ab);
-		round(a,b,aa);
+		hpb = hpb -round(b,a,ab);
+		hpa = hpa -round(a,b,aa);
 		
 	}
+	double[] r = {hpa,hpb};
 	
-	System.out.println(a.getHp());
-	System.out.println(b.getHp());
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	return r  ;
 	
 	
 	
 }
-	public static void round(Pokemon a, Pokemon b, int aa) {
+	public static double round(Pokemon a, Pokemon b, int aa) {
 		double degat;
 		double puissance;
 		int idatt;
@@ -90,9 +83,10 @@ public static void combattotal (Pokemon a,Pokemon b,  int aa,int ab)  {
 		} else {
 			degatfinal = 0;
 		}
-		b.setHp((int) ((int) b.getHp() - degatfinal));
+		return degatfinal;
 
 	}
+	
 
 	public static void ko(Pokemon a) {
 		if (a.getHp() <= 0) {
@@ -104,4 +98,6 @@ public static void combattotal (Pokemon a,Pokemon b,  int aa,int ab)  {
 
 		}
 	}
+	
+	
 }

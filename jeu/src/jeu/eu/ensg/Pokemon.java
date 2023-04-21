@@ -1,6 +1,7 @@
 
 package jeu.eu.ensg;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class Pokemon {
@@ -187,4 +188,23 @@ public class Pokemon {
 		this.attaqueID4 = attaqueID4;
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(attack, attaqueID, attaqueID2, attaqueID3, attaqueID4, defense, generation, hp, hpmax, id,
+				legend, name, sp_atk, sp_def, speed, statut, total, type1, type2);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pokemon other = (Pokemon) obj;
+		return Objects.equals(name, other.name);
+	}
+
+	
 }

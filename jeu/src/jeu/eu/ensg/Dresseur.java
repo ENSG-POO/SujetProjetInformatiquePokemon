@@ -64,6 +64,31 @@ public class Dresseur extends Inventaire {
 	public String toString() {
 		return "Dresseur [nom=" + nom + ", coord=" + coord + ", pokemons_joueur=" + pokemons_joueur + "]";
 	}
+
+	public  List<Pokemon> liste(){
+		return pokemons_joueur;
+	}
+	public Pokemon getPoke_joueur(int id_pokemon) {
+		return pokemons_joueur.get(id_pokemon);
+		
+	}
+
+	public void addPokemons_joueur(Pokemon pokemon) {
+		pokemons_joueur.add(pokemon);
+		
+	}
+
+	public void supPokemons_joueur(Pokemon pokemon) {
+		pokemons_joueur.remove(pokemon);
+		
+	}
+
+	public List<Pokemon> getPokemons_joueur() {
+		return pokemons_joueur;
+	}
+
+	
+	
 	
 	
 
