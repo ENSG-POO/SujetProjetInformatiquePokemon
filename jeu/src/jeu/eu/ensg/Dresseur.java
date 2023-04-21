@@ -55,7 +55,6 @@ public class Dresseur extends Inventaire {
 		noms[0] = "";
 		for (int i=0; i<pokemons_joueur.size(); i++) {
 			noms[i+1] = pokemons_joueur.get(i).getName();
-			System.out.println("tatat" + noms[i]);
 		}
 		return noms;
 		
